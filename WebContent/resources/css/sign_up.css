@@ -1,0 +1,258 @@
+/*Global*/
+:root {
+  /*color*/
+  --color-white: #fafafa;
+  --color-blue: #23b3df;
+  --color-skyblue: #35c5f0;
+  --color-green: #1ec800;
+  --color-black: #424242;
+  --color-darkgrey: #757575;
+  --color-grey: #dbdbdb;
+  --color-light-grey: #f5f5f5;
+  --color-red: #ff7777;
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 15px;
+  letter-spacing: -0.04em;
+  color: var(--color-black);
+  font-family: "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: default;
+}
+/*Universal tags*/
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+ul {
+  padding-left: 0;
+}
+li {
+  list-style: none;
+}
+label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+input, select {
+  width: 100%;
+  height: 40px;
+  padding: 0 15px;
+  border-radius: 4px;
+  border: 1px solid var(--color-grey);
+  cursor: text;
+  color: var(--color-darkgrey);
+  transition: box-shadow 200ms ease 0s, background-color 200ms ease 0s;
+}
+select:hover,
+input:hover {
+  background-color: var(--color-white);
+}
+select:focus,
+input:focus {
+  outline: none;
+  box-shadow: 0 0 3px var(--color-skyblue);
+  z-index: 1;
+}
+button {
+  cursor: pointer;
+}
+/*container*/
+.container.sign-up {
+  max-width: 388px;
+  padding: 40px 14px 0 14px;
+  margin: 0 auto;
+}
+/* container main-link */
+.container.sign-up .main-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.container.sign-up >.main-link > h2 > a {
+  font-size: 22px;
+  line-height: 22px;
+}
+.container.sign-up .main-img {
+  width: 30px;
+  height: 30px;
+  margin-right: 6px;
+  border-radius: 8px;
+}
+/* sign-up-form-wrap */
+.sign-up-form-wrap {
+  padding: 55px 0;
+}
+/* sign-up-form__sns */
+.sign-up-form__sns > h1 {
+  font-size: 20px;
+  line-height: 2;
+}
+.sign-up-form__button {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--color-grey);
+}
+
+.sign-up-form__button-list {
+  display: flex;
+  justify-content: center;
+}
+.sign-up-form__button > p {
+  font-size: 12px;
+  margin: 15px 0;
+}
+.sign-up-form__button .sns-sign {
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.sign-up-form__button-list > li {
+  margin-right: 18px;
+}
+.sign-up-form__button-list > li:last-child {
+  margin-right: 0;
+}
+/* sign-up-form__form */
+.sign-up-form__form {
+  margin-bottom: 30px;
+}
+.sign-up-form__form-group {
+  margin-bottom: 30px;
+}
+.sign-up-form__form-group > input[name="user_email1"] {
+	width: 46.5%;
+  max-width: 169px;
+}
+.sign-up-form__form-group > select[name="user_email2"] {
+	width: 46%;
+  max-width: 169px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid var(--color-grey);
+  color: var(--color-darkgrey);
+}
+.email-input-separator {
+  color: var(--color-grey);
+  font-size: 13px;
+}
+.sign-up-form__form-group > .description {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: var(--color-darkgrey);
+}
+.sign-up-form__policy {
+  padding: 23px 23px 6px 16px;
+  margin-bottom: 30px;
+  border: 1px solid var(--color-grey);
+}
+.sign-up-form__policy label {
+  padding-left: 12px;
+  font-size: 14px;
+  font-weight: 400;
+}
+.sign-up-form__policy .terms_accept_all {
+  font-weight: 700;
+}
+.sign-up-form__policy .checkbox a {
+  text-decoration: underline;
+}
+.sign-up-form__policy input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.sign-up-form__policy > .checkbox {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.sign-up-form__policy > .checkbox:first-of-type {
+  padding: 0 0 14px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--color-grey);
+}
+.sign-up-form__policy > .checkbox .agree-required {
+  margin-left: 4px;
+  font-size: 12px;
+  color: var(--color-skyblue);
+}
+.sign-up-form__policy > .checkbox .agree-choose {
+  margin-left: 4px;
+  font-size: 12px;
+  color: var(--color-darkgrey);
+}
+.sign-up-form__form > button {
+  width: 100%;
+  padding: 16px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  background-color: var(--color-skyblue);
+}
+.sign-up-form__form > button:hover {
+	background-color: var(--color-blue);
+}
+.container.sign-up .sign-in {
+  text-align: center;
+}
+.container.sign-up .sign-in > a {
+  padding-left: 10px;
+  text-decoration: underline;
+  font-weight: 700;
+}
+/*JavaScript*/
+.input_error {
+  box-shadow: 0 0 3px var(--color-red);
+}
+.input_error:hover,
+.input_error:focus {
+  box-shadow: 0 0 3px var(--color-red);
+}
+.check_message {
+  font-size: 13px;
+  margin-top: 7px;
+}
+.check_message.error {
+  color: var(--color-red);
+}
+.check_message.ok {
+  color: var(--color-blue);
+}
+/*media query*/
+@media screen and (min-width: 768px) {
+  .container.sign-up {
+    padding-top: 70px;
+  }
+  .container.sign-up > .main-link {
+    position: absolute;
+    top: 40px;
+    left: 15%;
+  }
+  .container.sign-up > .sign-up-form-wrap {
+    max-width: 388px;
+    margin: auto;
+  }
+  .sign-up-form__form-group > input[name="user_email1"],
+  .sign-up-form__form-group > select[name="user_email2"] {
+    width: 170px;
+  }
+  .email-input-separator {
+    font-size: 15px;
+    margin: 0 -2px;
+  }
+  .sign-up-form__form > button {
+    padding: 26px 0;
+  }
+}
