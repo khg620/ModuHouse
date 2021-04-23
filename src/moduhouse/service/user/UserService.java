@@ -16,7 +16,7 @@ public class UserService {
 	
 	private final UserDao userDao;
 	@Resource(name="signInUserBean")
-	private UserBean signInUserBean;
+	private final UserBean signInUserBean;
 
 	public void addUserInfo(UserBean signUpUserBean) {
 		userDao.addUserInfo(signUpUserBean);

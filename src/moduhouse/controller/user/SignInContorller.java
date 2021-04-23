@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import lombok.RequiredArgsConstructor;
 import moduhouse.bean.user.UserBean;
@@ -26,7 +24,7 @@ public class SignInContorller {
 	
 	private final UserService userService;
 	@Resource(name = "signInUserBean")
-	private UserBean signInUserBean;
+	private final UserBean signInUserBean;
 
 	@GetMapping
 	public String signIn(@ModelAttribute("tempSignInUserBean") UserBean tempsignInUserBean, Model model) {
