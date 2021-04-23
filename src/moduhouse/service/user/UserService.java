@@ -15,7 +15,7 @@ import moduhouse.dao.user.UserDao;
 public class UserService {
 	
 	private final UserDao userDao;
-	@Resource(name="signInUserBean")
+	//@Resource(name="signInUserBean")
 	private final UserBean signInUserBean;
 
 	public void addUserInfo(UserBean signUpUserBean) {
@@ -32,6 +32,7 @@ public class UserService {
 	}
 
 	public void getSignInUserInfo(UserBean tempSignInUserBean) {
+		System.out.println(this.signInUserBean);
 		Optional<UserBean> tempSignInUserBean2 = userDao.getSignInUserInfo(tempSignInUserBean);
 		if(tempSignInUserBean2.isPresent()) {
 			signInUserBean.setUser_idx(tempSignInUserBean2.get().getUser_idx());

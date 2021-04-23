@@ -23,7 +23,7 @@ import moduhouse.service.user.UserService;
 public class SignInContorller {
 	
 	private final UserService userService;
-	@Resource(name = "signInUserBean")
+	//@Resource(name = "signInUserBean")
 	private final UserBean signInUserBean;
 
 	@GetMapping
@@ -34,7 +34,7 @@ public class SignInContorller {
 	
 	@PostMapping
 	public String signIn_pro(HttpServletRequest request, @Valid @ModelAttribute("tempSignInUserBean") UserBean tempSignInUserBean, BindingResult result) {
-		
+		System.out.println(this.signInUserBean);
 		if(result.hasErrors()) {
 			return "user/sign_in";
 		}
