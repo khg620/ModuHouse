@@ -79,7 +79,6 @@
  		const input_email = document.getElementById('user_email2');
  		const input_pw = document.getElementById('user_pw1');
 
- 		console.log(user_email, );
  		if(sign_in_fail){
  			input_email.value = user_email;
  			if(input_email.value.indexOf('@') === 0) {
