@@ -33,8 +33,8 @@
                <a href="#"><img src="../image/main_home_icon.png" alt="go main page"></a>
                <h1><a href="${root}">모두의 집</a></h1>
             </div>
-            <form:form action="${root }user/sign_in" method="post" modelAttribute="signInUserBean" class="sign-in-form__form">
-               <form:input path="user_email1" type="email" placeholder="이메일" required="required"/>
+            <form:form action="${root }user/sign_in" method="post" modelAttribute="tempSignInUserBean" class="sign-in-form__form">
+               <form:input path="user_email2" type="email" placeholder="이메일" required="required"/>
                <form:password path="user_pw1" placeholder="비밀번호" autocomplete="off" required="required"/>
                <form:errors path="user_pw1" style="color:red; display:block; margin-bottom: 7px; font-size: 13px"/>
                <form:button>로그인</form:button>
@@ -70,6 +70,30 @@
          </span>
         </div>
    </footer>
+  
+   
+ 	<script>
+ 		const sign_in_fail = ${signInUserBean.userSignInFail };
+ 		
+ 		const user_email = '${tempSignInUserBean.user_email1}'+'@'+'${tempSignInUserBean.user_email2}';
+ 		const input_email = document.getElementById('user_email2');
+ 		const input_pw = document.getElementById('user_pw1');
+
+ 		console.log(user_email, );
+ 		if(sign_in_fail){
+ 			input_email.value = user_email;
+ 			if(input_email.value.indexOf('@') === 0) {
+ 				input_email.value = input_email.value.substr(1);
+ 			}
+ 			input_email.classList.add('sign-in-fail');
+ 			input_pw.classList.add('sign-in-fail');
+ 		} else {
+ 			input_email.classList.remove('sign-in-fail');
+ 			input_pw.classList.remove('sign-in-fail');
+ 		}
+	</script>
+	
+
 </body>
 
 </html>

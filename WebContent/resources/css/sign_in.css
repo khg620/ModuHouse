@@ -78,20 +78,22 @@ main {
   border: 1px solid var(--color-grey);
   outline: none;
   cursor: text;
-  transition: box-shadow 200ms ease 0s, background-color 200ms ease 0s;
+  transition: background-color 200ms ease 0s;
 }
-.sign-in-form__form > input:nth-child(1) {
+.sign-in-form__form > #user_email2 {
   margin-bottom: -1px;
   border-radius: 4px 4px 0 0;
 }
-.sign-in-form__form > input:nth-child(2) {
+.sign-in-form__form > #user_pw1 {
   border-radius: 0 0 4px 4px;
   margin-bottom: 16px;
 }
-.sign-in-form__form > input:hover {
+.sign-in-form__form > #user_email2:hover, 
+.sign-in-form__form > #user_pw1:hover {
   background-color: var(--color-white);
 }
-.sign-in-form__form > input:focus {
+.sign-in-form__form > #user_email2:focus,
+.sign-in-form__form > #user_pw1:focus {
   border-radius: 4px;
   background: var(--color-white);
   box-shadow: 0 0 3px var(--color-skyblue);
@@ -164,6 +166,12 @@ footer .policy {
   display: inline-block;
   font-size: 12px;
   color: #757575;
+}
+/* 자바스크립트 */
+.sign-in-form__form > #user_email2.sign-in-fail,
+.sign-in-form__form > #user_pw1.sign-in-fail {
+  box-shadow: 0 0 3px #ff7777;
+  z-index: 1;
 }
 
 @media screen and (min-width: 768px) {

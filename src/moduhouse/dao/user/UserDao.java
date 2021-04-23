@@ -28,4 +28,8 @@ public class UserDao {
 		return userMapper.checkNicknameExist(user_nickname);
 	}
 
+	public Optional<UserBean> getSignInUserInfo(UserBean tempSignInUserBean) {
+		return Optional.ofNullable(userMapper.getSignInUserInfo(tempSignInUserBean));
+	}
+
 }

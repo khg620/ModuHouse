@@ -83,24 +83,24 @@
 						<form:option value="outlook.com" label="outlook.com" />
 						<form:option value="icloud.com" label="icloud.com" />
 					</form:select>
-					<form:errors path="user_email1" style="color:red; display:block; margin-top: 7px; font-size: 13px" />
+					<form:errors path="user_email1" style="color:#ff7777; display:block; margin-top: 7px; font-size: 13px" />
 				</div>
 				<div class="sign-up-form__form-group">
 					<form:label path="user_pw1">비밀번호</form:label>
 					<span class="description">영문, 숫자, 특수문자(-, _, !) 포함 8 ~ 15자로 입력해주세요.</span>
 					<form:password path="user_pw1" minlength="8" maxlength="15" placeholder="비밀번호" required="required" />
-					<form:errors path="user_pw1" style="color:red; display:block; margin-top: 7px; font-size: 13px" />
+					<form:errors path="user_pw1" style="color:#ff7777; display:block; margin-top: 7px; font-size: 13px" />
 				</div>
 				<div class="sign-up-form__form-group">
 					<form:label path="user_pw2">비밀번호 확인</form:label>
 					<form:password path="user_pw2" minlength="8" maxlength="15"	placeholder="비밀번호 확인" required="required" />
-					<form:errors path="user_pw2" style="color:red; display:block; margin-top: 7px; font-size: 13px" />
+					<form:errors path="user_pw2" style="color:#ff7777; display:block; margin-top: 7px; font-size: 13px" />
 				</div>
 				<div class="sign-up-form__form-group">
 					<form:label path="user_nickname">별명</form:label>
 					<span class="description">다른 유저와 겹치지 않는 별명을 입력해주세요.</span>
 					<form:input path="user_nickname" minlength="2" maxlength="5" placeholder="별명(2~15자)" required="required"/>
-					<form:errors path="user_nickname" style="color:red; display:block; margin-top: 7px; font-size: 13px" />
+					<form:errors path="user_nickname" style="color:#ff7777; display:block; margin-top: 7px; font-size: 13px" />
 				</div>
 				<div class="sign-up-form__form-group">
 					<form:label path="user_terms_agree">약관 동의</form:label>
@@ -202,7 +202,7 @@
 				success:function(result){
 					if(result.trim()=="true"){
 						$("#user_email2").parent().children('p').remove();
-						$("#user_email2").parent().append('<p style="color:red; font-size: 13px; margin-top: 7px">이미 사용 중인 이메일입니다.</p>');	
+						$("#user_email2").parent().append('<p style="color:#ff7777; font-size: 13px; margin-top: 7px">이미 사용 중인 이메일입니다.</p>');	
 						$("#user_email2").select();
 					} else {
 						$("#user_email2").parent().children('p').remove();
@@ -281,12 +281,12 @@
 					} else if(result.trim() === "1") {
 						$("#user_nickname").parent().children('p').remove();
 						$("#user_nickname").addClass("input_error");
-						$("#user_nickname").parent().append('<p style="color:red; font-size: 13px; margin-top: 7px">이미 사용 중인 별명입니다.</p>');
+						$("#user_nickname").parent().append('<p style="color:#ff7777; font-size: 13px; margin-top: 7px">이미 사용 중인 별명입니다.</p>');
 						$("#user_nickname").select();						
 					} else {
 						$("#user_nickname").parent().children('p').remove();
 						$("#user_nickname").addClass("input_error");
-						$("#user_nickname").parent().append('<p style="color:red; font-size: 13px; margin-top: 7px">별명은 2 ~ 5자로 영문, 한글, 숫자만 사용할 수 있습니다.</p>');
+						$("#user_nickname").parent().append('<p style="color:#ff7777; font-size: 13px; margin-top: 7px">별명은 2 ~ 5자로 영문, 한글, 숫자만 사용할 수 있습니다.</p>');
 					}
 				}
 			})

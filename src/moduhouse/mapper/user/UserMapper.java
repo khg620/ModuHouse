@@ -43,4 +43,13 @@ public interface UserMapper {
 			+ "from user_tb "
 			+ "where user_nickname = #{user_nickname}")
 	int checkNicknameExist(String user_nickname);
+
+	//로그인
+	@Select("select user_idx, "
+			 +  "user_nickname "
+			 + " from user_tb"
+			 + " where user_email1 = #{user_email1}"
+			 + " and user_email2 = #{user_email2}"
+			 + " and user_pw1 = #{user_pw1}")
+	UserBean getSignInUserInfo(UserBean tempSignInUserBean);
 }
