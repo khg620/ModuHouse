@@ -192,7 +192,7 @@
 		//유효성 및 중복검사
 		//email
 		function checkUserEmailExist() {
-			const user_email1 = $("#user_email1").val();
+			const user_email1 = $("#user_email1").val().trim();
 			const user_email2 = $("#user_email2").val();
 			
 			$.ajax({
