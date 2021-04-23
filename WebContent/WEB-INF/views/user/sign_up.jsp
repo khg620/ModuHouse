@@ -211,6 +211,8 @@
 				}
 			})
 		}
+		window.addEventListener('click',checkUserEmailExist);
+		window.addEventListener('keyup',checkUserEmailExist);
 		
 		function resetMessage() {
 			$("#user_email2").parent().children('p').remove();
