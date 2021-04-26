@@ -50,69 +50,70 @@
    
    <!--category-->
    <div class="layout">
-   	<section id="main-category">
-      <div class="container">
-         <div class="row">
-            <div class="col-12">
-            <h1 class="category-title">카테고리</h1>
-            <div class="category-box">
-              <div class="category-item mobile-hide prev">
-                  <div class="category-list-prev" onclick="movePrev()">
-                     <button type="button">
-                        <svg class="prev-btn" width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><rect width="32" height="32" fill="#000" fill-opacity=".26" rx="16"></rect><path fill="#FFF" fill-rule="nonzero" d="M20 10.87l-1.5-1.54L12 16l6.5 6.67 1.5-1.54L15 16z"></path></g></svg>
-                     </button>
-                  </div>
-               </div>
-               <ul class="category-wrap">
-                  <li class="category-item">
-                  	<a href="">                  	
-                     	<img src="./image/category/furniture.jpg" class="category-item__image" alt="">
-                     	<span>가구</span>
-                  	</a>
-                  </li>
-                  <li class="category-item">
-                  	<a href="">                  	
-                     	<img src="./image/category/fabric.png" class="category-item__image" alt="">
-                     	<span>패브릭</span>
-                  	</a>
-                  </li>
-                  <li class="category-item">
-                  	<a href="">                  	
-                     	<img src="./image/category/home_deco.jpg" class="category-item__image" alt="">
-                     	<span>홈데코</span>
-                  	</a>
-                  </li>
-                  <li class="category-item">
-                  	<a href="">                  	
-                     	<img src="./image/category/storage_tools.png" class="category-item__image" alt="">
-                     	<span>수납/정리</span>
-                  	</a>
-                  </li>
-                  <li class="category-item">
-                  	<a href="">                  	
-                     	<img src="./image/category/household_goods.png" class="category-item__image" alt="">
-                     	<span>생활용품</span>
-                  	</a>
-                  </li>
-                  <li class="category-item">
-                  	<a href="">                  	
-                     	<img src="./image/category/appliances.jpg" class="category-item__image" alt="">
-                     	<span>가전</span>
-                  	</a>
-                  </li>
-                  <li class="category-item">
-                  	<a href="">                  	
-                     	<img src="./image/category/kitchen.png" class="category-item__image" alt="">
-                    	   <span>주방</span>
-                  	</a>
-                  </li>
-                  <li class="category-item mobile-show">
-                  	<a href="">
-                     	<svg class="more-btn" width="42" height="42" viewBox="0 0 42 42" preserveAspectRatio="xMidYMid meet"><path id="a" d="M21 21v21h-1V21H0v-1h20V0h1v20h21v1H21z" fill="#000" fill-opacity=".74" fill-rule="nonzero"></path></svg>
-                     	<span>더보기</span>
-                  	</a>
-                  </li>
-                  <li class="category-item">
+<section id="main-category">
+         <div class="container">
+            <div class="row">
+               <div class="col-12">
+                  <h1 class="category-title">카테고리</h1>
+                  <div class="category-box">
+                     <div class="category-item mobile-hide prev" onclick="movePrev()">
+                        <div class="category-list-prev">
+                           <button type="button">
+                              <svg class="prev-btn" width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><rect width="32" height="32" fill="#000" fill-opacity=".26" rx="16"></rect><path fill="#FFF" fill-rule="nonzero" d="M20 10.87l-1.5-1.54L12 16l6.5 6.67 1.5-1.54L15 16z"></path></g></svg>
+                           </button>
+                        </div>
+                     </div>
+                  <ul class="category-wrap" data-position="0">
+                     
+                     <li class="category-item">
+                        <a href="">
+                           <img src="./image/category/furniture.jpg" class="category-item__image" alt="">
+                           <span>가구</span>
+                        </a>
+                     </li>
+                     <li class="category-item">
+                        <a href="">
+                           <img src="./image/category/fabric.png" class="category-item__image" alt="">
+                           <span>패브릭</span>
+                        </a>
+                     </li>
+                     <li class="category-item">
+                        <a href="">
+                           <img src="./image/category/home_deco.jpg" class="category-item__image" alt="">
+                           <span>홈데코</span>
+                        </a>
+                     </li>
+                     <li class="category-item">
+                        <a href="">
+                           <img src="./image/category/storage_tools.png" class="category-item__image" alt="">
+                           <span>수납/정리</span>
+                        </a>
+                     </li>
+                     <li class="category-item">
+                        <a href="">
+                           <img src="./image/category/household_goods.png" class="category-item__image" alt="">
+                           <span>생활용품</span>
+                        </a>
+                     </li>
+                     <li class="category-item">
+                        <a href="">
+                           <img src="./image/category/appliances.jpg" class="category-item__image" alt="">
+                           <span>가전</span>
+                        </a>
+                     </li>
+                     <li class="category-item">
+                        <a href="">
+                           <img src="./image/category/kitchen.png" class="category-item__image" alt="">
+                           <span>주방</span>
+                        </a>
+                     </li>
+                     <li class="category-item mobile-show">
+                        <a href="">
+                           <svg class="more-btn" width="42" height="42" viewBox="0 0 42 42" preserveAspectRatio="xMidYMid meet"><path id="a" d="M21 21v21h-1V21H0v-1h20V0h1v20h21v1H21z" fill="#000" fill-opacity=".74" fill-rule="nonzero"></path></svg>
+                           <span>더보기</span>
+                        </a>
+                     </li>
+                     <li class="category-item">
                         <a href="">
                            <img src="./image/category/pet.png" class="category-item__image" alt="">
                            <span>반려동물</span>
@@ -160,107 +161,141 @@
                            <span>DIY/공구</span>
                         </a>
                      </li>
-               </ul>
-               <div class="mobile-hide next" onclick="moveNext()">
-                  <div class="category-list-next">
-                     <button type="button">
-                        <svg class="next-btn" width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><rect width="32" height="32" fill="#000" fill-opacity=".26" rx="16"></rect><path fill="#FFF" fill-rule="nonzero" d="M12 21.13l1.5 1.54L20 16l-6.5-6.67-1.5 1.54L17 16z"></path></g></svg>
-                     </button>
+                  </ul>
+                  <div class="mobile-hide next" onclick="moveNext()">
+                     <div class="category-list-next">
+                        <button type="button">
+                           <svg  class="next-btn" width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><rect width="32" height="32" fill="#000" fill-opacity=".26" rx="16"></rect><path fill="#FFF" fill-rule="nonzero" d="M12 21.13l1.5 1.54L20 16l-6.5-6.67-1.5 1.54L17 16z"></path></g></svg>
+                        </button>
+                     </div>
                   </div>
-                </div>
+               </div>
                </div>
             </div>
          </div>
-      </div>
-   </section>
+      </section>
    <!--today-deal-->
-   <section>
-      <div class="container">
-         <div class="row">
-            <div class="col-12">
-               <h1>오늘의 딜</h1>
-               <p>더보기</p>
+    <section id="main-today-deal">
+         <div class="container">
+            <div class="row">
+               <div class="col-12">
+                  <div class="title-container">
+                     <h1 class="today-deal-title">오늘의 딜</h1>
+                     <a>더보기</a>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-12 col-md-4 col-lg-3">
+                  <article class="today-deal-item">
+                     <div class="today-deal-item__image-wrap">
+                        <img class="today-deal-item__image" src="./image/items/wood_blind.jpg" alt="Nubes wood blind">
+                     </div>
+                     <div class="today-deal-item__content">
+                        <div class="today-deal-item__content-wrap">
+                           <h1 class="today-deal-item__header">
+                              <span class="today-deal-item__brand">누베스</span>
+                              <span class="today-deal-item__name">오동나무 우드 블라인드 셀프 블라인드</span>
+                           </h1>
+                           <p class="today-deal-item__review">
+                              <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" fill="currentColor"><path fill-rule="evenodd" d="M12 19.72l-5.677 2.405c-.76.322-1.318-.094-1.247-.906l.533-6.142-4.042-4.656c-.54-.624-.317-1.283.477-1.467l6.006-1.39L11.23 2.28c.426-.707 1.122-.699 1.542 0l3.179 5.282 6.006 1.391c.805.187 1.011.851.477 1.467l-4.042 4.656.533 6.142c.072.822-.497 1.224-1.247.906L12 19.72z"></path></svg>
+                              <strong class="avg">
+                                 4.6
+                              </strong>
+                              <span class="review">리뷰 231</span>
+                           </p>
+                           <div class="production-item-price">
+                              <span class="production-discount-rate">49%</span>
+                              <span class="production-discount-price">70,900 외</span>
+                           </div>
+                        </div>  
+                     </div>
+                  </article>
+               </div>
+   
+               <div class="col-12 col-md-4 col-lg-3">
+                  <article class="today-deal-item">
+                     <div class="today-deal-item__image-wrap">
+                        <img class="today-deal-item__image" src="./image/items/stepper.jpg" alt="">
+                     </div>
+                     <div class="today-deal-item__content">
+                        <div class="today-deal-item__content-wrap">
+                           <h1 class="today-deal-item__header">
+                              <span class="today-deal-item__brand">미드브로</span>
+                              <span class="today-deal-item__name">스텝퍼 실내 계단 오르기 운동기구</span>
+                           </h1>
+                           <p class="today-deal-item__review">
+                              <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" fill="currentColor"><path fill-rule="evenodd" d="M12 19.72l-5.677 2.405c-.76.322-1.318-.094-1.247-.906l.533-6.142-4.042-4.656c-.54-.624-.317-1.283.477-1.467l6.006-1.39L11.23 2.28c.426-.707 1.122-.699 1.542 0l3.179 5.282 6.006 1.391c.805.187 1.011.851.477 1.467l-4.042 4.656.533 6.142c.072.822-.497 1.224-1.247.906L12 19.72z"></path></svg>
+                              <strong class="avg">
+                                 4.6
+                              </strong>
+                              <span class="review">리뷰 231</span>
+                           </p>
+                           <div class="production-item-price">
+                              <span class="production-discount-rate">49%</span>
+                              <span class="production-discount-price">70,900 외</span>
+                           </div>
+                        </div>
+                     </div>
+                  </article>
+               </div>
+   
+               <div class="col-12 col-md-4 col-lg-3">
+                  <article class="today-deal-item">
+                     <div class="today-deal-item__image-wrap">
+                        <img class="today-deal-item__image" src="./image/items/LGcinebim.jpg" alt="LG cinebim">
+                     </div>
+                     <div class="today-deal-item__content">
+                        <div class="today-deal-item__content-wrap">
+                           <h1 class="today-deal-item__header">
+                              <span class="today-deal-item__brand">LG전자</span>
+                              <span class="today-deal-item__name">LG 시네빔 베스트</span>
+                           </h1>
+                           <p class="today-deal-item__review">
+                              <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" fill="currentColor"><path fill-rule="evenodd" d="M12 19.72l-5.677 2.405c-.76.322-1.318-.094-1.247-.906l.533-6.142-4.042-4.656c-.54-.624-.317-1.283.477-1.467l6.006-1.39L11.23 2.28c.426-.707 1.122-.699 1.542 0l3.179 5.282 6.006 1.391c.805.187 1.011.851.477 1.467l-4.042 4.656.533 6.142c.072.822-.497 1.224-1.247.906L12 19.72z"></path></svg>
+                              <strong class="avg">
+                                 4.6
+                              </strong>
+                              <span class="review">리뷰 231</span>
+                           </p>
+                           <div class="production-item-price">
+                              <span class="production-discount-rate">49%</span>
+                              <span class="production-discount-price">70,900 외</span>
+                           </div>
+                        </div>
+                     </div>
+                  </article>
+               </div>
+   
+               <div class="col-12 col-md-4 col-lg-3">
+                  <article class="today-deal-item">
+                     <div class="today-deal-item__image-wrap">
+                        <img class="today-deal-item__image" src="./image/items/bed.jpg" alt="modern baroque bed">
+                     </div>
+                     <div class="today-deal-item__content">
+                        <div class="today-deal-item__content-wrap">
+                           <h1 class="today-deal-item__header">
+                              <span class="today-deal-item__brand">모던바로크</span>
+                              <span class="today-deal-item__name">LED 수납 침대 시리즈</span>
+                           </h1>
+                           <p class="today-deal-item__review">
+                              <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" fill="currentColor"><path fill-rule="evenodd" d="M12 19.72l-5.677 2.405c-.76.322-1.318-.094-1.247-.906l.533-6.142-4.042-4.656c-.54-.624-.317-1.283.477-1.467l6.006-1.39L11.23 2.28c.426-.707 1.122-.699 1.542 0l3.179 5.282 6.006 1.391c.805.187 1.011.851.477 1.467l-4.042 4.656.533 6.142c.072.822-.497 1.224-1.247.906L12 19.72z"></path></svg>
+                              <strong class="avg">
+                                 4.6
+                              </strong>
+                              <span class="review">리뷰 231</span>
+                           </p>
+                           <div class="production-item-price">
+                              <span class="production-discount-rate">49%</span>
+                              <span class="production-discount-price">70,900 외</span>
+                           </div>
+                        </div>
+                     </div>
+                  </article>
+               </div>
             </div>
          </div>
-         <div class="row">
-            <div class="col-12 col-md-4 col-lg-3">
-               <article>
-                  <img src="./image/items/wood_blind.jpg" alt="Nubes wood blind">
-                  <div>
-                     <h1>
-                        <span>누베스</span>
-                        <span>오동나무 우드 블라인드 셀프 블라인드</span>
-                     </h1>
-                     <p>
-                        <i class="fas fa-star"></i>
-                        <strong class="avg">
-                           4.6
-                        </strong>
-                        <span class="review">리뷰 231</span>
-                     </p>
-                  </div>
-               </article>
-            </div>
-
-            <div class="col-12 col-md-4 col-lg-3">
-               <article>
-                  <img src="./image/items/stepper.jpg" alt="">
-                  <div>
-                     <h1>
-                        <span>미드브로</span>
-                        <span>스텝퍼 실내 계단 오르기 운동기구</span>
-                     </h1>
-                     <p>
-                        <i class="fas fa-star"></i>
-                        <strong class="avg">
-                           4.6
-                        </strong>
-                        <span class="review">리뷰 231</span>
-                     </p>
-                  </div>
-               </article>
-            </div>
-
-            <div class="col-12 col-md-4 col-lg-3">
-               <article>
-                  <img src="./image/items/LGcinebim.jpg" alt="LG cinebim">
-                  <div>
-                     <h1>
-                        <span>LG전자</span>
-                        <span>LG 시네빔 베스트</span>
-                     </h1>
-                     <p>
-                        <i class="fas fa-star"></i>
-                        <strong class="avg">
-                           4.6
-                        </strong>
-                        <span class="review">리뷰 231</span>
-                     </p>
-                  </div>
-               </article>
-            </div>
-
-            <div class="col-12 col-md-4 col-lg-3">
-               <article>
-                  <img src="./image/items/bed.jpg" alt="modern baroque bed">
-                  <div>
-                     <h1>
-                        <span>모던바로크</span>
-                        <span>LED 수납 침대 시리즈</span>
-                     </h1>
-                     <p>
-                        <i class="fas fa-star"></i>
-                        <strong class="avg">
-                           4.6
-                        </strong>
-                        <span class="review">리뷰 231</span>
-                     </p>
-                  </div>
-               </article>
-            </div>
-         </div>
-      </div>
-   </section>
+      </section>
    </div>
  
    <!--keywords-->
@@ -328,16 +363,6 @@
  	<script>
  		let cnt = 0;
  		const dropdown_menu = document.querySelector('.navigation-user__dropdown-menu');
- 		//const user_menu = document.querySelector('.navigation-user-menu');
- 		/*user_menu.addEventListener('click',() => {
- 			if(cnt === 0){ 				
- 				dropdown_menu.classList.add('click');
- 				cnt++;
- 			} else {
- 				dropdown_menu.classList.remove('click');
- 				cnt = 0;
- 			}
- 		});*/
  		function showUserMenu(){
  			if(cnt === 0){ 				
  				dropdown_menu.classList.add('click');
@@ -377,11 +402,6 @@
  		   category_wrap.style.transform = 'translateX('+String(position)+'px)';
  		}
 
- 		//next_btn.addEventListener('click',moveNext);
- 		//prev_btn.addEventListener('click',movePrev);
-
-
- 		console.log(category_box)
  	</script>
 </body>
 
