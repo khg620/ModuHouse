@@ -8,7 +8,7 @@ import moduhouse.bean.user.UserBean;
 
 @Configuration
 public class RootAppContext {
-	@Bean("signInUserBean")
+	@Bean//("signInUserBean")
 	@SessionScope
 	public UserBean signInUserBean() {
 		

@@ -64,8 +64,7 @@ ul {
 .navigation-search-input {
   display: none;
 }
-.main-title-link,
-.navigation-icon {
+.main-title-link {
   padding: 6px;
   margin: 7px 1px;
   font-size: 22px;
@@ -73,33 +72,109 @@ ul {
   color: var(--color-darkgrey);
   cursor: pointer;
 }
-.navigation-cart {
-  width: 32px;
-  height: 32px;
-  border-radius: 100%;
+.navigation__icon {
+	padding: 6px;
 }
-.navigation-cart .navigation-icon {
-  margin: 0;
-}
-.navigation-cart > .navigation-icon:hover {
-  border-radius: 100%;
+.navigation__icon:hover {
+  border-radius: 50%;
   background-color: var(--color-skyblue);
-  color: #fff;
+}
+.navigation__icon:hover .navigation-icon {
+	stroke:#fff;
 }
 .navigation-user.mobile-hide,
 .navigation-upload.mobile-hide {
   display: none;
 }
-.navigation-user.mobile-hide {
+.navigation-user.mobile-hide > .navigation-user-icon {
   width: 32px;
   height: 32px;
-  border-radius: 32px;
-  background-color: var(--color-grey);
+  margin-right: 2px;
+  border-radius: 100%;
+  cursor: inherit;
 }
-.navigation-user.mobile-hide > .navigation-user-icon {
-  font-size: 25px;
-  line-height: 32px;
-  color: #fff;
+.navigation-user.mobile-hide:hover > .navigation-user-icon {
+  border: 2px solid var(--color-skyblue);
+}
+.navigation-user.mobile-hide > .drop-down {
+    width: 12px;
+    height: 12px;
+    cursor: inherit;
+}
+.navigation-user.mobile-hide > .drop-down.hover {
+    display: none;
+}
+.navigation-user.mobile-hide:hover .drop-down {
+  display: none;
+}
+.navigation-user.mobile-hide:hover .drop-down.hover {
+  display: block;
+}
+
+.navigation-user-menu {
+  position: relative;
+}
+.navigation-user__dropdown-menu {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  width: 200px;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 999;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.navigation-user-menu:hover .navigation-user__dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+} /*.navigation-user.mobile-hide:hover 시에는 왜 안 먹지? 부모요소 자식요소 관계여야 하나?*/
+.navigation-user__menu-list {
+  margin: -1px;
+  padding-left: 0;
+  padding: 10px;
+  border: 1px solid var(--color-grey);
+  border-radius: 8px;
+  background-color: #fff;
+}
+.navigation-user__dropdown-menu::before {
+  content: "";
+  position: absolute;
+  display: block;
+  margin: 0 0 0 -4px;
+  border-width: 0 5px 10px;
+  bottom: 100%;
+  right: 20%;
+  border-style: solid;
+  border-color: transparent transparent var(--color-grey);
+  border-width: 0 5px 10px;
+  border-bottom-color: var(--color-grey);
+  border-top: 0;
+  transform: translateX(0.5px);
+}
+.navigation-user__dropdown-menu::after {
+  content: "";
+  position: absolute;
+  display: block;
+  margin: 0 0 -1px -4px;
+  border-width: 0 4.5px 9px;
+  bottom: 100%;
+  right: 20%;
+  border-style: solid;
+  border-color: transparent transparent #fff;
+}
+.navigation-user__menu-list > .my-menu {
+  padding: 10px 14px 11px;
+}
+.navigation-user__menu-list > .my-menu > a {
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-black);
+}
+.navigation-user__menu-list > .my-menu:hover {
+  background-color: var(--color-white);
 }
 .main-title-link {
   color: var(--color-black);
@@ -212,7 +287,6 @@ ul {
   .navigation-sign-up:hover {
     color: var(--color-skyblue);
   }
-  .navigation-cart,
   .navigation-user.mobile-hide {
     margin-right: 10px;
   }
@@ -222,6 +296,12 @@ ul {
     text-decoration: none;
     text-align: center;
     align-self: center;
+  }
+  
+  .navigation-user.mobile-hide {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
   }
 
   .navigation-upload.mobile-hide {

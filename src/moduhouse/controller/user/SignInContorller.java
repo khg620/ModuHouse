@@ -34,7 +34,7 @@ public class SignInContorller {
 	
 	@PostMapping
 	public String signIn_pro(HttpServletRequest request, @Valid @ModelAttribute("tempSignInUserBean") UserBean tempSignInUserBean, BindingResult result) {
-		System.out.println(this.signInUserBean);
+		
 		if(result.hasErrors()) {
 			return "user/sign_in";
 		}
