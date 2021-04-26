@@ -47,45 +47,128 @@
          </div>
       </div>
    </section>
+   
    <!--category-->
-   <section>
+   <div class="layout">
+   	<section id="main-category">
       <div class="container">
          <div class="row">
             <div class="col-12">
+            <h1 class="category-title">카테고리</h1>
+            <div class="category-box">
+              <div class="category-item mobile-hide prev">
+                  <div class="category-list-prev" onclick="movePrev()">
+                     <button type="button">
+                        <svg class="prev-btn" width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><rect width="32" height="32" fill="#000" fill-opacity=".26" rx="16"></rect><path fill="#FFF" fill-rule="nonzero" d="M20 10.87l-1.5-1.54L12 16l6.5 6.67 1.5-1.54L15 16z"></path></g></svg>
+                     </button>
+                  </div>
+               </div>
                <ul class="category-wrap">
                   <li class="category-item">
-                     <img src="./image/category/furniture.jpg" class="category-item__image" alt="">
-                     <span>가구</span>
+                  	<a href="">                  	
+                     	<img src="./image/category/furniture.jpg" class="category-item__image" alt="">
+                     	<span>가구</span>
+                  	</a>
                   </li>
                   <li class="category-item">
-                     <img src="./image/category/fabric.png" class="category-item__image" alt="">
-                     <span>패브릭</span>
+                  	<a href="">                  	
+                     	<img src="./image/category/fabric.png" class="category-item__image" alt="">
+                     	<span>패브릭</span>
+                  	</a>
                   </li>
                   <li class="category-item">
-                     <img src="./image/category/home_deco.jpg" class="category-item__image" alt="">
-                     <span>홈데코</span>
+                  	<a href="">                  	
+                     	<img src="./image/category/home_deco.jpg" class="category-item__image" alt="">
+                     	<span>홈데코</span>
+                  	</a>
                   </li>
                   <li class="category-item">
-                     <img src="./image/category/storage_tools.png" class="category-item__image" alt="">
-                     <span>수납/정리</span>
+                  	<a href="">                  	
+                     	<img src="./image/category/storage_tools.png" class="category-item__image" alt="">
+                     	<span>수납/정리</span>
+                  	</a>
                   </li>
                   <li class="category-item">
-                     <img src="./image/category/household_goods.png" class="category-item__image" alt="">
-                     <span>생활용품</span>
+                  	<a href="">                  	
+                     	<img src="./image/category/household_goods.png" class="category-item__image" alt="">
+                     	<span>생활용품</span>
+                  	</a>
                   </li>
                   <li class="category-item">
-                     <img src="./image/category/appliances.jpg" class="category-item__image" alt="">
-                     <span>가전</span>
+                  	<a href="">                  	
+                     	<img src="./image/category/appliances.jpg" class="category-item__image" alt="">
+                     	<span>가전</span>
+                  	</a>
                   </li>
                   <li class="category-item">
-                     <img src="./image/category/kitchen.png" class="category-item__image" alt="">
-                     <span>주방</span>
+                  	<a href="">                  	
+                     	<img src="./image/category/kitchen.png" class="category-item__image" alt="">
+                    	   <span>주방</span>
+                  	</a>
+                  </li>
+                  <li class="category-item mobile-show">
+                  	<a href="">
+                     	<svg class="more-btn" width="42" height="42" viewBox="0 0 42 42" preserveAspectRatio="xMidYMid meet"><path id="a" d="M21 21v21h-1V21H0v-1h20V0h1v20h21v1H21z" fill="#000" fill-opacity=".74" fill-rule="nonzero"></path></svg>
+                     	<span>더보기</span>
+                  	</a>
                   </li>
                   <li class="category-item">
-                     <img src="./image/seemoreicon.png" class="category-item__image" alt="">
-                     <span>더보기</span>
-                  </li>
+                        <a href="">
+                           <img src="./image/category/pet.png" class="category-item__image" alt="">
+                           <span>반려동물</span>
+                        </a>
+                     </li>
+                     <li class="category-item">
+                        <a href="">
+                           <img src="./image/category/bedroom_furniture.png" class="category-item__image" alt="">
+                           <span>침실가구</span>
+                        </a>
+                     </li>
+                     <li class="category-item">
+                        <a href="">
+                           <img src="./image/category/table.png" class="category-item__image" alt="">
+                           <span>식탁/테이블</span>
+                        </a>
+                     </li>
+                     <li class="category-item">
+                        <a href="">
+                           <img src="./image/category/carpet.png" class="category-item__image" alt="">
+                           <span>러그/카페트</span>
+                        </a>
+                     </li>
+                     <li class="category-item">
+                        <a href="">
+                           <img src="./image/category/curtain_blind.jpg" class="category-item__image" alt="">
+                           <span>커튼/블라인드</span>
+                        </a>
+                     </li>
+                     <li class="category-item">
+                        <a href="">
+                           <img src="./image/category/necessity.jpg" class="category-item__image" alt="">
+                           <span>생필품</span>
+                        </a>
+                     </li>
+                     <li class="category-item">
+                        <a href="">
+                           <img src="./image/category/camping.jpg" class="category-item__image" alt="">
+                           <span>캠핑용품</span>
+                        </a>
+                     </li>
+                     <li class="category-item">
+                        <a href="">
+                           <img src="./image/category/diy.png" class="category-item__image" alt="">
+                           <span>DIY/공구</span>
+                        </a>
+                     </li>
                </ul>
+               <div class="mobile-hide next" onclick="moveNext()">
+                  <div class="category-list-next">
+                     <button type="button">
+                        <svg class="next-btn" width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><rect width="32" height="32" fill="#000" fill-opacity=".26" rx="16"></rect><path fill="#FFF" fill-rule="nonzero" d="M12 21.13l1.5 1.54L20 16l-6.5-6.67-1.5 1.54L17 16z"></path></g></svg>
+                     </button>
+                  </div>
+                </div>
+               </div>
             </div>
          </div>
       </div>
@@ -178,6 +261,8 @@
          </div>
       </div>
    </section>
+   </div>
+ 
    <!--keywords-->
    <section>
       <div class="container">
@@ -243,8 +328,8 @@
  	<script>
  		let cnt = 0;
  		const dropdown_menu = document.querySelector('.navigation-user__dropdown-menu');
- 		const user_menu = document.querySelector('.navigation-user-menu');
- 		user_menu.addEventListener('click',() => {
+ 		//const user_menu = document.querySelector('.navigation-user-menu');
+ 		/*user_menu.addEventListener('click',() => {
  			if(cnt === 0){ 				
  				dropdown_menu.classList.add('click');
  				cnt++;
@@ -252,7 +337,51 @@
  				dropdown_menu.classList.remove('click');
  				cnt = 0;
  			}
- 		});
+ 		});*/
+ 		function showUserMenu(){
+ 			if(cnt === 0){ 				
+ 				dropdown_menu.classList.add('click');
+ 				cnt++;
+ 			} else {
+ 				dropdown_menu.classList.remove('click');
+ 				cnt = 0;
+ 			}
+ 		}
+ 		
+ 		//category
+ 		const category_box = document.querySelector('.category-box');
+ 		const category_wrap = document.querySelector('.category-wrap');
+ 		let position = category_wrap.getAttribute('data-position');
+ 		const category_item = document.getElementsByClassName('category-item');
+ 		const prev_btn = document.querySelector('.mobile-hide.prev');
+ 		const next_btn = document.querySelector('.mobile-hide.next');
+
+ 		if(category_wrap.clientWidth < category_item[1].clientWidth * category_item.length){
+ 		   next_btn.classList.add('show');
+ 		} 
+
+ 		const moveNext = (e) => {
+ 		   position -= category_item[1].clientWidth;
+ 		   prev_btn.classList.add('show');
+ 		   
+ 		   category_wrap.style.transition = 'transform 1s';
+ 		   category_wrap.style.transform = 'translateX('+String(position)+'px)'
+ 		}
+
+ 		const movePrev = (e) => {
+ 		   position += category_item[1].clientWidth;
+ 		   if(position === 0){
+ 		      prev_btn.classList.remove('show');
+ 		   }
+ 		   category_wrap.style.transition = 'transform 1s';
+ 		   category_wrap.style.transform = 'translateX('+String(position)+'px)';
+ 		}
+
+ 		//next_btn.addEventListener('click',moveNext);
+ 		//prev_btn.addEventListener('click',movePrev);
+
+
+ 		console.log(category_box)
  	</script>
 </body>
 

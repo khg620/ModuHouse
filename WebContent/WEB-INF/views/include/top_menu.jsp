@@ -11,7 +11,7 @@
 					<div class="navigation-bar__header">
 						<div class="navigation-bar-left">
 							<button type="button" class="navigation-draw-button">
-								<i class="fas fa-bars navigation-icon"></i>
+								<svg class="navigation-icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="#757575" d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path></svg>
 							</button>
 						</div>
 						<h1 class="main-title">
@@ -25,10 +25,10 @@
 								</a> 
 								<c:choose>
 								<c:when test="${signInUserBean.userSignIn == true }">
-								<a href="" class="navigation__icon">								
+								<a href="" class="navigation__icon mobile-hide">								
 									<svg class="navigation-icon" width="24" height="24" stroke="#757575" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="none" stroke-width="2" d="M3 20.967zm0 0V2.5a.5.5 0 01.5-.5h17a.5.5 0 01.5.5v18.467l-8.057-4.309a2 2 0 00-1.886 0L3 20.968z"></path></svg>
 								</a>
-								<a href="" class="navigation__icon">
+								<a href="" class="navigation__icon mobile-hide">
 									<svg class="navigation-icon" width="24" height="24" stroke="#757575" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.04 4.19C10.16 3.16 10.6 2 12.05 2c1.35 0 1.78 1.11 1.9 2.13C21.05 5.25 21 13.43 21 19H3c0-5.48-.05-13.48 7.04-14.81zM10 19c0 1.66.9 3 2 3s2-1.34 2-3"></path></svg>
 								</a>
 								<a href="#" class="navigation__icon"> 
@@ -43,7 +43,7 @@
 							<!--로그인 한 유저의 경우 보임-->
 							<c:choose>	
 								<c:when test="${signInUserBean.userSignIn == true }">								
-									<div class="navigation-user-menu">
+									<div class="navigation-user-menu" onclick="showUserMenu()">
                            <button type="button" class="navigation-user mobile-hide">
                               <img src="././image/user_icon.jpg" alt="user-menu" class="navigation-user-icon"/>
                               <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="svg-inline--fa fa-caret-down fa-w-10 drop-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="#757575" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg>
