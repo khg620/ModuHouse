@@ -610,6 +610,17 @@ ul {
     margin-left: 0;
     margin-bottom: 0;
   }
+  .today-deal-item__header {
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+  .today-deal-item .production-item-price {
+    margin: 5px 0 0 0;
+  }
+  .today-deal-item .today-deal-item__review {
+    line-height: 1;
+    margin-bottom: 5px;
+  }
 }
 @media screen and (min-width: 992px) {
   .navigation-search-input {
