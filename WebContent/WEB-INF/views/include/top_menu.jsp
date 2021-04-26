@@ -15,7 +15,7 @@
 							</button>
 						</div>
 						<h1 class="main-title">
-							<a href="${root }" class="main-title-link"> 모두의집 </a>
+							<a href="${root }" class="main-title-link">모두의집</a>
 						</h1>
 						<div class="header-right">
 							<div class="navigation-search"></div>
@@ -61,7 +61,7 @@
                                     <a href="">이벤트</a>
                                  </li>
                                  <li class="my-menu">
-                                    <a href="">로그아웃</a>
+                                    <a href="${root }user/sign_out">로그아웃</a>
                                  </li>
                               </ul>
                            </div>

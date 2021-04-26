@@ -18,7 +18,7 @@ import moduhouse.bean.user.UserBean;
 import moduhouse.service.user.UserService;
 
 @Controller
-@RequestMapping("/user/sign_in")
+@RequestMapping("/user")
 @RequiredArgsConstructor
 public class SignInContorller {
 	
@@ -26,13 +26,13 @@ public class SignInContorller {
 	//@Resource(name = "signInUserBean")
 	private final UserBean signInUserBean;
 
-	@GetMapping
+	@GetMapping("/sign_in")
 	public String signIn(@ModelAttribute("tempSignInUserBean") UserBean tempsignInUserBean, Model model) {
 		
 		return "user/sign_in";
 	}
 	
-	@PostMapping
+	@PostMapping("/sign_in")
 	public String signIn_pro(HttpServletRequest request, @Valid @ModelAttribute("tempSignInUserBean") UserBean tempSignInUserBean, BindingResult result) {
 		
 		if(result.hasErrors()) {
@@ -54,4 +54,9 @@ public class SignInContorller {
 		}
 	}
 	
+	@GetMapping("/sign_out")
+	public String signOut() {
+		signInUserBean.setUserSignIn(false);
+		return "redirect:/main";
+	}
 }

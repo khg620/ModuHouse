@@ -240,6 +240,20 @@
          </div>
       </div>
    </section>
+ 	<script>
+ 		let cnt = 0;
+ 		const dropdown_menu = document.querySelector('.navigation-user__dropdown-menu');
+ 		const user_menu = document.querySelector('.navigation-user-menu');
+ 		user_menu.addEventListener('click',() => {
+ 			if(cnt === 0){ 				
+ 				dropdown_menu.classList.add('click');
+ 				cnt++;
+ 			} else {
+ 				dropdown_menu.classList.remove('click');
+ 				cnt = 0;
+ 			}
+ 		});
+ 	</script>
 </body>
 
 </html>

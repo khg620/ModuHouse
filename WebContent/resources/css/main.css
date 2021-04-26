@@ -41,6 +41,11 @@ ul {
   list-style-type: none;
   padding-left: none;
 }
+section:not(.store-main__banner-wrap) {
+	max-width: 1256px;
+	padding: 0 5rem;
+	margin: 0 auto;
+}
 /*header*/
 .navigation-bar__header {
   display: flex;
@@ -125,11 +130,17 @@ ul {
   z-index: 999;
   transition: opacity 0.2s, transform 0.2s;
 }
+/*
 .navigation-user-menu:hover .navigation-user__dropdown-menu {
   visibility: visible;
   opacity: 1;
   transform: none;
-} /*.navigation-user.mobile-hide:hover 시에는 왜 안 먹지? 부모요소 자식요소 관계여야 하나?*/
+}*/ /*.navigation-user.mobile-hide:hover 시에는 왜 안 먹지? 부모요소 자식요소 관계여야 하나?*/
+.navigation-user__dropdown-menu.click {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+} 
 .navigation-user__menu-list {
   margin: -1px;
   padding-left: 0;
@@ -351,4 +362,8 @@ ul {
   .navigation-upload.mobile-hide {
     width: 100px;
   }
+}
+
+@media screen and (min-width: 1200px) {
+	
 }
