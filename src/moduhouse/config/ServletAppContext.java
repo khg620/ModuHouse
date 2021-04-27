@@ -22,10 +22,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import moduhouse.bean.user.UserBean;
 import moduhouse.interceptor.CheckSignInInterceptor;
-import moduhouse.interceptor.TopMenuInterceptor;
-import moduhouse.mapper.include.TopMenuMapper;
+import moduhouse.interceptor.HeaderInterceptor;
+import moduhouse.interceptor.StoreTopMenuInterceptor;
+import moduhouse.mapper.include.StoreTopMenuMapper;
 import moduhouse.mapper.user.UserMapper;
-import moduhouse.service.include.TopMenuService;
+import moduhouse.service.include.StoreTopMenuService;
 
 @Configuration
 @EnableWebMvc
@@ -46,7 +47,7 @@ public class ServletAppContext implements WebMvcConfigurer{
 	private String db_password;
 
 	@Autowired
-	private TopMenuService topMenuService;
+	private StoreTopMenuService storeTopMenuService;
 	@Autowired
 	private UserBean signInUserBean;
 	
@@ -90,20 +91,25 @@ public class ServletAppContext implements WebMvcConfigurer{
 		WebMvcConfigurer.super.addInterceptors(registry);
 		
 		//상단 공통 메뉴
-		TopMenuInterceptor topMenuInterceptor = new TopMenuInterceptor(topMenuService, signInUserBean);
-		InterceptorRegistration reg1 = registry.addInterceptor(topMenuInterceptor);
+		HeaderInterceptor headerInterceptor = new HeaderInterceptor(signInUserBean);
+		InterceptorRegistration reg1 = registry.addInterceptor(headerInterceptor);
 		reg1.addPathPatterns("/**");
+
+		StoreTopMenuInterceptor storeTopMenuInterceptor = new StoreTopMenuInterceptor(storeTopMenuService);
+		InterceptorRegistration reg2 = registry.addInterceptor(storeTopMenuInterceptor);
+		reg2.addPathPatterns("/**");
+		
 		
 		//로그인 필요한 페이지 로그인 확인 후 분기 처리
 		CheckSignInInterceptor checkSignInInterceptor = new CheckSignInInterceptor(signInUserBean);
-		InterceptorRegistration reg2 = registry.addInterceptor(checkSignInInterceptor);
-		reg2.addPathPatterns("/user/","");
+		InterceptorRegistration reg3 = registry.addInterceptor(checkSignInInterceptor);
+		reg3.addPathPatterns("/user/","");
 	}
 	
 	//mapper
 	@Bean
-	public MapperFactoryBean<TopMenuMapper> getTopMenuMapper(SqlSessionFactory factory) throws Exception {
-		MapperFactoryBean<TopMenuMapper> factoryBean = new MapperFactoryBean<TopMenuMapper>(TopMenuMapper.class);
+	public MapperFactoryBean<StoreTopMenuMapper> getTopMenuMapper(SqlSessionFactory factory) throws Exception {
+		MapperFactoryBean<StoreTopMenuMapper> factoryBean = new MapperFactoryBean<StoreTopMenuMapper>(StoreTopMenuMapper.class);
 		factoryBean.setSqlSessionFactory(factory);
 		return factoryBean;
 	}

@@ -1,6 +1,6 @@
 package moduhouse.bean.include;
 
-public class TopMenuBean {
+public class StoreTopMenuBean {
 	private int main_menu_idx;
 	private String main_menu_name;
 	

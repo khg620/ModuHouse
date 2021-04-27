@@ -26,9 +26,12 @@
 </head>
 
 <body>
-	<!-- header -->
-   <!-- top_menu.jsp -->
-   <c:import url="/WEB-INF/views/include/top_menu.jsp"/>
+	<section>
+		<!-- header -->
+		<c:import url="/WEB-INF/views/include/header.jsp"/>
+   	<!-- store_top_menu.jsp -->
+   	<c:import url="/WEB-INF/views/include/store_top_menu.jsp"/>
+   	</section>
    <!--banner-->
    <section class="store-main__banner-wrap">
       <div class="container">
