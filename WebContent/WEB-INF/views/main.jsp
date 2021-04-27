@@ -59,7 +59,7 @@
                <div class="col-12">
                   <h1 class="category-title">카테고리</h1>
                   <div class="category-box">
-                     <div class="category-item mobile-hide prev" onclick="movePrev()">
+                     <div class="mobile-hide prev" onclick="movePrev()">
                         <div class="category-list-prev">
                            <button type="button">
                               <svg class="prev-btn" width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><rect width="32" height="32" fill="#000" fill-opacity=".26" rx="16"></rect><path fill="#FFF" fill-rule="nonzero" d="M20 10.87l-1.5-1.54L12 16l6.5 6.67 1.5-1.54L15 16z"></path></g></svg>
@@ -165,7 +165,7 @@
                         </a>
                      </li>
                   </ul>
-                  <div class="mobile-hide next" onclick="moveNext()">
+                  <div class="mobile-hide next show" onclick="moveNext()">
                      <div class="category-list-next">
                         <button type="button">
                            <svg  class="next-btn" width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><rect width="32" height="32" fill="#000" fill-opacity=".26" rx="16"></rect><path fill="#FFF" fill-rule="nonzero" d="M12 21.13l1.5 1.54L20 16l-6.5-6.67-1.5 1.54L17 16z"></path></g></svg>
@@ -377,32 +377,24 @@
  		}
  		
  		//category
- 		const category_box = document.querySelector('.category-box');
  		const category_wrap = document.querySelector('.category-wrap');
- 		let position = category_wrap.getAttribute('data-position');
- 		const category_item = document.getElementsByClassName('category-item');
  		const prev_btn = document.querySelector('.mobile-hide.prev');
  		const next_btn = document.querySelector('.mobile-hide.next');
 
- 		if(category_wrap.clientWidth < category_item[1].clientWidth * category_item.length){
- 		   next_btn.classList.add('show');
- 		} 
-
  		const moveNext = (e) => {
- 		   position -= category_item[1].clientWidth;
+ 			next_btn.classList.remove('show');
  		   prev_btn.classList.add('show');
- 		   
+
  		   category_wrap.style.transition = 'transform 1s';
- 		   category_wrap.style.transform = 'translateX('+String(position)+'px)'
+ 		   category_wrap.style.transform = 'translateX(-50%)';
  		}
 
  		const movePrev = (e) => {
- 		   position += category_item[1].clientWidth;
- 		   if(position === 0){
- 		      prev_btn.classList.remove('show');
- 		   }
- 		   category_wrap.style.transition = 'transform 1s';
- 		   category_wrap.style.transform = 'translateX('+String(position)+'px)';
+ 			prev_btn.classList.remove('show');
+ 			next_btn.classList.add('show');
+
+ 			category_wrap.style.transition = 'transform 1s';
+ 			category_wrap.style.transform = 'translateX(0%)';
  		}
 
  	</script>
