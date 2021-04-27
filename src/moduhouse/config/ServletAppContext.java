@@ -91,19 +91,25 @@ public class ServletAppContext implements WebMvcConfigurer{
 		WebMvcConfigurer.super.addInterceptors(registry);
 		
 		//상단 공통 메뉴
+		//헤더
 		HeaderInterceptor headerInterceptor = new HeaderInterceptor(signInUserBean);
 		InterceptorRegistration reg1 = registry.addInterceptor(headerInterceptor);
 		reg1.addPathPatterns("/**");
-
+		
+		//스토어 nav
 		StoreTopMenuInterceptor storeTopMenuInterceptor = new StoreTopMenuInterceptor(storeTopMenuService);
 		InterceptorRegistration reg2 = registry.addInterceptor(storeTopMenuInterceptor);
 		reg2.addPathPatterns("/**");
+		
+		//마이페이지 nav
+		
 		
 		
 		//로그인 필요한 페이지 로그인 확인 후 분기 처리
 		CheckSignInInterceptor checkSignInInterceptor = new CheckSignInInterceptor(signInUserBean);
 		InterceptorRegistration reg3 = registry.addInterceptor(checkSignInInterceptor);
-		reg3.addPathPatterns("/user/","");
+		reg3.addPathPatterns("/user/mypage/*","/user/sign_out","/community/*");
+		reg3.excludePathPatterns("/community/main");
 	}
 	
 	//mapper
