@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="root" value="${pageContext.request.contextPath }/"/>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
    <meta charset="UTF-8">

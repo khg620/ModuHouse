@@ -59,4 +59,9 @@ public class SignInContorller {
 		signInUserBean.setUserSignIn(false);
 		return "redirect:/main";
 	}
+	
+	@GetMapping("/not_signIn")
+	public String not_signIn() {
+		return "user/sign_in";
+	}
 }

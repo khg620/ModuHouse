@@ -1,14 +1,11 @@
 package moduhouse.config;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.type.JdbcType;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -24,6 +21,7 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import moduhouse.bean.user.UserBean;
+import moduhouse.interceptor.CheckSignInInterceptor;
 import moduhouse.interceptor.TopMenuInterceptor;
 import moduhouse.mapper.include.TopMenuMapper;
 import moduhouse.mapper.user.UserMapper;
@@ -91,9 +89,15 @@ public class ServletAppContext implements WebMvcConfigurer{
 	public void addInterceptors(InterceptorRegistry registry) {
 		WebMvcConfigurer.super.addInterceptors(registry);
 		
+		//상단 공통 메뉴
 		TopMenuInterceptor topMenuInterceptor = new TopMenuInterceptor(topMenuService, signInUserBean);
 		InterceptorRegistration reg1 = registry.addInterceptor(topMenuInterceptor);
 		reg1.addPathPatterns("/**");
+		
+		//로그인 필요한 페이지 로그인 확인 후 분기 처리
+		CheckSignInInterceptor checkSignInInterceptor = new CheckSignInInterceptor(signInUserBean);
+		InterceptorRegistration reg2 = registry.addInterceptor(checkSignInInterceptor);
+		reg2.addPathPatterns("/user/","");
 	}
 	
 	//mapper
