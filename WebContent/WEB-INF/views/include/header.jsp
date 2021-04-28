@@ -13,6 +13,140 @@
 							<svg class="navigation-icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="#757575" d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path></svg>
 						</button>
 					</div>
+					
+					<!--navigation-draw-button-menu-->
+					<div class="navigation-drawer-container">
+                  <div class="navigation-drawer">
+                     <div class="navigation-drawer__header">
+                        <h1 class="navigation-drawer__logo">
+                           <a href="main2.html">
+                           	<img src="./image/favicon.ico" alt="go main page" class="main-home-icon">
+                           	모두의집
+                           </a>
+                        </h1>
+                        <div class="navigation-drawer__user">
+                           <!--비로그인 시-->
+                           <c:choose>
+                           <c:when test="${signInUserBean.userSignIn == false }">
+                           <div class="navigation-drawer__sign-in">
+                              <a href="${root }user/sign_in" class="button button--color-white">로그인</a>
+                              <a href="${root }user/sign_up" class="button button--color-skyblue">회원가입</a>
+                           </div>
+                           </c:when>
+                           <%-- 로그인 시 --%>                        
+                           <c:otherwise>                           
+                           <span class="navigation-drawer__user-image">
+                              <img src="./image/user_icon.jpg" alt="user profile image" class="image">
+                           </span>
+                           <span class="navigation-drawer__user-nickname">
+                              유저닉네임
+                           </span>    
+                           </c:otherwise>
+                           </c:choose>
+                        </div>
+                     </div>
+   
+                     <ul class="navigation-drawer__menu">
+                        <li class="navigation-drawer__list main-list">
+                           <svg class="icon" width="24" height="24" viewBox="0 0 24 24"
+                              preserveAspectRatio="xMidYMid meet">
+                              <g fill="none" fill-rule="evenodd">
+                                 <path d="M1 1h22v22H1z"></path>
+                                 <path fill="#424242" fill-rule="nonzero"
+                                    d="M5.5 11.5v7.6h13v-7.6h-13zM4 10h16v10.6H4V10z"></path>
+                                 <path fill="#424242" fill-rule="nonzero"
+                                    d="M17.92 4.1H6.08l-2 6h15.84l-2-6zM5 2.6h14l3 9H2l3-9z"></path>
+                                 <path stroke="#424242" stroke-width="1.5" d="M13.25 19.85h-2.5v-4.5h2.5v4.5z">
+                                 </path>
+                              </g>
+                           </svg>
+                           커뮤니티
+                           <svg class="arrow-icon" width="12" height="7" fill="currentColor" viewBox="0 0 12 7"
+                              preserveAspectRatio="xMidYMid meet">
+                              <path d="M11 0L5 6l1 1 6-6z"></path>
+                              <path d="M6 7L0 1l1-1 6 6z"></path>
+                           </svg>
+                        </li>
+                        <li class="navigation-drawer__list second close">
+                           <ul class="navigation-drawer__second-menu">
+                              <li class="navigation-drawer__list second-list">
+                                 <a href="">홈</a>
+                              </li>
+                              <li class="navigation-drawer__list second-list">
+                                 <a href="">집들이</a>
+                              </li>
+                              <li class="navigation-drawer__list second-list">
+                                 <a href="">질문과답변</a>
+                              </li>
+                           </ul>
+                        </li>
+                      </ul>
+
+                      <ul class="navigation-drawer__menu">
+                         <li class="navigation-drawer__list main-list">
+                            <svg class="icon" width="24" height="24" viewBox="0 0 24 24"
+                               preserveAspectRatio="xMidYMid meet">
+                               <g fill="none" fill-rule="evenodd">
+                                  <path d="M1 1h22v22H1z"></path>
+                                  <path stroke="#424242" stroke-width="1.5" d="M19 12v8H5v-8"></path>
+                                  <path stroke="#424242" stroke-width="1.5"
+                                     d="M3.25 3.75v6a2.5 2.5 0 0 0 2.5 2.5h.5a2.5 2.5 0 0 0 2.5-2.5v-6h-5.5zm6 0v6a2.5 2.5 0 0 0 2.5 2.5h.5a2.5 2.5 0 0 0 2.5-2.5v-6h-5.5zm6 0v6a2.5 2.5 0 0 0 2.5 2.5h.5a2.5 2.5 0 0 0 2.5-2.5v-6h-5.5z">
+                                  </path>
+                                  <path fill="#424242" d="M5.5 3H18v1.03H5.5z"></path>
+                               </g>
+                            </svg>
+                            스토어
+                            <svg class="arrow-icon" width="12" height="7" fill="currentColor" viewBox="0 0 12 7"
+                               preserveAspectRatio="xMidYMid meet">
+                               <path d="M11 0L5 6l1 1 6-6z"></path>
+                               <path d="M6 7L0 1l1-1 6 6z"></path>
+                            </svg>
+                         </li>
+                         <li class="navigation-drawer__list second close">
+                            <ul class="navigation-drawer__second-menu">
+                               <li class="navigation-drawer__list second-list">
+                                  <a href="">스토어홈</a>
+                               </li>
+                               <li class="navigation-drawer__list second-list">
+                                  <a href="">카테고리</a>
+                               </li>
+                               <li class="navigation-drawer__list second-list">
+                                  <a href="">오늘의딜</a>
+                               </li>
+                            </ul>
+                         </li>
+                      </ul>
+   
+                      <ul class="navigation-drawer__user-menu">
+                         <li class="navigation-drawer__list">
+                            <a href="">마이페이지</a>
+                         </li>
+                         <li class="navigation-drawer__list">
+                            <a href="">나의 쇼핑</a>
+                         </li>
+                         <li class="navigation-drawer__list">
+                            <a href="">스크랩북</a>
+                         </li>
+                         <li class="navigation-drawer__list">
+                            <a href="">사진 올리기</a>
+                         </li>
+                         <li class="navigation-drawer__list">
+                            <a href="">상품 리뷰 쓰기</a>
+                         </li>
+                         <li class="navigation-drawer__list">
+                            <a href="">질문하기</a>
+                         </li>
+                         <c:choose>
+                         <c:when test="${signInUserBean.userSignIn == true }">
+                         <li class="navigation-drawer__list">
+                            <a href="${root }user/sign_out">로그아웃</a>
+                         </li>
+                         </c:when>
+                         </c:choose>
+                      </ul>
+                   </div>
+               </div><!--navigation-draw-button-menu end-->
+					
 					<h1 class="main-title">
 						<a href="${root }" class="main-title-link">모두의집</a>
 					</h1>
