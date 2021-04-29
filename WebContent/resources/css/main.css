@@ -530,6 +530,69 @@ ul {
 .production-discount-rate {
   color: var(--color-red);
 }
+#main-today-deal .today-deal__more-btn {
+  margin-top: 10px;
+  padding: 11px 10px 12px;
+  color: var(--color-darkgrey);
+  text-decoration: none;
+  text-align: center;
+  background-color: var(--color-light-grey);
+  border-radius: 4px;
+}
+#main-today-deal .right-icon {
+  vertical-align: 1px;
+}
+
+/* main keywords */
+#main-keywords {
+  margin-top: 50px;
+}
+#main-keywords .category-title {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.main-keywords__keyword {
+  width: 100%;
+  height: 97px;
+  margin-bottom: 10px;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.main-keywords__keyword::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: var(--color-black);
+  opacity: 0.5;
+}
+.main-keywords__keyword .keyword-image {
+  width: 100%;
+  height: 100%;
+  background-position: 10%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.main-keywords__keyword > span {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  margin: auto;
+}
+.main-keywords__keyword > span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
 @media screen and (min-width: 768px) {
   .navigation-bar__header {
     height: 80px;
@@ -773,6 +836,17 @@ ul {
   .today-deal-item .today-deal-item__review {
     line-height: 1;
     margin-bottom: 5px;
+  }
+  .today-deal__more-btn {
+    display: none;
+  }
+
+  /*keywords*/
+  .main-keywords__keyword {
+    height: 120px;
+  }
+  .main-keywords__keyword > span {
+    font-size: 17px;
   }
 }
 @media screen and (min-width: 992px) {

@@ -39,7 +39,7 @@
                               <img src="./image/user_icon.jpg" alt="user profile image" class="image">
                            </span>
                            <span class="navigation-drawer__user-nickname">
-                              유저닉네임
+                              ${signInUserBean.user_nickname }
                            </span>    
                            </c:otherwise>
                            </c:choose>

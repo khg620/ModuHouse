@@ -56,7 +56,7 @@
 	<section id="main-category">
          <div class="container">
             <div class="row">
-               <div class="col-12">
+               <div class="col-12" style="height: 100%;">
                   <h1 class="category-title">카테고리</h1>
                   <div class="category-box">
                      <div class="mobile-hide prev" onclick="movePrev()">
@@ -297,43 +297,51 @@
                   </article>
                </div>
             </div>
+            <div class="row">
+               <div class="col-12">
+                  <a href="" class="today-deal__more-btn">
+                     오늘의딜 더보기
+                     <svg class="right-icon" width="10" height="10" viewBox="0 0 10 10" fill="currentColor" preserveAspectRatio="xMidYMid meet"><path d="M2.5 8.2L5.63 5 2.5 1.8l.94-.97L7.5 5 3.44 9.17z"></path></svg>
+                  </a>
+               </div>
+            </div>
          </div>
       </section>
    </div>
  
    <!--keywords-->
-   <section>
+   <section id="main-keywords">
       <div class="container">
          <div class="row">
             <div class="col-12">
-               <h1>인기키워드</h1>
+               <h1 class="category-title">인기키워드</h1>
             </div>
          </div>
          <div class="row">
             <div class="col-6 col-md-3">
-               <a href="">
-                  <img src="./image/keywords/round_table.png" alt="round table category">
+               <a href="" class="main-keywords__keyword">
+                  <div class="keyword-image" style="background-image: url(./image/keywords/round_table.png)"></div>
                   <span>#원형테이블</span>
                </a>
             </div>
 
             <div class="col-6 col-md-3">
-               <a href="">
-                  <img src="./image/keywords/air_cleaner.png" alt="air cleaner category">
+               <a href="" class="main-keywords__keyword">
+                  <div class="keyword-image" style="background-image: url(./image/keywords/air_cleaner.png)"></div>
                   <span>#공기청정기</span>
                </a>
             </div>
 
             <div class="col-6 col-md-3">
-               <a href="">
-                  <img src="./image/keywords/Recliner.png" alt="recliner category">
+               <a href="" class="main-keywords__keyword">
+                  <div class="keyword-image" style="background-image: url(./image/keywords/Recliner.png)"></div>
                   <span>#리클라이너 소파</span>
                </a>
             </div>
 
             <div class="col-6 col-md-3">
-               <a href="">
-                  <img src="./image/keywords/keyword_fabric.jpg" alt="fabric category">
+               <a href="" class="main-keywords__keyword">
+                  <div class="keyword-image" style="background-image: url(./image/keywords/keyword_fabric.jpg)"></div>
                   <span>#패브릭 포스터</span>
                </a>
             </div>

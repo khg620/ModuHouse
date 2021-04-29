@@ -189,7 +189,7 @@
     	}
     	terms_list.forEach(v => v.addEventListener('click',checkAllbtn));
 	
-		//유효성 및 중복검사
+		//중복검사
 		//email
 		function checkUserEmailExist() {
 			const user_email1 = $("#user_email1").val().trim();
