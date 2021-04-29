@@ -71,9 +71,9 @@
         </div>
    </footer>
   
-   
+  
  	<script>
- 		const sign_in_fail = ${signInUserBean.userSignInFail }
+ 		const sign_in_fail = '${signInUserBean.userSignInFail }';
  		
  		const user_email = '${tempSignInUserBean.user_email1}'+'@'+'${tempSignInUserBean.user_email2}';
  		const input_email = document.getElementById('user_email2');
