@@ -373,42 +373,111 @@
          </div>
       </div>
    </section>
+   
    <!--product-->
-   <section>
+   <section id="main-best-product">
       <div class="container">
          <div class="row">
-            <div class="col-12"><h1>인기상품</h1></div>
+            <div class="col-12">
+               <h1 id="menu-title" class="product-title">인기상품</h1>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-12">
+               <div class="filter-bar">
+                  <div class="filter-left">
+                     <button class="product-filter-btn-all">
+                        <svg class="filter-icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="#BDBDBD" d="M18.284 4H5.716a.7.7 0 0 0-.61.362.668.668 0 0 0 0 .724l3.963 6.978c.353.632.97 1.348.971 2.076v6.181c.002.24-.054.388.149.558.203.17.343.118.444.095l3.29-1.257c.283-.095.321-.369.317-.676v-4.9c0-.73.338-1.445.69-2.077l3.963-6.978a.668.668 0 0 0 0-.724.7.7 0 0 0-.61-.362z"></path></svg>
+                     </button>
+                     <button class="product-filter-btn-delivery">
+                        배송
+                        <svg class="arrow-icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor" preserveAspectRatio="xMidYMid meet"><path d="M6.069 6.72l4.123-3.783 1.216 1.326-5.32 4.881L.603 4.273l1.196-1.346z"></path></svg>
+                     </button>
+                     <div class="toggle-btn-wrap">
+                        <div class="toggle-btn">
+                           <div class="btn-layout">
+                              <span class="filter-option">무료배송만 보기</span>
+                              <label class="switch">
+                                 <input type="checkbox">
+                                 <span class="slider round"></span>
+                              </label>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="filter-right">
+                     <span>
+                        인기순
+                        <svg class="caret" width="8" height="8" viewBox="0 0 8 8" preserveAspectRatio="xMidYMid meet"><path fill="#BDBDBD" d="M0 2l4 4 4-4z"></path></svg>
+                     </span>
+                     <div class="filter-modal-container">
+                        <div class="filter-modal">
+                           <h1>정렬</h1>
+                           <ul class="order-menu">
+                              <li class="order-list"><button class="order-list-btn">판매순</button></li>
+                              <li class="order-list"><button class="order-list-btn">인기순</button></li>
+                              <li class="order-list"><button class="order-list-btn">많은 리뷰순</button></li>
+                              <li class="order-list"><button class="order-list-btn">높은 가격순</button></li>
+                              <li class="order-list"><button class="order-list-btn">낮은 가격순</button></li>
+                              <li class="order-list"><button class="order-list-btn">최신순</button></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
          </div>
          <div class="row">
             <div class="col-6 col-md-3">
-               <article>
-                  <a href="">
-                     <img src="./image/items/livart_sofa.jpg" alt="livart sofa">
-                     <div>
-                        <h1>
-                           <span>리바트</span>
-                           <span>올 뉴탐 3인/1인용 패브릭 소파</span>
-                        </h1>
+               <article class="product-item">
+                  <a href="" class="product-item-overlay"></a>
+                  <div class="product-item__image-wrap">
+                     <img src="./image/items/livart_sofa.jpg" alt="livart sofa" class="product-item__image">
+                  </div>
+                     <div class="product-item__content">
+                        <div class="product-item__content-wrap">
+                           <h1 class="today-deal-item__header product-item-header">
+                              <span class="today-deal-item__brand product-brand">모던바로크</span>
+                              <span class="today-deal-item__name product-name">LED 수납 침대 시리즈</span>
+                           </h1>
+                           <div class="product-price">
+                              <span class="product-discount-rate">49%</span>
+                              <span class="product-discount-price">70,900 외</span>
+                           </div>
+                           <p class="today-deal-item__review product-review">
+                              <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24"
+                                 preserveAspectRatio="xMidYMid meet" fill="currentColor">
+                                 <path fill-rule="evenodd"
+                                    d="M12 19.72l-5.677 2.405c-.76.322-1.318-.094-1.247-.906l.533-6.142-4.042-4.656c-.54-.624-.317-1.283.477-1.467l6.006-1.39L11.23 2.28c.426-.707 1.122-.699 1.542 0l3.179 5.282 6.006 1.391c.805.187 1.011.851.477 1.467l-4.042 4.656.533 6.142c.072.822-.497 1.224-1.247.906L12 19.72z">
+                                 </path>
+                              </svg>
+                              <strong class="avg">
+                                 4.6
+                              </strong>
+                              <span class="review">리뷰 231</span>
+                           </p>
+                        </div>
                      </div>
-                  </a>
                </article>
             </div>
          </div>
       </div>
    </section>
+   
  	<script>
  		//헤더 user 아이콘 drop-down 메뉴
- 		let cnt = 0;
- 		const dropdown_menu = document.querySelector('.navigation-user__dropdown-menu');
- 		function showUserMenu(){
- 			if(cnt === 0){ 				
- 				dropdown_menu.classList.add('click');
- 				cnt++;
- 			} else {
- 				dropdown_menu.classList.remove('click');
- 				cnt = 0;
- 			}
- 		}
+ 		const user_menu = document.querySelector('.navigation-user-menu');
+		const dropdown_menu = document.querySelector('.navigation-user__dropdown-menu');
+		const caret_icon = document.querySelector('.drop-down');
+
+		const showUserMenu = () =>{
+			dropdown_menu.classList.toggle('click');
+	   		if(caret_icon.style.transform === 'rotate(180deg)'){
+	      		caret_icon.style.transform = 'rotate('+ 0 +'deg)';
+	   		} else {
+	      		caret_icon.style.transform = 'rotate('+ 180 +'deg)';
+	   		}
+		};
  		
  		//navigation-drawer-button
  		const nav_draw_btn = document.querySelector('.navigation-draw-button');
@@ -468,6 +537,67 @@
  			category_wrap.style.transition = 'transform 1s';
  			category_wrap.style.transform = 'translateX(0%)';
  		}
+ 		
+ 		//product(인기상품)
+ 		//왼쪽 필터 - 토글버튼(배송옵션)
+ 		const toggle_btn = document.querySelector('.product-filter-btn-delivery');
+ 		const arrow_icon = toggle_btn.querySelector('.arrow-icon');
+ 		const filter_left_background = document.querySelector('#main-best-product .toggle-btn-wrap');
+ 		const filter_left_modal = document.querySelector('#main-best-product .toggle-btn');
+ 		const slider_btn = document.querySelector('#main-best-product input');
+
+ 		toggle_btn.addEventListener('click',() => {
+ 		   if(arrow_icon.style.transform === 'rotate(180deg)'){
+ 		      arrow_icon.style.transform = 'rotate('+0+'deg)';   
+ 		   } else {
+ 		      arrow_icon.style.transform = 'rotate('+180+'deg)';
+ 		   }
+ 		   filter_left_background.classList.toggle('show');
+ 		   filter_left_modal.classList.toggle('show');
+ 		});
+
+ 		filter_left_background.addEventListener('click',(e) => {
+ 		   if(e.target.contains(filter_left_background)){
+ 		      arrow_icon.style.transform = 'rotate('+0+'deg)';
+ 		      filter_left_background.classList.remove('show');
+ 		      filter_left_modal.classList.remove('show');
+ 		   }
+ 		});
+
+ 		slider_btn.addEventListener('change',()=>{
+ 		   setTimeout(()=>{
+ 		      arrow_icon.style.transform = 'rotate('+0+'deg)';
+ 		      filter_left_background.classList.remove('show');
+ 		      filter_left_modal.classList.remove('show');
+ 		   },200)
+ 		});
+
+
+ 		//오른쪽 필터
+ 		const modal_container = document.querySelector('#main-best-product .filter-modal-container');
+ 		const filter_modal = document.querySelector('#main-best-product .filter-modal')
+ 		const filter_right = document.querySelector('.filter-right span');
+ 		const caret = document.querySelector('.filter-right .caret');
+
+ 		filter_right.addEventListener('click',() => {
+ 		   if(caret.style.transform === 'rotate(180deg)'){
+ 		      caret.style.transform = 'rotate('+0+'deg)';
+ 		   } else {
+ 		      caret.style.transform = 'rotate('+180+'deg)';
+ 		   }
+ 		   modal_container.classList.toggle('show');
+ 		   filter_modal.classList.toggle('show');
+ 		   console.log(caret.style.transform)
+ 		})
+
+ 		window.addEventListener('click',(e) => {
+ 		   if(e.target !== filter_right){
+ 		      caret.style.transform = 'rotate('+0+'deg)';
+ 		      modal_container.classList.remove('show');
+ 		      filter_modal.classList.remove('show');
+ 		   }
+ 		},true)
+
 
  	</script>
 </body>
