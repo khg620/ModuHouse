@@ -177,6 +177,7 @@
             </div>
          </div>
       </section>
+      
    <!--today-deal-->
     <section id="main-today-deal">
          <div class="container">
@@ -190,13 +191,13 @@
             </div>
             <div class="row">
                <div class="col-12 col-md-4 col-lg-3">
-                  <article class="today-deal-item">
-                  	<a href="" class="today-deal-item-overlay"></a>
-                     <div class="today-deal-item__image-wrap">
-                        <img class="today-deal-item__image" src="./image/items/wood_blind.jpg" alt="Nubes wood blind">
+                  <article class="product-item">
+                  	<a href="" class="product-item-overlay"></a>
+                     <div class="product-item__image-wrap">
+                        <img class="product-item__image" src="./image/items/wood_blind.jpg" alt="Nubes wood blind">
                      </div>
-                     <div class="today-deal-item__content">
-                        <div class="today-deal-item__content-wrap">
+                     <div class="product-item__content">
+                        <div class="product-item__content-wrap">
                            <h1 class="today-deal-item__header product-item-header">
                               <span class="today-deal-item__brand product-brand">누베스</span>
                               <span class="today-deal-item__name product-name">오동나무 우드 블라인드 셀프 블라인드</span>
@@ -223,13 +224,13 @@
                </div>
    
                <div class="col-12 col-md-4 col-lg-3">
-                  <article class="today-deal-item">
-                  	<a href="" class="today-deal-item-overlay"></a>
-                     <div class="today-deal-item__image-wrap">
-                        <img class="today-deal-item__image" src="./image/items/stepper.jpg" alt="">
+                  <article class="product-item">
+                  	<a href="" class="product-item-overlay"></a>
+                     <div class="product-item__image-wrap">
+                        <img class="product-item__image" src="./image/items/stepper.jpg" alt="">
                      </div>
-                     <div class="today-deal-item__content">
-                        <div class="today-deal-item__content-wrap">
+                     <div class="product-item__content">
+                        <div class="product-item__content-wrap">
                            <h1 class="today-deal-item__header product-item-header">
                               <span class="today-deal-item__brand product-brand">미드브로</span>
                               <span class="today-deal-item__name product-name">스텝퍼 실내 계단 오르기 운동기구</span>
@@ -256,13 +257,13 @@
                </div>
    
                <div class="col-12 col-md-4 col-lg-3">
-                  <article class="today-deal-item">
-                  	<a href="" class="today-deal-item-overlay"></a>
-                     <div class="today-deal-item__image-wrap">
-                        <img class="today-deal-item__image" src="./image/items/LGcinebim.jpg" alt="LG cinebim">
+                  <article class="product-item">
+                  	<a href="" class="product-item-overlay"></a>
+                     <div class="product-item__image-wrap">
+                        <img class="product-item__image" src="./image/items/LGcinebim.jpg" alt="LG cinebim">
                      </div>
-                     <div class="today-deal-item__content">
-                        <div class="today-deal-item__content-wrap">
+                     <div class="product-item__content">
+                        <div class="product-item__content-wrap">
                            <h1 class="today-deal-item__header product-item-header">
                               <span class="today-deal-item__brand product-brand">LG전자</span>
                               <span class="today-deal-item__name product-name">LG 시네빔 베스트</span>
@@ -289,13 +290,13 @@
                </div>
    
                <div class="col-12 col-md-4 col-lg-3">
-                  <article class="today-deal-item">
-                  	<a href="" class="today-deal-item-overlay"></a>
-                     <div class="today-deal-item__image-wrap">
-                        <img class="today-deal-item__image" src="./image/items/bed.jpg" alt="modern baroque bed">
+                  <article class="product-item">
+                  	<a href="" class="product-item-overlay"></a>
+                     <div class="product-item__image-wrap">
+                        <img class="product-item__image" src="./image/items/bed.jpg" alt="modern baroque bed">
                      </div>
-                     <div class="today-deal-item__content">
-                        <div class="today-deal-item__content-wrap">
+                     <div class="product-item__content">
+                        <div class="product-item__content-wrap">
                            <h1 class="today-deal-item__header product-item-header">
                                  <span class="today-deal-item__brand product-brand">모던바로크</span>
                                  <span class="today-deal-item__name product-name">LED 수납 침대 시리즈</span>
