@@ -191,6 +191,7 @@
             <div class="row">
                <div class="col-12 col-md-4 col-lg-3">
                   <article class="today-deal-item">
+                  	<a href="" class="today-deal-item-overlay"></a>
                      <div class="today-deal-item__image-wrap">
                         <img class="today-deal-item__image" src="./image/items/wood_blind.jpg" alt="Nubes wood blind">
                      </div>
@@ -218,6 +219,7 @@
    
                <div class="col-12 col-md-4 col-lg-3">
                   <article class="today-deal-item">
+                  	<a href="" class="today-deal-item-overlay"></a>
                      <div class="today-deal-item__image-wrap">
                         <img class="today-deal-item__image" src="./image/items/stepper.jpg" alt="">
                      </div>
@@ -245,6 +247,7 @@
    
                <div class="col-12 col-md-4 col-lg-3">
                   <article class="today-deal-item">
+                  	<a href="" class="today-deal-item-overlay"></a>
                      <div class="today-deal-item__image-wrap">
                         <img class="today-deal-item__image" src="./image/items/LGcinebim.jpg" alt="LG cinebim">
                      </div>
@@ -272,6 +275,7 @@
    
                <div class="col-12 col-md-4 col-lg-3">
                   <article class="today-deal-item">
+                  	<a href="" class="today-deal-item-overlay"></a>
                      <div class="today-deal-item__image-wrap">
                         <img class="today-deal-item__image" src="./image/items/bed.jpg" alt="modern baroque bed">
                      </div>
