@@ -57,7 +57,7 @@
          <div class="container">
             <div class="row">
                <div class="col-12" style="height: 100%;">
-                  <h1 class="category-title">카테고리</h1>
+                  <h1 id="menu-title" class="category-title">카테고리</h1>
                   <div class="category-box">
                      <div class="mobile-hide prev" onclick="movePrev()">
                         <div class="category-list-prev">
@@ -183,7 +183,7 @@
             <div class="row">
                <div class="col-12">
                   <div class="title-container">
-                     <h1 class="today-deal-title">오늘의 딜</h1>
+                     <h1 id="menu-title" class="today-deal-title">오늘의 딜</h1>
                      <a>더보기</a>
                   </div>
                </div>
@@ -318,7 +318,7 @@
       <div class="container">
          <div class="row">
             <div class="col-12">
-               <h1 class="category-title">인기키워드</h1>
+               <h1 id="menu-title" class="keyword-title">인기키워드</h1>
             </div>
          </div>
          <div class="row">
