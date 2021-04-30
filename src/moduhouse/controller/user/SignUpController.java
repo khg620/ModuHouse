@@ -22,7 +22,7 @@ import moduhouse.validator.UserValidator;
 public class SignUpController {
 	
 	private final UserService userService;
-
+	
 	@GetMapping
 	public String signUp(@ModelAttribute("signUpUserBean") UserBean signUpUserBean) {
 		return "user/sign_up";
@@ -38,6 +38,7 @@ public class SignUpController {
 		}
 		
 		userService.addUserInfo(signUpUserBean);
+		
 		return "redirect:/user/sign_in";
 	}
 	

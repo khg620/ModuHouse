@@ -1,6 +1,5 @@
 package moduhouse.controller.user;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -23,7 +22,6 @@ import moduhouse.service.user.UserService;
 public class SignInContorller {
 	
 	private final UserService userService;
-	//@Resource(name = "signInUserBean")
 	private final UserBean signInUserBean;
 
 	@GetMapping("/sign_in")
@@ -36,18 +34,18 @@ public class SignInContorller {
 	public String signIn_pro(HttpServletRequest request, @Valid @ModelAttribute("tempSignInUserBean") UserBean tempSignInUserBean, BindingResult result) {
 		
 		if(result.hasErrors()) {
+			tempSignInUserBean.setUserSignInFail(true);
 			return "user/sign_in";
 		}
 		String[] inputEmail = tempSignInUserBean.getUser_email2().split("@");		
 		tempSignInUserBean.setUser_email1(inputEmail[0]);
 		tempSignInUserBean.setUser_email2(inputEmail[1]);
 		
-		userService.getSignInUserInfo(tempSignInUserBean);
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("signInUserBean", signInUserBean);
+		userService.getSignInUserInfo(tempSignInUserBean);	
 		
 		if(signInUserBean.isUserSignIn()) {
+			HttpSession session = request.getSession();
+			session.setAttribute("tempSignInUserBean", tempSignInUserBean);
 			return "redirect:/store";
 		} else {
 			return "user/sign_in";
@@ -57,7 +55,7 @@ public class SignInContorller {
 	@GetMapping("/sign_out")
 	public String signOut() {
 		signInUserBean.setUserSignIn(false);
-		return "redirect:/main";
+		return "redirect:/store";
 	}
 	
 	@GetMapping("/not_signIn")

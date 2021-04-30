@@ -200,7 +200,7 @@
 				type:"get",
 				dataType:"text",
 				success:function(result){
-					if(result.trim()=="true"){
+					if(result.trim()==="true"){
 						$("#user_email2").parent().children('p').remove();
 						$("#user_email2").parent().append('<p style="color:#ff7777; font-size: 13px; margin-top: 7px">이미 사용 중인 이메일입니다.</p>');	
 						$("#user_email2").select();
@@ -223,7 +223,7 @@
 		const email_input2 = document.querySelector('#user_email2');
 		
 		email_input.addEventListener('input',() => {
-			console.log(document.querySelector('#user_email2+span'))
+			
 			if(email_regexp.test(email_input.value)) {
 				if(document.querySelector('#user_email2+span') !== null) {
 					document.querySelector('#user_email2+span').remove();

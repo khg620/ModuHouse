@@ -38,7 +38,7 @@ public class UserService {
 			signInUserBean.setUser_nickname(tempSignInUserBean2.get().getUser_nickname());
 			signInUserBean.setUserSignIn(true);
 		} else {
-			signInUserBean.setUserSignInFail(true);
+			tempSignInUserBean.setUserSignInFail(true);
 		}
 	}
 

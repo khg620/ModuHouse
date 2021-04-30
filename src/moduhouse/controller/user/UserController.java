@@ -46,7 +46,7 @@ public class UserController {
 	
 	@PostMapping("/product_reviews/write")
 	public String writeProductReview_pro() {
-		return "redirect:/user/mypage_review_write";
+		return "redirect:/product_reviews/write";
 	}
 	
 	//나의 리뷰 - 보기
@@ -63,7 +63,7 @@ public class UserController {
 	
 	@PostMapping("/user/edit")
 	public String userEdit_pro() {
-		return "redirect:/user/mypage_edit";
+		return "redirect:/user/edit";
 	}
 	
 	//설정 - 비밀번호
@@ -74,7 +74,7 @@ public class UserController {
 	
 	@PostMapping("/user/edit_pssword")
 	public String editPassword_pro() {
-		return "redirect:/user/mypage_edit_password";
+		return "redirect:/user/edit_password";
 	}
 	
 	//설정 - 알림 설정
@@ -85,7 +85,7 @@ public class UserController {
 	
 	@PostMapping("/push_setting")
 	public String pushSetting_pro() {
-		return "redirect:/user/mypage_edit_push";
+		return "redirect:/push_setting";
 	}
 
 }

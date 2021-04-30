@@ -73,12 +73,12 @@
   
   
  	<script>
- 		const sign_in_fail = '${signInUserBean.userSignInFail }';
+ 		const sign_in_fail = ${tempSignInUserBean.userSignInFail };
  		
  		const user_email = '${tempSignInUserBean.user_email1}'+'@'+'${tempSignInUserBean.user_email2}';
  		const input_email = document.getElementById('user_email2');
  		const input_pw = document.getElementById('user_pw1');
-
+ 		
  		if(sign_in_fail){
  			input_email.value = user_email;
  			if(input_email.value.indexOf('@') === 0) {
