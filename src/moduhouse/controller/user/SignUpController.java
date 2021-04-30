@@ -38,7 +38,7 @@ public class SignUpController {
 		}
 		
 		userService.addUserInfo(signUpUserBean);
-		return "redirect:/store_main";
+		return "redirect:/user/sign_in";
 	}
 	
 	@InitBinder
