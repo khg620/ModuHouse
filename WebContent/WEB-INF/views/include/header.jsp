@@ -19,7 +19,7 @@
                   <div class="navigation-drawer">
                      <div class="navigation-drawer__header">
                         <h1 class="navigation-drawer__logo">
-                           <a href="main2.html">
+                           <a href="${root }">
                            	<img src="./image/favicon.ico" alt="go main page" class="main-home-icon">
                            	모두의집
                            </a>
@@ -70,13 +70,13 @@
                         <li class="navigation-drawer__list second close">
                            <ul class="navigation-drawer__second-menu">
                               <li class="navigation-drawer__list second-list">
-                                 <a href="">홈</a>
+                                 <a href="${root }">홈</a>
                               </li>
                               <li class="navigation-drawer__list second-list">
-                                 <a href="">집들이</a>
+                                 <a href="${root }">커뮤니티</a>
                               </li>
                               <li class="navigation-drawer__list second-list">
-                                 <a href="">질문과답변</a>
+                                 <a href="${root }">질문과답변</a>
                               </li>
                            </ul>
                         </li>
@@ -105,13 +105,13 @@
                          <li class="navigation-drawer__list second close">
                             <ul class="navigation-drawer__second-menu">
                                <li class="navigation-drawer__list second-list">
-                                  <a href="">스토어홈</a>
+                                  <a href="${root }">스토어홈</a>
                                </li>
                                <li class="navigation-drawer__list second-list">
-                                  <a href="">카테고리</a>
+                                  <a href="${root }">카테고리</a>
                                </li>
                                <li class="navigation-drawer__list second-list">
-                                  <a href="">오늘의딜</a>
+                                  <a href="${root }">오늘의딜</a>
                                </li>
                             </ul>
                          </li>
@@ -119,22 +119,22 @@
    
                       <ul class="navigation-drawer__user-menu">
                          <li class="navigation-drawer__list">
-                            <a href="">마이페이지</a>
+                            <a href="${root }user/home">마이페이지</a>
                          </li>
                          <li class="navigation-drawer__list">
-                            <a href="">나의 쇼핑</a>
+                            <a href="${root }user/shopping/order_list">나의 쇼핑</a>
                          </li>
                          <li class="navigation-drawer__list">
-                            <a href="">스크랩북</a>
+                            <a href="${root }">스크랩북</a>
                          </li>
                          <li class="navigation-drawer__list">
-                            <a href="">사진 올리기</a>
+                            <a href="${root }">사진 올리기</a>
                          </li>
                          <li class="navigation-drawer__list">
-                            <a href="">상품 리뷰 쓰기</a>
+                            <a href="${root }product_reviews/write">상품 리뷰 쓰기</a>
                          </li>
                          <li class="navigation-drawer__list">
-                            <a href="">질문하기</a>
+                            <a href="${root }">질문하기</a>
                          </li>
                          <c:choose>
                          <c:when test="${signInUserBean.userSignIn == true }">
@@ -153,18 +153,18 @@
 					<div class="header-right">
 						<div class="navigation-search"></div>
 						<input type="text" placeholder="스토어 검색" class="navigation-search-input" /> 
-							<a href="#" class="navigation__icon"> 
+							<a href="${root }" class="navigation__icon"> 
 								<svg class="navigation-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#757575" stroke-width="2" preserveAspectRatio="xMidYMid meet"><path d="M22 22l-5-5"></path><circle cx="11" cy="11" r="8"></circle></svg>
 							</a> 
 							<c:choose>
 							<c:when test="${signInUserBean.userSignIn == true }">
-							<a href="" class="navigation__icon mobile-hide">								
+							<a href="${root }" class="navigation__icon mobile-hide">								
 								<svg class="navigation-icon" width="24" height="24" stroke="#757575" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="none" stroke-width="2" d="M3 20.967zm0 0V2.5a.5.5 0 01.5-.5h17a.5.5 0 01.5.5v18.467l-8.057-4.309a2 2 0 00-1.886 0L3 20.968z"></path></svg>
 							</a>
-							<a href="" class="navigation__icon mobile-hide">
+							<a href="${root }" class="navigation__icon mobile-hide">
 								<svg class="navigation-icon" width="24" height="24" stroke="#757575" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.04 4.19C10.16 3.16 10.6 2 12.05 2c1.35 0 1.78 1.11 1.9 2.13C21.05 5.25 21 13.43 21 19H3c0-5.48-.05-13.48 7.04-14.81zM10 19c0 1.66.9 3 2 3s2-1.34 2-3"></path></svg>
 							</a>
-							<a href="#" class="navigation__icon"> 
+							<a href="${root }" class="navigation__icon"> 
 								<svg class="navigation-icon" width="24" height="24" viewBox="0 0 24 24" stroke="#757575" fill="none" stroke-linejoin="round" stroke-width="2" preserveAspectRatio="xMidYMid meet"><path stroke-linecap="round" d="M4 5h18l-2.6 10.5a2 2 0 0 1-2 1.5H8.6a2 2 0 0 1-2-1.5L4 5zm4 15.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 1 1-3 0zm7 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 1 1-3 0z"></path><path d="M1 2h3v3"></path></svg>
 							</a> 
 							</c:when>
@@ -184,13 +184,13 @@
                           <div class="navigation-user__dropdown-menu">
                              <ul class="navigation-user__menu-list">
                                 <li class="my-menu">
-                                   <a href="">마이페이지</a>
+                                   <a href="${root }user/home">마이페이지</a>
                                 </li>
                                 <li class="my-menu">
-                                   <a href="">나의쇼핑</a>
+                                   <a href="${root }user/shopping/order_list">나의쇼핑</a>
                                 </li>
                                 <li class="my-menu">
-                                   <a href="">이벤트</a>
+                                   <a href="${root }">이벤트</a>
                                 </li>
                                 <li class="my-menu">
                                    <a href="${root }user/sign_out">로그아웃</a>
@@ -198,10 +198,9 @@
                              </ul>
                           </div>
                        </div>
-                      </c:when>
-							<c:otherwise></c:otherwise>						
+                      </c:when>						
 						</c:choose>
-                       <a href="" class="navigation-upload mobile-hide">글쓰기</a>
+                       <button class="navigation-upload mobile-hide">글쓰기</button>
                     </div>
                  </div>
               </div>

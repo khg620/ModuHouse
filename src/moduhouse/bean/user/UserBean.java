@@ -12,7 +12,7 @@ import lombok.Setter;
 public class UserBean {
 	
 	private int user_idx;
-	@Pattern(regexp="^[a-z0-9][a-z0-9-_]*$")
+	@Pattern(regexp="^[a-z0-9][a-z0-9-_]{4,64}$")
 	private String user_email1;
 	private String user_email2;
 	@Pattern(regexp="(?=.*[a-z])(?=.*[0-9])(?=.*[-_!]).{8,15}")

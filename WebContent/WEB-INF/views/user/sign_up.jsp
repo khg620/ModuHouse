@@ -189,8 +189,8 @@
     	}
     	terms_list.forEach(v => v.addEventListener('click',checkAllbtn));
 	
-		//중복검사
 		//email
+		//중복검사
 		function checkUserEmailExist() {
 			const user_email1 = $("#user_email1").val().trim();
 			const user_email2 = $("#user_email2").val();
@@ -217,11 +217,25 @@
 		function resetMessage() {
 			$("#user_email2").parent().children('p').remove();
 		}
+		//유효성 검사 실패 후 다시 되돌와왔을 때 에러메세지 삭제
+		const email_regexp = /^[a-z0-9][a-z0-9-_]{4,64}$/;
+		const email_input = document.querySelector('#user_email1');
+		const email_input2 = document.querySelector('#user_email2');
+		
+		email_input.addEventListener('input',() => {
+			console.log(document.querySelector('#user_email2+span'))
+			if(email_regexp.test(email_input.value)) {
+				if(document.querySelector('#user_email2+span') !== null) {
+					document.querySelector('#user_email2+span').remove();
+				}
+			}
+		});
+		
 		
 		//password
 	   const password1 = document.getElementById('user_pw1');
 	   const password2 = document.getElementById('user_pw2');
-	   const regexp = /(?=.*[a-z])(?=.*[0-9])(?=.*[-_!]).{8,15}/;
+	   const pwd_regexp = /(?=.*[a-z])(?=.*[0-9])(?=.*[-_!]).{8,15}/;
 
 	   const box1 = document.createElement('p');
 	   const box2 = document.createElement('p');
@@ -231,7 +245,7 @@
 	   const checkPassword1 = (event) => {
 	      password1.parentElement.appendChild(box1);
 
-	      if(regexp.test(event.target.value)) {
+	      if(pwd_regexp.test(event.target.value)) {
 	         password1.classList.remove('input_error');
 	         box1.classList.remove('error');
 	         box1.classList.add('ok');

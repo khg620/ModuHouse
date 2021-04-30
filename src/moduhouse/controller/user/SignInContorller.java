@@ -48,7 +48,7 @@ public class SignInContorller {
 		session.setAttribute("signInUserBean", signInUserBean);
 		
 		if(signInUserBean.isUserSignIn()) {
-			return "redirect:/main";
+			return "redirect:/store";
 		} else {
 			return "user/sign_in";
 		}
