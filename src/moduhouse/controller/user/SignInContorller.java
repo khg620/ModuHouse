@@ -45,7 +45,7 @@ public class SignInContorller {
 		
 		if(signInUserBean.isUserSignIn()) {
 			HttpSession session = request.getSession();
-			session.setAttribute("tempSignInUserBean", tempSignInUserBean);
+			session.setAttribute("signInUserBean", signInUserBean);
 			return "redirect:/store";
 		} else {
 			return "user/sign_in";
