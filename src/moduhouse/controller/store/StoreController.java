@@ -16,13 +16,13 @@ public class StoreController {
 	
 	private final UserBean signInUserBean;
 	
-	@GetMapping("/main")
+	@GetMapping("/store")
 	public String main(Model model, HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("signInUserBean", signInUserBean);
 		
-		return "main";
+		return "store_main";
 	}
 
 }
