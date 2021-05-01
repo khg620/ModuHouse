@@ -18,9 +18,9 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
 	rel="stylesheet">
-<link rel="icon" href="../image/favicon.ico">
-<link rel="apple-touch-icon" href="../image/favicon.ico">
-<link rel="short icon" type="image/x-icon" href="../image/favicon.ico">
+<link rel="icon" href="${root }image/favicon.ico">
+<link rel="apple-touch-icon" href="${root }image/favicon.ico">
+<link rel="short icon" type="image/x-icon" href="${root }image/favicon.ico">
 <title>누구나 멋진 인테리어, 모두의 집</title>
 <script src="https://kit.fontawesome.com/7218b951ec.js"
 	crossorigin="anonymous"></script>
@@ -35,7 +35,7 @@
 		<div class="main-link">
 			<h2>
 				<a href="${root }" class="main-icon"> <img
-					src="../image/main_home_icon.png" class="main-img"
+					src="${root }image/main_home_icon.png" class="main-img"
 					alt="go main page"> 모두의 집
 				</a>
 			</h2>
@@ -48,17 +48,17 @@
 					<ul class="sign-up-form__button-list">
 						<li>
 							<a href="#"> 
-								<img src="../image/facebook.png" alt="login with facebook" class="sns-sign"/>
+								<img src="${root }image/facebook.png" alt="login with facebook" class="sns-sign"/>
 							</a>
 						</li>
 						<li>
 							<a href="#">
-								<img src="../image/naver.png" alt="login with naver" class="sns-sign"/>
+								<img src="${root }image/naver.png" alt="login with naver" class="sns-sign"/>
 							</a>
 						</li>
 						<li>
 							<a href="#">
-								<img src="../image/kakao.png"
+								<img src="${root }image/kakao.png"
 								alt="login with kakaotalk" class="sns-sign"/>
 							</a>
 						</li>
