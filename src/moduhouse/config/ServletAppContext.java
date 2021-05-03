@@ -104,12 +104,12 @@ public class ServletAppContext implements WebMvcConfigurer{
 		//마이페이지 nav
 		
 		
-		
 		//로그인 필요한 페이지 로그인 확인 후 분기 처리
 		CheckSignInInterceptor checkSignInInterceptor = new CheckSignInInterceptor(signInUserBean);
 		InterceptorRegistration reg3 = registry.addInterceptor(checkSignInInterceptor);
 		reg3.addPathPatterns("/user/mypage/*","/user/sign_out","/community/*");
 		reg3.excludePathPatterns("/community/main");
+		
 	}
 	
 	//mapper

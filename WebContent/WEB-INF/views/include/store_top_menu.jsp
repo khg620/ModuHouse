@@ -9,8 +9,8 @@
 				<div class="col-12">
 					<ul class="navigation-bar-secondary__menu">
 						<c:forEach var="obj" items="${storeTopMenuList }">
-							<li class="navigation-bar-secondary__list">
-								<a href="${root }menu/${obj.main_menu_idx}" class="menu-link">${obj.main_menu_name }</a>
+							<li class="navigation-bar-secondary__list">		
+								<a href="${root }${obj.main_menu_url }" class="menu-link">${obj.main_menu_name }</a>
 							</li>
 						</c:forEach>
 					</ul>

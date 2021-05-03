@@ -1,0 +1,216 @@
+/*Global*/
+:root {
+  /*color*/
+  --color-white: #fafafa;
+  --color-blue: #23b3df;
+  --color-skyblue: #35c5f0;
+  --color-green: #1ec800;
+  --color-black: #424242;
+  --color-darkgrey: #757575;
+  --color-grey: #dbdbdb;
+  --color-light-grey: #ededed;
+  --color-white-grey: #f5f5f5;
+  --color-red: #ff7777;
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  word-spacing: -0.08em;
+  font-family: "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", sans-serif;
+  color: var(--color-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: default;
+}
+/*Universal tags*/
+h1 {
+  margin-bottom: 0;
+}
+button {
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+}
+a {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--color-black);
+}
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+/*commons*/
+
+/* edit_user_info */
+.mypage_edit_menu > ul {
+  display: flex;
+  justify-content: center;
+  padding-left: inherit;
+  margin-bottom: inherit;
+  border-top: 1px solid var(--color-light-grey);
+  border-bottom: 1px solid var(--color-light-grey);
+}
+.mypage_edit_menu .edit_menu_item > a {
+  display: inherit;
+  height: 50px;
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: inherit;
+  line-height: 50px;
+  color: inherit;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+.mypage_edit_menu .edit_menu_item > a:hover {
+  color: var(--color-skyblue);
+}
+.mypage_edit_menu .edit_menu_item.selected {
+  border-bottom: 5px solid var(--color-skyblue);
+}
+#edit_user_info {
+  padding: 80px 30px;
+}
+.edit_user_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+#edit_user_info .header__title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 0;
+  flex: 1 0 0;
+}
+#edit_user_info .header__withdrawals > a {
+  color: var(--color-grey);
+  cursor: pointer;
+}
+
+/* form */
+.form-item-group {
+  width: 100%;
+  display: flex;
+  padding: 20px 0;
+}
+.form-item-group .input-label:not(label[for="user_image"]) {
+  width: 100px;
+  padding: 10px 0;
+}
+.input_required {
+  margin-top: 5px;
+  color: var(--color-darkgrey);
+}
+.form-item-group .input-control,
+#user_email2 {
+  width: 100%;
+  height: 40px;
+  padding: 0 15px;
+  border-radius: 6px;
+  border: 1px solid var(--color-grey);
+  font-size: 15px;
+  font-weight: 400;
+  flex: 1 1 0;
+  cursor: text;
+}
+#edit_user_info #user_email1,
+#edit_user_info #user_email2 {
+  flex: 1 1 0;
+  width: 50%;
+}
+.form-item-wrap .input-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex: 1 1 0;
+}
+.form-item-group .input-control:focus,
+#user_email2:focus {
+  background-color: var(--color-white);
+  outline: none;
+  box-shadow: 0 0 3px var(--color-skyblue);
+}
+.form-item-group.user-email {
+  flex-direction: column;
+}
+.user-email .form-item-wrap {
+  display: flex;
+  flex-direction: row;
+}
+#edit_user_info label[for="user_email1"],
+#edit_user_info label[for="user_nickname"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-item-group.user-email .email-separator {
+  color: var(--color-grey);
+  line-height: 40px;
+}
+.user-email > .edit_notice {
+  display: block;
+  padding-left: 100px;
+  margin-top: 10px;
+  color: var(--color-darkgrey);
+}
+.user_gender.form-item-group {
+  align-items: center;
+}
+.user_gender .input-wrap {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  flex: 1 1 0;
+}
+.user_gender_radio {
+  font-size: 15px;
+  line-height: 22px;
+  margin-right: 10px;
+}
+label[for="user_image"] {
+  width: 100px;
+}
+#edit_user_info .user_image__btn {
+  flex: 1 0 0;
+  max-width: 200px;
+  height: 100%;
+  padding: 0;
+  border: 1px solid var(--color-grey);
+  cursor: pointer;
+}
+#edit_user_info .user_image {
+  width: 100%;
+  height: 100%;
+  cursor: inherit;
+}
+.edit-btn {
+  margin: 50px 0;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  #edit_user_info {
+    padding: 0;
+  }
+  #edit_user_info .form-container {
+    margin: 50px;
+    padding: 50px;
+    border: 1px solid var(--color-grey);
+    border-radius: 4px;
+  }
+  .form-item-wrap .input-wrap,
+  .form-item-group .input-control {
+    max-width: 400px;
+  }
+  #edit_user_info .edit-btn {
+    width: 290px;
+    margin: 50px 0 0 100px;
+  }
+}

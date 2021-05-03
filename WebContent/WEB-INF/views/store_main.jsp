@@ -13,6 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="${root }css/main.css">
+<link rel="stylesheet" href="${root }css/footer.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <link rel="icon" href="${root }image/favicon.ico">
@@ -464,10 +465,9 @@
 			</div>
 		</div>
 	</section>
-
-	<script>
- 		
- 		
+	<!-- footer  -->
+	<c:import url="/WEB-INF/views/include/footer.jsp"/>
+	<script>	
  		//category
  		const category_wrap = document.querySelector('.category-wrap');
  		const prev_btn = document.querySelector('.mobile-hide.prev');
