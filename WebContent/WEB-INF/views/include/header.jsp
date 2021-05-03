@@ -20,7 +20,7 @@
                      <div class="navigation-drawer__header">
                         <h1 class="navigation-drawer__logo">
                            <a href="${root }">
-                           	<img src="./image/favicon.ico" alt="go main page" class="main-home-icon">
+                           	<img src="${root }image/favicon.ico" alt="go main page" class="main-home-icon">
                            	모두의집
                            </a>
                         </h1>
@@ -36,7 +36,7 @@
                            <%-- 로그인 시 --%>                        
                            <c:otherwise>                           
                            <span class="navigation-drawer__user-image">
-                              <img src="./image/user_icon.jpg" alt="user profile image" class="image">
+                              <img src="${root }image/user_icon.jpg" alt="user profile image" class="image">
                            </span>
                            <span class="navigation-drawer__user-nickname">
                               ${signInUserBean.user_nickname }
@@ -207,4 +207,5 @@
            </div>
         </div>
 </header>
+<script src="${root }javascript/header.js" defer></script>
 			
