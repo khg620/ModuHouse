@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="root" value="${pageCotext.request.contextPath }/"/>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<c:set var="root" value="${pageContext.request.contextPath }/"/>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -13,6 +14,7 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="${root }css/main.css">
+   <link rel="stylesheet" href="${root }css/mypage_edit_home.css">
    <link rel="stylesheet" href="${root }css/footer.css">
    <link rel="preconnect" href="https://fonts.gstatic.com">
    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -23,6 +25,7 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
    <title>누구나 멋진 인테리어, 모두의 집</title>
    <script src="https://kit.fontawesome.com/7218b951ec.js" crossorigin="anonymous"></script>
+	<script src="${root }javascript/mypage_edit.js" defer></script>
 </head>
 
 <body>

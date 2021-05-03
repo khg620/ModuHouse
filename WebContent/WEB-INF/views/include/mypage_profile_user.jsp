@@ -19,7 +19,7 @@
 						</div>
 					</dl>
 				</div>
-				<a href="mypage_edit_info.html">설정</a>
+				<a href="${root }user/edit">설정</a>
 				<div>
 					<div>
 						<a href="">
