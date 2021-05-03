@@ -3,6 +3,7 @@ package moduhouse.mapper.user;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Component;
 
 import moduhouse.bean.user.UserBean;
@@ -52,4 +53,36 @@ public interface UserMapper {
 			 + " and user_email2 = #{user_email2}"
 			 + " and user_pw1 = #{user_pw1}")
 	UserBean getSignInUserInfo(UserBean tempSignInUserBean);
+	
+	//회원 정보 수정 -회원 단건 조회- 수정할 회원 정보 전부 조회
+	@Select("select "
+			+ "user_idx, "
+			+ "user_email1, "
+			+ "user_email2, "
+			+ "user_pw1, "
+			+ "user_nickname, "
+			+ "user_homepage, "
+			+ "user_gender, "
+			+ "user_birthday, "
+			+ "user_profile_image, "
+			+ "user_introduce "
+			+ "from user_tb "
+			+ "where user_idx = #{user_idx}")
+	UserBean getEditUserInfo(int user_idx);
+	
+	//회원 정보 수정
+	@Update("update user_tb "
+			+ "set "
+			+ "		 user_nickname = #{user_nickname}, "
+			+ "    user_homepage=#{user_homepage}, "
+			+ "    user_gender=#{user_gender}, "
+			+ "    user_birthday= #{user_birthday}, "
+			+ "    user_profile_image=#{user_profile_image}, "
+			+ "    user_introduce=#{user_introduce} "
+			+ "where "
+			+ "		 user_idx=#{user_idx}")
+	void editUserInfo(UserBean editUserBean);
+
+	
+	
 }

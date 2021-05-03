@@ -21,7 +21,11 @@ public class UserBean {
 	@Size(min=2, max=5)
 	@Pattern(regexp = "^[a-zA-Z가-힣0-9]+$")
 	private String user_nickname;
+	private String user_homepage;
+	private String user_gender;
 	private String user_birthday;
+	private String user_profile_image;
+	private String user_introduce;
 	private String user_terms_agree;
 	private String user_promotion_yn;
 	private String user_joining_date;

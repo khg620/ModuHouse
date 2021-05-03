@@ -1,11 +1,24 @@
 package moduhouse.controller.user;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import lombok.RequiredArgsConstructor;
+import moduhouse.bean.user.UserBean;
+import moduhouse.service.user.UserService;
+
 @Controller
+@RequiredArgsConstructor
 public class UserController {
+	
+	private final UserService userService;
+	private final UserBean signInUserBean;
 	
 	//마이페이지 홈
 	//@GetMapping("/user/{user_idx}")
@@ -57,12 +70,18 @@ public class UserController {
 	
 	//설정 - 회원정보 수정
 	@GetMapping("/user/edit")
-	public String userEdit() {
+	public String userEdit(@ModelAttribute("editUserBean") UserBean editUserBean, BindingResult result) {
+		if(result.hasErrors()) {
+			return "";
+		}
+		userService.getEditUserInfo(editUserBean);
 		return "user/mypage_edit";
 	}
 	
 	@PostMapping("/user/edit")
-	public String userEdit_pro() {
+	public String userEdit_pro(@ModelAttribute("editUserBean") UserBean editUserBean) {
+		
+		userService.editUserInfo(editUserBean);
 		return "redirect:/user/edit";
 	}
 	

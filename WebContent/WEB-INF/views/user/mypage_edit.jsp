@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var = "root" value="${pageContext.request.contextPath }/"/>
 <!DOCTYPE html>
 <html lang="ko">
@@ -46,61 +47,54 @@
             <h1 class="header__title">회원정보수정</h1>
             <span class="header__withdrawals"><a href="">탈퇴하기</a></span>
          </div>
-         <form action="">
+         <form:form action="${root }user/edit" method="post" modelAttribute="editUserBean">
             <div class="form-item-group user-email">
                <div class="form-item-wrap">
-                  <label for="user_email1" class="input-label"><span>이메일</span><span class="input_required"> *
-                        필수항목</span></label>
+               	<form:label path="user_email1" class="input-label">
+                  	<span>이메일</span>
+                  	<span class="input_required">*필수항목</span>
+                  </form:label>
                   <div class="input-wrap">
-                     <input type="text" id="user_email1" class="input-control">
+                  	<form:input path="user_email1" class="input-control" readonly="true"/>
                      <span class="email-separator">@</span>
-                     <select id="user_email2">
-                        <option value="" selected disabled>선택해주세요</option>
-                        <option value="naver.com">naver.com</option>
-                        <option value="hanmail.net">hanmail.net</option>
-                        <option value="daum.net">daum.net</option>
-                        <option value="gmail.com">gmail.com</option>
-                        <option value="nate.com">nate.com</option>
-                        <option value="hotmail.com">hotmail.com</option>
-                        <option value="outlook.com">outlook.com</option>
-                        <option value="icloud.com">icloud.com</option>
-                     </select>
+                     <form:input path="user_email2" readonly="true"/>                    
                   </div>
                </div>
                <span class="edit_notice">이메일을 변경하시려면 운영자에게 이메일을 보내주세요.</span>
             </div>
             <div class="form-item-group user_nickname">
-               <label for="user_nickname" class="input-label"><span>별명</span><span class="input_required"> *
-                     필수항목</span></label>
-               <input type="text" id="user_nickname" class="input-control">
+               <form:label path="user_nickname" class="input-label"><span>별명</span><span class="input_required"> *
+                     필수항목</span></form:label>
+               <form:input path="user_nickname" class="input-control"/>
+               <form:errors></form:errors>
             </div>
             <div class="form-item-group user_homepage">
-               <label for="user_homepage" class="input-label">홈페이지</label>
-               <input type="text" placeholder="https://" id="user_homepage" class="input-control">
+               <form:label path="user_homepage" class="input-label">홈페이지</form:label>
+               <form:input placeholder="https://" path="user_homepage" class="input-control"/>
             </div>
             <div class="user_gender form-item-group">
-               <label for="user_gender" class="input-label">성별</label>
+               <form:label path="user_gender" class="input-label">성별</form:label>
                <div class="input-wrap">
-                  <span class="user_gender_radio"><input type="radio" id="user_gender" name="user_gender"/>남성</span>
-                  <span class="user_gender_radio"><input type="radio" id="user_gender" name="user_gender"/>여성</span>
+                  <span class="user_gender_radio"><form:radiobutton path="user_gender" value="M"/>남성</span>
+                  <span class="user_gender_radio"><form:radiobutton path="user_gender" value="F"/>여성</span>
                </div>
             </div>
             <div class="form-item-group user_birthday ">
-               <label for="user_birthday" class="input-label">생년월일</label>
-               <input type="date" class="input-control">
+               <form:label path="user_birthday" class="input-label">생년월일</form:label>
+               <form:input type="date" path="user_birthday" class="input-control"/>
             </div>
             <div class="form-item-group user_image">
-               <label for="user_image" class="input-label">프로필 이미지</label>
+               <form:label path="user_profile_image" class="input-label">프로필 이미지</form:label>
                <button type="button" class="user_image__btn">
                   <img src="${root }image/user_icon.jpg" alt="upload user profile image" class="user_image">
                </button>
             </div>
             <div class="form-item-group">
-               <label for="user_introduce" class="input-label">한줄 소개</label>
-               <input type="text" class="input-control">
+               <form:label path="user_introduce" class="input-label">한줄 소개</form:label>
+               <form:input path="user_introduce" class="input-control"/>
             </div>
-            <button type="submit" class="edit-btn button--color-skyblue button-size-50">회원 정보 수정</button>
-         </form>
+            <form:button class="edit-btn button--color-skyblue button-size-50">회원 정보 수정</form:button>
+         </form:form>
       </div>
    </section>
    <!-- footer -->
