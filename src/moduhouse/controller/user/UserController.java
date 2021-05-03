@@ -1,7 +1,6 @@
 package moduhouse.controller.user;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -70,16 +69,18 @@ public class UserController {
 	
 	//설정 - 회원정보 수정
 	@GetMapping("/user/edit")
-	public String userEdit(@ModelAttribute("editUserBean") UserBean editUserBean, BindingResult result) {
-		if(result.hasErrors()) {
-			return "";
-		}
+	public String userEdit(@ModelAttribute("editUserBean") UserBean editUserBean) {
+		
 		userService.getEditUserInfo(editUserBean);
 		return "user/mypage_edit";
 	}
 	
 	@PostMapping("/user/edit")
-	public String userEdit_pro(@ModelAttribute("editUserBean") UserBean editUserBean) {
+	public String userEdit_pro(@Valid @ModelAttribute("editUserBean") UserBean editUserBean, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return "user/mypage_edit";
+		}
 		
 		userService.editUserInfo(editUserBean);
 		return "redirect:/user/edit";

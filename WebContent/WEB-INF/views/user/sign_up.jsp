@@ -99,7 +99,7 @@
 				<div class="sign-up-form__form-group">
 					<form:label path="user_nickname">별명</form:label>
 					<span class="description">다른 유저와 겹치지 않는 별명을 입력해주세요.</span>
-					<form:input path="user_nickname" minlength="2" maxlength="5" placeholder="별명(2~15자)" required="required"/>
+					<form:input path="user_nickname" minlength="2" maxlength="14" placeholder="별명(2~15자)" required="required"/>
 					<form:errors path="user_nickname" style="color:#ff7777; display:block; margin-top: 7px; font-size: 13px" />
 				</div>
 				<div class="sign-up-form__form-group">

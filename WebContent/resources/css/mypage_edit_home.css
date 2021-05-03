@@ -195,6 +195,41 @@ label[for="user_image"] {
   margin: 50px 0;
   width: 100%;
 }
+/*error message*/
+.input-group {
+	position: relative;
+	flex: 1 1 0;
+}
+/*중복검사 메세지*/
+#user_nickname.error {
+	box-shadow: 0 0 3px var(--color-red);
+}
+.duplicated-nickname {
+	display:none;
+}
+.duplicated-nickname.show {
+	display: block;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	margin-bottom: 0;
+	font-size: 13px;
+	color: var(--color-red);
+}
+/*유효성 검사 메세지*/
+.regexp-error {
+	display: none;
+}
+.regexp-error.show {
+	display: block;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	margin-bottom: 0;
+	font-size: 13px;
+	color: var(--color-red);
+}
+
 @media screen and (min-width: 768px) {
   #edit_user_info {
     padding: 0;

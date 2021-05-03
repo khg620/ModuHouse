@@ -18,7 +18,7 @@ public class UserBean {
 	@Pattern(regexp="(?=.*[a-z])(?=.*[0-9])(?=.*[-_!]).{8,15}")
 	private String user_pw1;
 	private String user_pw2;
-	@Size(min=2, max=5)
+	@Size(min=2, max=15)
 	@Pattern(regexp = "^[a-zA-Z가-힣0-9]+$")
 	private String user_nickname;
 	private String user_homepage;

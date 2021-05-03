@@ -26,6 +26,10 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
    <title>누구나 멋진 인테리어, 모두의 집</title>
    <script src="https://kit.fontawesome.com/7218b951ec.js" crossorigin="anonymous"></script>
+   <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 </head>
 
 <body>
@@ -63,10 +67,16 @@
                <span class="edit_notice">이메일을 변경하시려면 운영자에게 이메일을 보내주세요.</span>
             </div>
             <div class="form-item-group user_nickname">
-               <form:label path="user_nickname" class="input-label"><span>별명</span><span class="input_required"> *
-                     필수항목</span></form:label>
-               <form:input path="user_nickname" class="input-control"/>
-               <form:errors></form:errors>
+               <form:label path="user_nickname" class="input-label">
+               	<span>별명</span>
+               	<span class="input_required">*필수항목</span>
+               </form:label>
+               <div class="input-group">               
+               <form:input path="user_nickname" class="input-control" required="required" minlength="2" maxlength="14"/>
+               <p class="duplicated-nickname">이미 사용 중인 별명입니다.</p>
+               <p class="regexp-error">별명은 2 ~ 5자로 영문, 한글, 숫자만 사용할 수 있습니다.</p> 
+               <form:errors path="user_nickname" style="color:#ff7777; position: absolute; top: 100%; font-size: 13px"/>
+               </div>
             </div>
             <div class="form-item-group user_homepage">
                <form:label path="user_homepage" class="input-label">홈페이지</form:label>
@@ -100,6 +110,52 @@
    <!-- footer -->
    <c:import url="/WEB-INF/views/include/footer.jsp"/>
    
+   <script>
+   	const origin_nickname = '${signInUserBean.user_nickname}'; //로그인 한 사용자의 별명
+   	const user_nickname = document.querySelector('#user_nickname'); //별명 input
+   	const duplicated_message = document.querySelector('.duplicated-nickname'); //중복 시 에러메세지
+   	const valid_result= document.getElementById('user_nickname.errors'); //유효성 검사 불만족 시 에러메세지(서버)
+   	const regexp_message = document.querySelector('.regexp-error'); //유효성 검사 불만족 시 에러메세지(javascript)
+   	const regexp = /^[a-zA-Z가-힣]{2,15}$/; //유효성 체크식
+   	
+   	const checkNickname = (e) => {
+   		const user_nickname = e.target;
+   		const space_reg=/(\s*)/g;
+   		const user_nickname_val = user_nickname.value.replace(space_reg,'');
+   		
+   		$.ajax({
+   			url:"${root}user/checkNicknameExist/"+user_nickname_val,
+   			type:"get",
+   			dataType:"text",
+   			success:function(result) {
+   				
+   				if(valid_result !== null){
+   					valid_result.remove();
+   				}
+   				if(origin_nickname !== user_nickname_val){   					
+   					if(result.trim() === "0" && regexp.test(user_nickname_val)) {
+   						user_nickname.classList.remove('error');
+   						duplicated_message.classList.remove('show');
+   						regexp_message.classList.remove('show');
+   					} else if(result.trim() ==="1"){
+   						user_nickname.classList.add('error');
+   						duplicated_message.classList.add('show');
+   						regexp_message.classList.remove('show');
+   					} else if(regexp.test(user_nickname_val) === false) {
+   						duplicated_message.classList.remove('show');
+   						regexp_message.classList.add('show');
+   					}	
+   				} else if(origin_nickname === user_nickname_val){
+   					user_nickname.classList.remove('error');
+						duplicated_message.classList.remove('show');
+						regexp_message.classList.remove('show');
+   				}
+   			}
+   		})
+   	};
+   	user_nickname.addEventListener('input',checkNickname);
+ 
+   </script>
 </body>
 
 </html>
