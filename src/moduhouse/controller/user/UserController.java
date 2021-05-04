@@ -88,13 +88,17 @@ public class UserController {
 	
 	//설정 - 비밀번호
 	@GetMapping("/user/edit_password")
-	public String editPassword() {
+	public String editPassword(@ModelAttribute("editUserBean") UserBean editUserBean) {
 		return "user/mypage_edit_password";
 	}
 	
-	@PostMapping("/user/edit_pssword")
-	public String editPassword_pro() {
-		return "redirect:/user/edit_password";
+	@PostMapping("/user/edit_password")
+	public String editPassword_pro(@Valid @ModelAttribute("editUserBean") UserBean editUserBean, BindingResult result) {
+		if(result.hasErrors()) {
+			return "user/edit_password";
+		}
+		userService.editUserPwd(editUserBean);
+		return "user/success_edit_password";
 	}
 	
 	//설정 - 알림 설정

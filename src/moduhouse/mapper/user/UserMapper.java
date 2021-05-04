@@ -54,7 +54,7 @@ public interface UserMapper {
 			 + " and user_pw1 = #{user_pw1}")
 	UserBean getSignInUserInfo(UserBean tempSignInUserBean);
 	
-	//회원 정보 수정 -회원 단건 조회- 수정할 회원 정보 전부 조회
+	//회원 정보 수정 - 회원 단건 조회 - 수정할 회원의 정보 전부 조회
 	@Select("select "
 			+ "user_idx, "
 			+ "user_email1, "
@@ -70,7 +70,7 @@ public interface UserMapper {
 			+ "where user_idx = #{user_idx}")
 	UserBean getEditUserInfo(int user_idx);
 	
-	//회원 정보 수정
+	//회원 정보 수정 - 프로필
 	@Update("update user_tb "
 			+ "set "
 			+ "		 user_nickname = #{user_nickname}, "
@@ -83,6 +83,11 @@ public interface UserMapper {
 			+ "		 user_idx=#{user_idx}")
 	void editUserInfo(UserBean editUserBean);
 
+	//회원 정보 수정 - 비밀번호
+	@Update("update user_tb "
+			+ "set user_pw1 = #{user_pw1} "
+			+ "where user_idx = #{user_idx}")
+	void editUserPwd(UserBean editUserBean);
 	
 	
 }

@@ -61,12 +61,16 @@ public class UserService {
 		editUserBean.setUser_introduce(tempEditUserBean.getUser_introduce());
 	}
 	
-	//회원 정보 수정
+	//회원 정보 수정 - 프로필
 	public void editUserInfo(UserBean editUserBean) {
 		editUserBean.setUser_idx(signInUserBean.getUser_idx());
 		userDao.editUserInfo(editUserBean);
 	}
 
-
+	//회원 정보 수정 - 비밀번호
+	public void editUserPwd(UserBean editUserBean) {
+		editUserBean.setUser_idx(signInUserBean.getUser_idx());
+		userDao.editUserPwd(editUserBean);
+	}
 
 }

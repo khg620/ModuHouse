@@ -41,9 +41,13 @@ public class UserDao {
 		return userMapper.getEditUserInfo(user_idx);
 	}
 	
-	//회원 정보 수정
+	//회원 정보 수정 - 프로필
 	public void editUserInfo(UserBean editUserBean) {
 		userMapper.editUserInfo(editUserBean);
 	}
 	
+	//회원 정보 수정 - 비밀번호
+	public void editUserPwd(UserBean editUserBean) {
+		userMapper.editUserPwd(editUserBean);
+	}
 }

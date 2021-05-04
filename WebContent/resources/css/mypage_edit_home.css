@@ -234,6 +234,9 @@ label[for="user_image"] {
   #edit_user_info {
     padding: 0;
   }
+   .mypage_edit_menu .edit_menu_item > a {
+    font-size: 15px;
+  }
   #edit_user_info .form-container {
     margin: 50px;
     padding: 50px;
