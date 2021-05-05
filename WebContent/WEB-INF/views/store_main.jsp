@@ -25,7 +25,7 @@
 </head>
 
 <body>
-	<section>
+	<section class="store-main__header">
 		<!-- header -->
 		<c:import url="/WEB-INF/views/include/header.jsp" />
 		<!-- store_top_menu.jsp -->
@@ -52,7 +52,7 @@
 
 	<!--category-->
 	<div class="layout">
-		<section id="main-category">
+		<section class="store-main__category">
 			<div class="container">
 				<div class="row">
 					<div class="col-12" style="height: 100%;">
@@ -185,7 +185,7 @@
 		</section>
 
 		<!--today-deal-->
-		<section id="main-today-deal">
+		<section class="store-main__today-deal">
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
@@ -326,7 +326,7 @@
 	</div>
 
 	<!--keywords-->
-	<section id="main-keywords">
+	<section class="store-main__keywords">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -366,7 +366,7 @@
 	</section>
 
 	<!--product-->
-	<section id="main-best-product">
+	<section class="store-main__best-product">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -493,9 +493,9 @@
  		//왼쪽 필터 - 토글버튼(배송옵션)
  		const toggle_btn = document.querySelector('.product-filter-btn-delivery');
  		const arrow_icon = toggle_btn.querySelector('.arrow-icon');
- 		const filter_left_background = document.querySelector('#main-best-product .toggle-btn-wrap');
- 		const filter_left_modal = document.querySelector('#main-best-product .toggle-btn');
- 		const slider_btn = document.querySelector('#main-best-product input');
+ 		const filter_left_background = document.querySelector('.store-main__best-product .toggle-btn-wrap');
+ 		const filter_left_modal = document.querySelector('.store-main__best-product .toggle-btn');
+ 		const slider_btn = document.querySelector('.store-main__best-product input');
 
  		toggle_btn.addEventListener('click',() => {
  		   if(arrow_icon.style.transform === 'rotate(180deg)'){
@@ -525,8 +525,8 @@
 
 
  		//오른쪽 필터
- 		const modal_container = document.querySelector('#main-best-product .filter-modal-container');
- 		const filter_modal = document.querySelector('#main-best-product .filter-modal')
+ 		const modal_container = document.querySelector('.store-main__best-product .filter-modal-container');
+ 		const filter_modal = document.querySelector('.store-main__best-product .filter-modal')
  		const filter_right = document.querySelector('.filter-right span');
  		const caret = document.querySelector('.filter-right .caret');
 

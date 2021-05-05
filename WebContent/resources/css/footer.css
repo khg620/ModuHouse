@@ -27,18 +27,18 @@
   cursor: default;
 }
 /*footer*/
-footer {
+.footer {
   padding: 30px 15px 40px;
   background-color: var(--color-white);
 }
-footer address {
+.footer address {
   margin-bottom: 0;
 }
-footer dt,
-footer dd {
+.footer dt,
+.footer dd {
   display: inline;
 }
-footer dd {
+.footer dd {
   margin-right: 5px;
 }
 .footer__cs {
@@ -119,7 +119,7 @@ p.footer-info-item {
 }
 
 @media screen and (min-width: 768px) {
-  footer {
+  .footer {
     padding: 30px 60px 40px;
   }
 }

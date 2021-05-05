@@ -20,6 +20,9 @@
   border-radius: 4px;
   color: #fff;
 }
+.button--color-skyblue:hover {
+  background-color: var(--color-blue);
+}
 /* button size */
 .button-size-50 {
   padding: 11px 10px;
