@@ -1,4 +1,4 @@
-package moduhouse.bean.board;
+package moduhouse.bean.community;
 
 import lombok.Getter;
 import lombok.Setter;

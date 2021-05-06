@@ -182,8 +182,8 @@
    <!--question list-->
    <section class="question__content">
       <div class="article-container">
-         <article class="question__content-article">
-            <a href="${root }community/read_question" class="question__article-overlay"></a>
+         <article class="question__content-article"> <!-- 페이징 나중에 구현 -->
+            <a href="${root }community/read_question?content_idx=1" class="question__article-overlay"></a>
             <div class="content-wrap">
                <div class="content-summary-wrap">
                   <h1 class="content__title">글제목</h1>

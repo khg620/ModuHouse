@@ -46,12 +46,12 @@
          <header>
             <div class="content__header-title">
                <strong>질문과 답변</strong>
-               <h1>글제목 글제목 글제목</h1>
+               <h1>${readContentBean.content_subject }</h1>
             </div>
             <div class="content__header-writer">
                <div class="writer-wrap">
                   <div class="writer-image"></div>
-                  <div class="writer-nickname">닉네임</div>
+                  <div class="writer-nickname">${readContentBean.writer_nickname }</div>
                </div>
                <button type="button">팔로우</button>
             </div>
@@ -59,11 +59,7 @@
          <main>
             <div class="content__main">
                <p class="content__text">
-                  글내용 글내용글내용 글내용글내용 글내용글내용 글내용
-                  글내용 글내용글내용 글내용글내용 글내용글내용 글내용
-                  글내용 글내용글내용 글내용글내용 글내용글내용 글내용글내용 글내용
-                  글내용 글내용글내용 글내용글내용 글내용글내용 글내용
-                  글내용 글내용글내용 글내용글내용 글내용글내용 글내용
+                  ${readContentBean.content_text }
                </p>
                <div class="content__img"></div>
             </div>

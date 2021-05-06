@@ -1,4 +1,6 @@
-package moduhouse.bean.board;
+package moduhouse.bean.community;
+
+import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +10,9 @@ import lombok.Setter;
 public class ContentBean {
 	
 	private int content_idx;
+	@NotBlank
 	private String content_subject;
+	@NotBlank
 	private String content_text;
 	private String content_file;
 	private int content_writer_idx;
@@ -16,4 +20,5 @@ public class ContentBean {
 	private String content_date;
 	private int read_count;
 	private int clip_count;
+	private String writer_nickname;
 }
