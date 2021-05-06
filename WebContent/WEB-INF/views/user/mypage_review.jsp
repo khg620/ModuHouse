@@ -25,7 +25,7 @@
 </head>
 
 <body>
-   <section>
+   <section class="store-main__header">
       <!--header-->
       <c:import url="/WEB-INF/views/include/header.jsp"/>
 

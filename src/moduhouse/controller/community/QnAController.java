@@ -10,24 +10,24 @@ import moduhouse.service.community.BoardService;
 
 @Controller
 @RequiredArgsConstructor
-public class BoardController {
+public class QnAController {
 	
 	private final BoardService boardService;
 	private final UserBean signInUserBean;
 	
-	//@GetMapping("")
+	@GetMapping("/community/read_question")
 	public String read() {
-		return "";
+		return "community/read_question";
 	}
 	
-	//@GetMapping("")
+	@GetMapping("/community/write_question")
 	public String write() {
-		return "";
+		return "community/write_question";
 	}
 	
-	//@PostMapping("")
+	@PostMapping("/community/write_question")
 	public String write_pro() {
-		return "";
+		return "redirect:/community/read_question";
 	}
 	
 	//@GetMapping("")

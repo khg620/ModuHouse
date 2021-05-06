@@ -23,7 +23,7 @@
 <script src="https://kit.fontawesome.com/7218b951ec.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<section>
+	<section class="store-main__header">
 		<!--header-->
 		<c:import url="/WEB-INF/views/header.jsp"/>
 

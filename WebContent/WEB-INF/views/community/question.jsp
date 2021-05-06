@@ -33,12 +33,14 @@
 </head>
 
 <body>
-   <!--header -->
-   <c:import url="/WEB-INF/views/include/header.jsp"/>
-   <!-- nav -->
-   <c:import url="/WEB-INF/views/include/store_top_menu.jsp"/>
-   
-   <!--질문과 답변-->
+	<section class="store-main__header">
+		<!--header -->
+		<c:import url="/WEB-INF/views/include/header.jsp" />
+		<!-- nav -->
+		<c:import url="/WEB-INF/views/include/store_top_menu.jsp" />
+	</section>
+
+	<!--질문과 답변-->
    <!--search form-->
    <section class="question__search">
       <div class="search-container">
@@ -157,7 +159,7 @@
             </div>
          </div>
          <div class="question__write">
-            <a href="#" class="question__write-link button--color-skyblue button-size-30">질문하기</a>
+            <a href="${root }community/write_question" class="question__write-link button--color-skyblue button-size-30">질문하기</a>
          </div>
       </section>
       <section class="question__notice">
@@ -181,7 +183,7 @@
    <section class="question__content">
       <div class="article-container">
          <article class="question__content-article">
-            <a href="#" class="question__article-overlay"></a>
+            <a href="${root }community/read_question" class="question__article-overlay"></a>
             <div class="content-wrap">
                <div class="content-summary-wrap">
                   <h1 class="content__title">글제목</h1>

@@ -20,7 +20,7 @@ public class CheckSignInInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		if(signInUserBean.isUserSignIn() == false) {
 			String contextPath = request.getContextPath();
-			response.sendRedirect(contextPath + "/user/not_signIn");
+			response.sendRedirect(contextPath + "/user/sign_in");
 			return false;
 		}
 		return true;
