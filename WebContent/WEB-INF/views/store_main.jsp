@@ -21,6 +21,7 @@
 <link rel="short icon" type="image/x-icon" href="${root }image/favicon.ico">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 <title>누구나 멋진 인테리어, 모두의 집</title>
+<script src="${root }javascript/store_main.js" defer></script>
 <script src="https://kit.fontawesome.com/7218b951ec.js" crossorigin="anonymous"></script>
 </head>
 
@@ -31,24 +32,29 @@
 		<!-- store_top_menu.jsp -->
 		<c:import url="/WEB-INF/views/include/store_top_menu.jsp" />
 	</section>
+	
 	<!--banner-->
-	<section class="store-main__banner-wrap">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<article class="store-main__banner">
-						<div class="store-main__banner-image-wrap">
-							<!--banner image-->
-						</div>
-						<div class="store-main__banner-content-wrap">
-							<h2 class="banner-content-title"></h2>
-							<a href="" class="banner-content-more"></a>
-						</div>
-					</article>
-				</div>
-			</div>
-		</div>
-	</section>
+   <section class="store-main__banner-wrap" style="background-image:url(${root}image/banner/banner1_1.jpg)">
+   </section>
+   <section class="store-main__banner-list mobile-hide">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <ul class="banner__list">
+                  <li class="banner__item">한샘 브랜드 위크</li>
+                  <li class="banner__item">삼성 가전 페스타</li>
+                  <li class="banner__item">가정의달 특집</li>
+                  <li class="banner__item">홈오피스 데스커 브랜드 위크</li>
+                  <li class="banner__item">1일 1홈트 시작하기</li>
+                  <li class="banner__item">원목 가구 브랜드 10</li>
+                  <li class="banner__item">스마트 홈오피스 만들기</li>
+                  <li class="banner-prev"></li>
+                  <li class="banner-next"></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </section>
 
 	<!--category-->
 	<div class="layout">
@@ -399,11 +405,11 @@
 							</div>
 						</div>
 						<div class="filter-right">
-							<span>
+							<span class="current-order">
 								인기순
-								<svg class="caret" width="8" height="8" viewBox="0 0 8 8" preserveAspectRatio="xMidYMid meet">
-									<path fill="#BDBDBD" d="M0 2l4 4 4-4z"></path></svg>
 							</span>
+							<svg class="caret" width="8" height="8" viewBox="0 0 8 8" preserveAspectRatio="xMidYMid meet">
+									<path fill="#BDBDBD" d="M0 2l4 4 4-4z"></path></svg>
 							<div class="filter-modal-container">
 								<div class="filter-modal">
 									<h1>정렬</h1>
@@ -467,90 +473,6 @@
 	</section>
 	<!-- footer  -->
 	<c:import url="/WEB-INF/views/include/footer.jsp"/>
-	<script>	
- 		//category
- 		const category_wrap = document.querySelector('.category-wrap');
- 		const prev_btn = document.querySelector('.mobile-hide.prev');
- 		const next_btn = document.querySelector('.mobile-hide.next');
-
- 		const moveNext = (e) => {
- 			next_btn.classList.remove('show');
- 		   prev_btn.classList.add('show');
-
- 		   category_wrap.style.transition = 'transform 1s';
- 		   category_wrap.style.transform = 'translateX(-50%)';
- 		}
-
- 		const movePrev = (e) => {
- 			prev_btn.classList.remove('show');
- 			next_btn.classList.add('show');
-
- 			category_wrap.style.transition = 'transform 1s';
- 			category_wrap.style.transform = 'translateX(0%)';
- 		}
- 		
- 		//product(인기상품)
- 		//왼쪽 필터 - 토글버튼(배송옵션)
- 		const toggle_btn = document.querySelector('.product-filter-btn-delivery');
- 		const arrow_icon = toggle_btn.querySelector('.arrow-icon');
- 		const filter_left_background = document.querySelector('.store-main__best-product .toggle-btn-wrap');
- 		const filter_left_modal = document.querySelector('.store-main__best-product .toggle-btn');
- 		const slider_btn = document.querySelector('.store-main__best-product input');
-
- 		toggle_btn.addEventListener('click',() => {
- 		   if(arrow_icon.style.transform === 'rotate(180deg)'){
- 		      arrow_icon.style.transform = 'rotate('+0+'deg)';   
- 		   } else {
- 		      arrow_icon.style.transform = 'rotate('+180+'deg)';
- 		   }
- 		   filter_left_background.classList.toggle('show');
- 		   filter_left_modal.classList.toggle('show');
- 		});
-
- 		filter_left_background.addEventListener('click',(e) => {
- 		   if(e.target.contains(filter_left_background)){
- 		      arrow_icon.style.transform = 'rotate('+0+'deg)';
- 		      filter_left_background.classList.remove('show');
- 		      filter_left_modal.classList.remove('show');
- 		   }
- 		});
-
- 		slider_btn.addEventListener('change',()=>{
- 		   setTimeout(()=>{
- 		      arrow_icon.style.transform = 'rotate('+0+'deg)';
- 		      filter_left_background.classList.remove('show');
- 		      filter_left_modal.classList.remove('show');
- 		   },200)
- 		});
-
-
- 		//오른쪽 필터
- 		const modal_container = document.querySelector('.store-main__best-product .filter-modal-container');
- 		const filter_modal = document.querySelector('.store-main__best-product .filter-modal')
- 		const filter_right = document.querySelector('.filter-right span');
- 		const caret = document.querySelector('.filter-right .caret');
-
- 		filter_right.addEventListener('click',() => {
- 		   if(caret.style.transform === 'rotate(180deg)'){
- 		      caret.style.transform = 'rotate('+0+'deg)';
- 		   } else {
- 		      caret.style.transform = 'rotate('+180+'deg)';
- 		   }
- 		   modal_container.classList.toggle('show');
- 		   filter_modal.classList.toggle('show');
- 		   console.log(caret.style.transform)
- 		})
-
- 		window.addEventListener('click',(e) => {
- 		   if(e.target !== filter_right){
- 		      caret.style.transform = 'rotate('+0+'deg)';
- 		      modal_container.classList.remove('show');
- 		      filter_modal.classList.remove('show');
- 		   }
- 		},true)
-
-
- 	</script>
 </body>
 
 </html>
