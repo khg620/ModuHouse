@@ -25,6 +25,7 @@ import moduhouse.bean.user.UserBean;
 import moduhouse.interceptor.CheckSignInInterceptor;
 import moduhouse.interceptor.HeaderInterceptor;
 import moduhouse.interceptor.StoreTopMenuInterceptor;
+import moduhouse.mapper.community.QnAKeywordsMapper;
 import moduhouse.mapper.community.QnAMapper;
 import moduhouse.mapper.include.StoreTopMenuMapper;
 import moduhouse.mapper.user.UserMapper;
@@ -132,6 +133,13 @@ public class ServletAppContext implements WebMvcConfigurer{
 	@Bean
 	public MapperFactoryBean<QnAMapper> getQnAMapper(SqlSessionFactory factory) throws Exception {
 		MapperFactoryBean<QnAMapper> factoryBean = new MapperFactoryBean<QnAMapper>(QnAMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	
+	@Bean
+	public MapperFactoryBean<QnAKeywordsMapper> getQnAKeywordsMapper(SqlSessionFactory factory) throws Exception {
+		MapperFactoryBean<QnAKeywordsMapper> factoryBean = new MapperFactoryBean<QnAKeywordsMapper>(QnAKeywordsMapper.class);
 		factoryBean.setSqlSessionFactory(factory);
 		return factoryBean;
 	}

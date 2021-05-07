@@ -66,13 +66,15 @@
          </main>
          <footer>
             <ul class="content__keywords-list">
-               <li class="keywords-item">키워드</li>
+            	<c:forEach var="keyword" items="${contentKeywordsBean }">            	
+               <li class="keywords-item">${keyword.keywords_item }</li>
+            	</c:forEach>
             </ul>
             <button type="button">공유</button>
             <div class="content__metadata">
-               <time>2021년 5월 6일 19:40</time>
-               <span>조회<span>25</span></span>
-               <span>스크랩<span>0</span></span>
+               <time>${readContentBean.content_date }</time>
+               <span>조회<span>${readContentBean.read_count }</span></span>
+               <span>스크랩<span>${readContentBean.clip_count }</span></span>
                <span>신고</span>
             </div>
          </footer>
@@ -84,22 +86,23 @@
 
       <div class="container">
          <h1>댓글<span>11</span></h1>
-         <form action="">
+         <form:form method="post" modelAttribute="writeCommentBean">
             <div class="comment__writer-img"></div>
-            <input type="text" placeholder="댓글을 남겨 보세요.">
-            <button type="submit">등록</button>
-         </form>
+            <form:input path="comment_text" placeholder="댓글을 남겨 보세요."/>
+            <form:button>등록</form:button>
+         </form:form>
 
          <ul class="comment__list">
+         	<c:forEach var="comment" items="${readCommentBean }">  	
             <li class="comment__item">
                <article class="comment__article">
                   <div class="comment__writer-img"></div>
                   <div class="comment__article-wrap">
-                     <strong>닉네임</strong>
-                     <p class="comment__text">어두운 우드도 괜찮을 거 같아요</p>
+                     <strong>${comment.user_nickname }</strong>
+                     <p class="comment__text">${comment.comment_text }</p>
                   </div>
                   <footer class="comment__item__footer">
-                     <time class="comment-time">4분 전</time>
+                     <time class="comment-time">${comment.comment_date }</time>
                      <span class="comment-likes">
                         <svg class="badge" width="15" height="14" preserveAspectRatio="xMidYMid meet"><path fill-rule="evenodd" class="heart" d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z"></path></svg>
                         좋아요
@@ -109,25 +112,7 @@
                   </footer>
                </article>
             </li>
-
-            <li class="comment__item">
-               <article class="comment__article">
-                  <div class="comment__writer-img"></div>
-                  <div class="comment__article-wrap">
-                     <strong>닉네임</strong>
-                     <p class="comment__text">어두운 우드도 괜찮을 거 같아요</p>
-                  </div>
-                  <footer class="comment__item__footer">
-                     <time class="comment-time">4분 전</time>
-                     <span class="comment-likes">
-                        <svg class="badge" width="15" height="14" preserveAspectRatio="xMidYMid meet"><path fill-rule="evenodd" class="heart" d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z"></path></svg>
-                        좋아요
-                     </span>
-                     <span class="comment-reply">답글 달기</span>
-                     <span class="comment-report">신고</span>
-                  </footer>
-               </article>
-            </li>
+         	</c:forEach>
          </ul>
 
          <!--comment paginator-->

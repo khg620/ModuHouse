@@ -21,4 +21,5 @@ public class ContentBean {
 	private int read_count;
 	private int clip_count;
 	private String writer_nickname;
+	private String keywords_item;
 }
