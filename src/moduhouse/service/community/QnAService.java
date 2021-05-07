@@ -33,9 +33,11 @@ public class QnAService {
 	
 	//게시글 덧글 조회
 	public ArrayList<CommentBean> getContentComments(int content_idx) {
-		System.out.println(qnaDao.getContentComments(content_idx));
 		return qnaDao.getContentComments(content_idx);
 	}
 
-
+	//게시글 덧글 등록
+	public void addCommentInfo(CommentBean writeCommentBean) {
+		qnaDao.addCommentInfo(writeCommentBean);
+	}
 }

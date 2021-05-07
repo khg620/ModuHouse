@@ -38,5 +38,10 @@ public class QnADao {
 	public ArrayList<CommentBean> getContentComments(int content_idx) {
 		return qnaMapper.getContentComments(content_idx);
 	}
+	
+	//게시글 덧글 등록
+	public void addCommentInfo(CommentBean writeCommentBean) {
+		qnaMapper.addCommentInfo(writeCommentBean);
+	}
 
 }

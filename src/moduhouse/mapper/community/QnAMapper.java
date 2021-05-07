@@ -17,7 +17,7 @@ public interface QnAMapper {
 			+ 		"CONTENT_TEXT, "
 			+ 		"CONTENT_FILE, "
 			+ 		"USER_NICKNAME AS WRITER_NICKNAME, "
-			+ 		"CONTENT_BOARD_IDX, "
+			+ 		"BOARD_INFO_IDX, "
 			+ 		"TO_CHAR(CONTENT_DATE,'YYYY/MM/DD/HH24:MI:SS') AS CONTENT_DATE, "
 			+ 		"READ_COUNT, "
 			+ 		"CLIP_COUNT "
@@ -46,7 +46,7 @@ public interface QnAMapper {
 			+ 		"CONTENT_IDX = #{content_idx}")
 	ArrayList<KeywordsBean> getContentKeywords(int content_idx);
 	
-	//게시글 덧글 조회
+	//게시글 덧글 조회 -- 일단 시간으로만 최신순 정렬, 답글 기능 구현 시 정렬 수정
 	@Select("SELECT COMMENT_IDX, "
 			+ 					"USER_NICKNAME, "
 			+ 					"COMMENT_TEXT, "
@@ -60,8 +60,30 @@ public interface QnAMapper {
 			+ 	"ON"
 			+ 			"(COMMENT_WRITER_IDX = USER_IDX) "
 			+ 	"WHERE "
-			+ 			"CONTENT_IDX = #{content_idx}")
-	//@Select("select comment_text from COMMUNITY_QNA_COMMENT_TB")
+			+ 			"CONTENT_IDX = #{content_idx} "
+			+ 	"ORDER BY "
+			+ 			"COMMENT_DATE DESC")
 	ArrayList<CommentBean> getContentComments(int content_idx);
 
+	//게시글 덧글 등록
+	@Select("INSERT INTO "
+			+ 			"COMMUNITY_QNA_COMMENT_TB "
+			+ 	"("
+			+ 			"COMMENT_IDX, "
+			+ 			"COMMENT_WRITER_IDX, "
+			+ 			"COMMENT_TEXT, "
+			+ 			"COMMENT_DATE, "
+			+ 			"CONTENT_IDX, "
+			+ 			"BOARD_INFO_IDX"
+			+ 	") "
+			+ 	"VALUES "
+			+ 	"("
+			+ 			"QNA_COMMENT_SEQ.NEXTVAL, "
+			+ 			"#{comment_writer_idx}, "
+			+ 			"#{comment_text}, "
+			+ 			"SYSDATE, "
+			+ 			"#{content_idx}, "
+			+ 			"#{board_info_idx}"
+			+ ")")
+	void addCommentInfo(CommentBean writeCommentBean);
 }

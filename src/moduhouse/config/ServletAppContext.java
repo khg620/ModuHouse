@@ -111,7 +111,7 @@ public class ServletAppContext implements WebMvcConfigurer{
 		CheckSignInInterceptor checkSignInInterceptor = new CheckSignInInterceptor(signInUserBean);
 		InterceptorRegistration reg3 = registry.addInterceptor(checkSignInInterceptor);
 		reg3.addPathPatterns("/user/mypage/*","/user/sign_out","/community/*");
-		reg3.excludePathPatterns("/community/question","/community/read_question");
+		reg3.excludePathPatterns("/community/question","/community/read_question","/community/write_comment"); //일단 제외
 		
 	}
 	

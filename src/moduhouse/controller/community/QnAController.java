@@ -26,20 +26,21 @@ public class QnAController {
 	private final UserBean signInUserBean;
 	
 	@GetMapping("/read_question")
-	public String read(@RequestParam int content_idx, @ModelAttribute("writeCommentBean") CommentBean writeCommentBean, Model model) {
-		model.addAttribute("content_idx",content_idx);
+	public String read(@RequestParam int content_idx, @RequestParam int board_info_idx, @ModelAttribute("writeCommentBean") CommentBean writeCommentBean, Model model) {
 		
-		//게시글
+		//게시글 조회
 		ContentBean readContentBean = qnaService.getContentInfo(content_idx);
-		//게시글 키워드
+		//게시글 키워드 조회
 		ArrayList<KeywordsBean> contentKeywordsBean = qnaService.getContentKeywords(content_idx);
-		//게시글 덧글
+		//게시글 덧글 조회
 		ArrayList<CommentBean> readCommentBean = qnaService.getContentComments(content_idx);
 		
+		model.addAttribute("content_idx",content_idx);
+		model.addAttribute("board_info_idx",board_info_idx);
 		model.addAttribute("readContentBean",readContentBean);
 		model.addAttribute("contentKeywordsBean",contentKeywordsBean);
 		model.addAttribute("readCommentBean",readCommentBean);
-		System.out.println(readCommentBean);
+		
 		
 		return "community/read_question";
 	}
