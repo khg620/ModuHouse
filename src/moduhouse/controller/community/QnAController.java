@@ -55,7 +55,7 @@ public class QnAController {
 		return "redirect:/community/read_question";
 	}
 	
-	//@GetMapping("")
+	@GetMapping("/edit_question")
 	public String modify() {
 		return "";
 	}

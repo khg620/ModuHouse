@@ -16,6 +16,11 @@ public class QnAService {
 	
 	private final QnADao qnaDao;
 	
+	//커뮤니티 질문과 답변 메인페이지 - 전체 게시글 목록
+	public ArrayList<ContentBean> getAllContent() {
+		return qnaDao.getAllContent();
+	}
+	
 	//커뮤니티 질문과 답변 메인페이지 - 키워드
 	public ArrayList<KeywordsBean> getAllKeywords() {
 		return qnaDao.getAllKeywords();

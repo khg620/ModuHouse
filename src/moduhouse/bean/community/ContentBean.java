@@ -18,8 +18,9 @@ public class ContentBean {
 	private int content_writer_idx;
 	private int content_board_idx;
 	private String content_date;
-	private int read_count;
-	private int clip_count;
+	private int read_count; //조회수
+	private int clip_count; //좋아요수
 	private String writer_nickname;
 	private String keywords_item;
+	private int comment_cnt; //게시글에 달린 댓글 수 
 }

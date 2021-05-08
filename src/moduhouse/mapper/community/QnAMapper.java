@@ -9,8 +9,28 @@ import moduhouse.bean.community.ContentBean;
 import moduhouse.bean.keywords.KeywordsBean;
 
 public interface QnAMapper {
+	
+	//전체 게시글 목록 조회
+	@Select("SELECT "
+			+ 		"CONTENT_IDX, "
+			+ 		"CONTENT_SUBJECT, "
+			+ 		"CONTENT_TEXT, "
+			+ 		"CONTENT_FILE, "
+			+ 		"CONTENT_WRITER_IDX, "
+			+     "USER_NICKNAME AS WRITER_NICKNAME, "
+			+ 		"CONTENT_DATE, "
+			+ 		"READ_COUNT, "
+			+ 		"CLIP_COUNT, "
+			+ 		"BOARD_INFO_IDX,"
+			+ 		"COMMENT_CNT "
+			+  "FROM "
+			+ 		"COMMUNITY_QNA_TB "
+			+  "JOIN "
+			+ 		"USER_TB "
+			+  "ON(CONTENT_WRITER_IDX = USER_IDX)")
+	ArrayList<ContentBean> getAllContent();
 
-	//게시글 조회
+	//게시글 단건 조회
 	@Select("SELECT "
 			+ 		"CONTENT_IDX, "
 			+ 		"CONTENT_SUBJECT, "
@@ -20,7 +40,8 @@ public interface QnAMapper {
 			+ 		"BOARD_INFO_IDX, "
 			+ 		"TO_CHAR(CONTENT_DATE,'YYYY/MM/DD/HH24:MI:SS') AS CONTENT_DATE, "
 			+ 		"READ_COUNT, "
-			+ 		"CLIP_COUNT "
+			+ 		"CLIP_COUNT, "
+			+     "COMMENT_CNT "
 			+ "FROM "
 			+ 		"COMMUNITY_QNA_TB "
 			+ "JOIN "

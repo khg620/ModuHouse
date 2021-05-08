@@ -182,22 +182,23 @@
    <!--question list-->
    <section class="question__content">
       <div class="article-container">
-         <article class="question__content-article"> <!-- 페이징 나중에 구현 -->
+      	<c:forEach var="content" items="${allContentList }">      	
+         <article class="question__content-article"> 
             <a href="${root }community/read_question?board_info_idx=2&content_idx=1" class="question__article-overlay"></a>
             <div class="content-wrap">
                <div class="content-summary-wrap">
-                  <h1 class="content__title">글제목</h1>
-                  <p class="content__text">글내용</p>
+                  <h1 class="content__title">${content.content_subject }</h1>
+                  <p class="content__text">${content.content_text }</p>
                </div>
                <div class="content__image-wrap" style="background-image: url(${root}image/items/hanger.jpg)"></div>
             </div>
             <footer class="content__footer">
                <div class="content-meta-wrap">
                   <div class="content-writer-image-wrap" style="background-image: url(${root}image/user_icon.jpg)"></div>
-                  <span class="content-author">작성자</span>
+                  <span class="content-author">${content.writer_nickname }</span>
                   <span class="content-meta">
-                     <time class="content-date">9분전</time>
-                     <span class="content-reply">댓글</span>
+                     <time class="content-date">${content.content_date }</time>
+                     <span class="content-reply">댓글 ${content.comment_cnt }</span>
                      <span class="content-read-count">조회</span>
                   </span>
                </div>
@@ -210,9 +211,10 @@
                </ul>
             </footer>
          </article>
+      	</c:forEach>
       </div>
    </section>
-   <div class="questions__paginator">
+   <div class="questions__paginator"><!-- 페이징 나중에 구현 -->
       <ul class="paginator-list">
          <li class="paginator-item prev" role="button">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 40" x="0px" y="0px"><title>030-Prev</title><g data-name="030-Prev"><path d="M22.29,30.71l-14-14a1,1,0,0,1,0-1.42l14-14a1,1,0,1,1,1.42,1.42L10.41,16l13.3,13.29a1,1,0,0,1-1.42,1.42Z"/></g></svg>

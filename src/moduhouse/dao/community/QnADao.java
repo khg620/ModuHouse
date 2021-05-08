@@ -18,6 +18,11 @@ public class QnADao {
 	private final QnAMapper qnaMapper;
 	private final QnAKeywordsMapper qnaKeywordsMapper;
 	
+	//커뮤니티 질문과 답변 메인페이지 - 전체 게시글 목록
+	public ArrayList<ContentBean> getAllContent() {
+	 	return qnaMapper.getAllContent();
+	}
+	
 	//커뮤니티 질문과 답변 메인페이지 - 키워드
 	public ArrayList<KeywordsBean> getAllKeywords() {
 		return qnaKeywordsMapper.getAllKeywords();

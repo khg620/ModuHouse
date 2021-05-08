@@ -73,10 +73,10 @@
                                  <a href="${root }">홈</a>
                               </li>
                               <li class="navigation-drawer__list second-list">
-                                 <a href="${root }">커뮤니티</a>
+                                 <a href="${root }/community/question">커뮤니티</a>
                               </li>
                               <li class="navigation-drawer__list second-list">
-                                 <a href="${root }">질문과답변</a>
+                                 <a href="${root }/community/question">질문과답변</a> <!-- 일단 '커뮤니티' 메인을 '질문과 답변'으로 함 -->
                               </li>
                            </ul>
                         </li>
@@ -134,7 +134,7 @@
                             <a href="${root }product_reviews/write">상품 리뷰 쓰기</a>
                          </li>
                          <li class="navigation-drawer__list">
-                            <a href="${root }">질문하기</a>
+                            <a href="${root }community/write_question">질문하기</a>
                          </li>
                          <c:choose>
                          <c:when test="${signInUserBean.userSignIn == true }">
@@ -200,7 +200,7 @@
                        </div>
                       </c:when>						
 						</c:choose>
-                       <button class="navigation-upload mobile-hide">글쓰기</button>
+                       <button class="navigation-upload mobile-hide">글쓰기</button><!-- 누르면 어느 카테고리의 게시판에 쓸 건지 모달 -->
                     </div>
                  </div>
               </div>
