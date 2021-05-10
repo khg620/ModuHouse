@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import moduhouse.bean.community.CommentBean;
 import moduhouse.bean.community.ContentBean;
 import moduhouse.bean.keywords.KeywordsBean;
+import moduhouse.bean.user.UserBean;
 import moduhouse.dao.community.QnADao;
 
 @Service
@@ -15,6 +16,7 @@ import moduhouse.dao.community.QnADao;
 public class QnAService {
 	
 	private final QnADao qnaDao;
+	private final UserBean signInUserBean;
 	
 	//커뮤니티 질문과 답변 메인페이지 - 전체 게시글 목록
 	public ArrayList<ContentBean> getAllContent() {
@@ -40,9 +42,15 @@ public class QnAService {
 	public ArrayList<CommentBean> getContentComments(int content_idx) {
 		return qnaDao.getContentComments(content_idx);
 	}
+	
+	//게시글 등록
+	public void addQnAContent(ContentBean writeContentBean) {
+		writeContentBean.setContent_writer_idx(signInUserBean.getUser_idx());
+		qnaDao.addQnAContent(writeContentBean);
+	}
 
 	//게시글 덧글 등록
-	public void addCommentInfo(CommentBean writeCommentBean) {
-		qnaDao.addCommentInfo(writeCommentBean);
+	public void addQnAComment(CommentBean writeCommentBean) {
+		qnaDao.addQnAComment(writeCommentBean);
 	}
 }

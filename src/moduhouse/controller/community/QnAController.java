@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +24,6 @@ import moduhouse.service.community.QnAService;
 public class QnAController {
 	
 	private final QnAService qnaService;
-	private final UserBean signInUserBean;
 	
 	@GetMapping("/read_question")
 	public String read(@RequestParam int content_idx, @RequestParam int board_info_idx, @ModelAttribute("writeCommentBean") CommentBean writeCommentBean, Model model) {
@@ -35,8 +35,9 @@ public class QnAController {
 		//게시글 덧글 조회
 		ArrayList<CommentBean> readCommentBean = qnaService.getContentComments(content_idx);
 		
-		model.addAttribute("content_idx",content_idx);
-		model.addAttribute("board_info_idx",board_info_idx);
+		writeCommentBean.setContent_idx(content_idx);
+		writeCommentBean.setBoard_info_idx(board_info_idx);
+	
 		model.addAttribute("readContentBean",readContentBean);
 		model.addAttribute("contentKeywordsBean",contentKeywordsBean);
 		model.addAttribute("readCommentBean",readCommentBean);
@@ -46,13 +47,24 @@ public class QnAController {
 	}
 	
 	@GetMapping("/write_question")
-	public String write() {
+	public String write(@RequestParam int board_info_idx, @ModelAttribute("writeContentBean") ContentBean writeContentBean) {
+		writeContentBean.setBoard_info_idx(board_info_idx);
+		
 		return "community/write_question";
 	}
 	
 	@PostMapping("/write_question")
-	public String write_pro() {
-		return "redirect:/community/read_question";
+	public String write_pro(@ModelAttribute("writeContentBean") ContentBean writeContentBean, BindingResult result) {
+		if(result.hasErrors()) {
+			return "community/write_question";
+		}
+		qnaService.addQnAContent(writeContentBean);
+		
+		//등록 후 글읽기 페이지로 가기 위함
+		int content_idx = writeContentBean.getContent_idx();
+		System.out.println(writeContentBean.getContent_idx());
+		int board_info_idx = writeContentBean.getBoard_info_idx();
+		return "redirect:/community/read_question?content_idx="+content_idx+"&board_info_idx="+board_info_idx;
 	}
 	
 	@GetMapping("/edit_question")

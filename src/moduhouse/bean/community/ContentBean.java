@@ -2,6 +2,8 @@ package moduhouse.bean.community;
 
 import javax.validation.constraints.NotBlank;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,8 +17,9 @@ public class ContentBean {
 	@NotBlank
 	private String content_text;
 	private String content_file;
+	private MultipartFile content_file2;
 	private int content_writer_idx;
-	private int content_board_idx;
+	private int board_info_idx;
 	private String content_date;
 	private int read_count; //조회수
 	private int clip_count; //좋아요수

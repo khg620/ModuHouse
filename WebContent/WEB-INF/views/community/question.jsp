@@ -59,7 +59,7 @@
             <div class="question__keywords-top">
                <div class="question__keywords-group">
                   <h2 class="question__keywords-title">인기</h2>
-                  <ul class="question__keywords__list">
+                  <ul class="question__keywords__list"><!-- 조회수? 구매수? 데이터가 상위인 것으로 조회해오는 걸로 변경 -->
                      <li class="question__keywords__item" role="button">리모델링/올수리</li>
                      <li class="question__keywords__item" role="button">20평대</li>
                      <li class="question__keywords__item" role="button">아파트</li>
@@ -184,7 +184,7 @@
       <div class="article-container">
       	<c:forEach var="content" items="${allContentList }">      	
          <article class="question__content-article"> 
-            <a href="${root }community/read_question?board_info_idx=2&content_idx=1" class="question__article-overlay"></a>
+            <a href="${root }community/read_question?board_info_idx=${content.board_info_idx }&content_idx=${content.content_idx }" class="question__article-overlay"></a>
             <div class="content-wrap">
                <div class="content-summary-wrap">
                   <h1 class="content__title">${content.content_subject }</h1>

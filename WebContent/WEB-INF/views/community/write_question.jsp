@@ -40,15 +40,16 @@
    </header>
    <main class="question__write">
       <div class="container">
-         <form:form action="" method="post" class="question__form">
+         <form:form action="${root }community/write_question" method="post" class="question__form" modelAttribute="writeContentBean" encType="multipart/form-data">
+         	<form:hidden path="board_info_idx"/>
             <fieldset class="question__form-group">
                <legend class="question__form__header">
                   <strong class="question__form__head">질문하기</strong>
                   <span class="question__form__cs">상품구매, 배송 관련 문의가 필요하시다면 <a class="cs-link" href="">문의하러 가기</a></span>
                </legend>
-               <input type="text" minlength="7" placeholder="제목을 적어주세요." class="question__title">
-               <textarea name="" id="" cols="30" rows="10" 
-               placeholder="내용을 적어주세요. &#13;&#10;참고가 되는 사진을 같이 공유해주시면 더 좋은 답변을 얻을 수 있습니다. &#13;&#10;※ 비슷한 어려움을 겪는 유저를 위해 답변자에게 포인트를 지급하며, 답변이 달린 질문글은 삭제할 수 없습니다. &#13;&#10; ※ 인테리어와 관련 없는 질문은 숨김 및 삭제될 수 있습니다." class="question__text"></textarea>
+               <form:input path="content_subject" type="text" minlength="7" placeholder="제목을 적어주세요." class="question__title"/>
+               <form:textarea path="content_text" cols="30" rows="10" 
+               placeholder="내용을 적어주세요. &#13;&#10;참고가 되는 사진을 같이 공유해주시면 더 좋은 답변을 얻을 수 있습니다. &#13;&#10;※ 비슷한 어려움을 겪는 유저를 위해 답변자에게 포인트를 지급하며, 답변이 달린 질문글은 삭제할 수 없습니다. &#13;&#10; ※ 인테리어와 관련 없는 질문은 숨김 및 삭제될 수 있습니다." class="question__text"/>
             </fieldset>
                <div class="question__keywords">
                   <button type="button" class="select-keyword-btn">
@@ -63,8 +64,8 @@
                </div>
             </div>
             <div class="upload-btn-wrap">
-               <button class="upload-image-btn">사진 추가</button>
-               <button class="submit-question-btn">질문 저장하기</button>
+               <form:input type="file" path="content_file2" class="upload-image-btn"/>사진 추가
+               <form:button class="submit-question-btn">질문 저장하기</form:button>
             </div>
          </form:form>
       </div>

@@ -30,7 +30,7 @@ public class QnACommentController {
 		model.addAttribute("board_info_idx",board_info_idx);
 		
 		//댓글 저장하기
-		qnaService.addCommentInfo(writeCommentBean);
+		qnaService.addQnAComment(writeCommentBean);
 		
 		return "redirect:/community/read_question";
 	}

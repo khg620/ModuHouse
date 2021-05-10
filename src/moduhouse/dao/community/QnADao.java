@@ -1,6 +1,7 @@
 package moduhouse.dao.community;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
@@ -44,9 +45,14 @@ public class QnADao {
 		return qnaMapper.getContentComments(content_idx);
 	}
 	
+	//게시글 등록
+	public void addQnAContent(ContentBean writeContentBean) {
+		qnaMapper.addQnAContent(writeContentBean);
+	}
+	
 	//게시글 덧글 등록
-	public void addCommentInfo(CommentBean writeCommentBean) {
-		qnaMapper.addCommentInfo(writeCommentBean);
+	public void addQnAComment(CommentBean writeCommentBean) {
+		qnaMapper.addQnAComment(writeCommentBean);
 	}
 
 }

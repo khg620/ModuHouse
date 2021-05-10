@@ -2,6 +2,7 @@ package moduhouse.mapper.community;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 import moduhouse.bean.community.CommentBean;
@@ -85,6 +86,29 @@ public interface QnAMapper {
 			+ 	"ORDER BY "
 			+ 			"COMMENT_DATE DESC")
 	ArrayList<CommentBean> getContentComments(int content_idx);
+	
+	//게시글 저장
+	@Insert("INSERT INTO "
+			+ 			"COMMUNITY_QNA_TB"
+			+ 	"("
+			+ 			"CONTENT_IDX, "
+			+ 			"CONTENT_SUBJECT, "
+			+ 			"CONTENT_TEXT, "
+			+ 			"CONTENT_FILE, "
+			+ 			"CONTENT_WRITER_IDX, "
+			+ 			"CONTENT_DATE, "
+			+ 			"BOARD_INFO_IDX) "
+			+ 	"VALUES"
+			+ 	"("
+			+ 			"COMMUNITY_QNA_SEQ.NEXTVAL, "
+			+ 			"#{content_subject}, "
+			+ 			"#{content_text}, "
+			+ 			"#{content_file}, "
+			+ 			"#{content_writer_idx}, "
+			+ 			"SYSDATE, "
+			+ 			"#{board_info_idx}"
+			+ 	")")
+	void addQnAContent(ContentBean writeContentBean);
 
 	//게시글 덧글 등록
 	@Select("INSERT INTO "
@@ -106,5 +130,8 @@ public interface QnAMapper {
 			+ 			"#{content_idx}, "
 			+ 			"#{board_info_idx}"
 			+ ")")
-	void addCommentInfo(CommentBean writeCommentBean);
+	void addQnAComment(CommentBean writeCommentBean);
+	
+	
+	
 }

@@ -49,3 +49,11 @@ const openEvent = (e) => {
 for (var i = 0; i < main_menu.length; i++) {
 	main_menu[i].addEventListener('click', openEvent);
 }		
+
+//header-right 글쓰기 버튼
+const write_btn = document.querySelector('.navigation-upload');
+const upload_menu = document.querySelector('.upload-list-wrap');
+
+write_btn.addEventListener('click',() => {
+   upload_menu.classList.toggle('show');
+})

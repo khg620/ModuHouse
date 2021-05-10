@@ -86,7 +86,9 @@
 
       <div class="container">
          <h1>댓글<span>${readContentBean.comment_cnt }</span></h1>
-         <form:form action="${root }community/write_comment?content_idx=${content_idx }&board_info_idx= ${board_info_idx }" method="post" modelAttribute="writeCommentBean">
+         <form:form action="${root }community/write_comment" method="post" modelAttribute="writeCommentBean">
+         	<form:hidden path="content_idx"/>
+         	<form:hidden path="board_info_idx"/>
             <div class="comment__writer-img"></div>
             <form:input path="comment_text" placeholder="댓글을 남겨 보세요."/>
             <form:button>등록</form:button>

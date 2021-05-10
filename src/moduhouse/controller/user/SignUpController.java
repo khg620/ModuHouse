@@ -33,7 +33,6 @@ public class SignUpController {
 													 BindingResult result) {
 		
 		if(result.hasErrors()) {
-			System.out.println(result);
 			return "user/sign_up";
 		}
 		

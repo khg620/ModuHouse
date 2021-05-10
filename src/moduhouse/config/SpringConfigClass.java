@@ -1,6 +1,8 @@
 package moduhouse.config;
 
 import javax.servlet.Filter;
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration.Dynamic;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 /*
@@ -108,4 +110,12 @@ public class SpringConfigClass extends AbstractAnnotationConfigDispatcherServlet
 		return new Filter[] { encodingFilter };// 필터를 여러 개 세팅할 수 있기 때문에 배열로 반환
 	}
 
+	//form encType="multipart/form-data"
+	@Override
+	protected void customizeRegistration(Dynamic registration) {
+		super.customizeRegistration(registration);
+		
+		MultipartConfigElement config1 = new MultipartConfigElement(null,5248800,52488000,0);
+		registration.setMultipartConfig(config1);
+	}
 }
