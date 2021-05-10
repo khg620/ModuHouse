@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectKey;
 
 import moduhouse.bean.community.CommentBean;
 import moduhouse.bean.community.ContentBean;
@@ -28,7 +29,8 @@ public interface QnAMapper {
 			+ 		"COMMUNITY_QNA_TB "
 			+  "JOIN "
 			+ 		"USER_TB "
-			+  "ON(CONTENT_WRITER_IDX = USER_IDX)")
+			+  "ON(CONTENT_WRITER_IDX = USER_IDX) "
+			+  "ORDER BY CONTENT_DATE DESC")
 	ArrayList<ContentBean> getAllContent();
 
 	//게시글 단건 조회
@@ -87,7 +89,10 @@ public interface QnAMapper {
 			+ 			"COMMENT_DATE DESC")
 	ArrayList<CommentBean> getContentComments(int content_idx);
 	
-	//게시글 저장
+	//게시글 저장-1
+	//글 작성 후 글 읽기 페이지로 돌아갈 때 빈에 content_idx를 세팅하기 위함
+	@SelectKey(statement = "SELECT COMMUNITY_QNA_SEQ.NEXTVAL FROM DUAL", keyProperty="content_idx", before=true, resultType=int.class)
+	//게시글 저장-2
 	@Insert("INSERT INTO "
 			+ 			"COMMUNITY_QNA_TB"
 			+ 	"("
@@ -100,7 +105,7 @@ public interface QnAMapper {
 			+ 			"BOARD_INFO_IDX) "
 			+ 	"VALUES"
 			+ 	"("
-			+ 			"COMMUNITY_QNA_SEQ.NEXTVAL, "
+			+ 			"#{content_idx}, "
 			+ 			"#{content_subject}, "
 			+ 			"#{content_text}, "
 			+ 			"#{content_file}, "

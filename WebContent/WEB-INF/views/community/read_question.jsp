@@ -127,7 +127,7 @@
          <!--qna write link-->
          <div class="write-qna__link">
             <p>인테리어 궁금한 것 물어보세요!</p>
-            <button class="button--color-skyblue">질문하러 가기</button>
+            <a href="${root }community/write_question?board_info_idx=${readContentBean.board_info_idx}" class="button--color-skyblue">질문하러 가기</a>
          </div>
 
          <!--write comment-->
