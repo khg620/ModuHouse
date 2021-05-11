@@ -4,6 +4,7 @@ import javax.servlet.Filter;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration.Dynamic;
 
+import org.apache.catalina.valves.AccessLogValve;
 import org.springframework.web.filter.CharacterEncodingFilter;
 /*
 1. WebApplicationInitializer 인터페이스를 구현하여 세팅

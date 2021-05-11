@@ -22,6 +22,9 @@ public class StoreController {
 		HttpSession session = request.getSession();
 		session.setAttribute("signInUserBean", signInUserBean);
 		
+		//상품 이미지
+		
+		
 		return "store_main";
 	}
 

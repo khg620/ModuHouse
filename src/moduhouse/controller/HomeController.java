@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String main() {
+		//System.out.println(request.getServletContext().getRealPath("/")); //테스트용 경로(이클립스 상 실행 시 실제 경로)
 		return "redirect:/store";
 	}
 }

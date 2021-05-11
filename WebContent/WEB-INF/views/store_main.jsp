@@ -16,9 +16,9 @@
 <link rel="stylesheet" href="${root }css/footer.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-<link rel="icon" href="${root }image/favicon.ico">
-<link rel="apple-touch-icon" href="${root }image/favicon.ico">
-<link rel="short icon" type="image/x-icon" href="${root }image/favicon.ico">
+<link rel="icon" href="${root }image/icons/favicon.ico">
+<link rel="apple-touch-icon" href="${root }image/icons/favicon.ico">
+<link rel="short icon" type="image/x-icon" href="${root }image/icons/favicon.ico">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 <title>누구나 멋진 인테리어, 모두의 집</title>
 <script src="${root }javascript/store_main.js" defer></script>
@@ -78,43 +78,43 @@
 
 								<li class="category-item">
 									<a href="">
-										<img src="./image/category/furniture.jpg" class="category-item__image" alt="">
+										<img src="${root}image/category/furniture.jpg" class="category-item__image" alt="">
 										<span>가구</span>
 									</a>
 								</li>
 								<li class="category-item">
 									<a href="">
-										<img src="./image/category/fabric.png" class="category-item__image" alt="">
+										<img src="${root}image/category/fabric.png" class="category-item__image" alt="">
 										<span>패브릭</span>
 									</a>
 								</li>
 								<li class="category-item">
 									<a href="">
-										<img src="./image/category/home_deco.jpg" class="category-item__image" alt="">
+										<img src="${root}image/category/home_deco.jpg" class="category-item__image" alt="">
 										<span>홈데코</span>
 									</a>
 								</li>
 								<li class="category-item">
 									<a href="">
-										<img src="./image/category/storage_tools.png" class="category-item__image" alt="">
+										<img src="${root}image/category/storage_tools.png" class="category-item__image" alt="">
 										<span>수납/정리</span>
 									</a>
 								</li>
 								<li class="category-item">
 									<a href="">
-										<img src="./image/category/household_goods.png" class="category-item__image" alt="">
+										<img src="${root}image/category/household_goods.png" class="category-item__image" alt="">
 										<span>생활용품</span>
 									</a>
 								</li>
 								<li class="category-item">
 									<a href="">
-										<img src="./image/category/appliances.jpg" class="category-item__image" alt="">
+										<img src="${root}image/category/appliances.jpg" class="category-item__image" alt="">
 										<span>가전</span>
 									</a>
 								</li>
 								<li class="category-item">
 									<a href="">
-										<img src="./image/category/kitchen.png" class="category-item__image" alt="">
+										<img src="${root}image/category/kitchen.png" class="category-item__image" alt="">
 										<span>주방</span>
 									</a>
 								</li>
@@ -127,49 +127,49 @@
 								</li>
 								<li class="category-item">
 									<a href="">
-										<img src="./image/category/pet.png" class="category-item__image" alt="">
+										<img src="${root}image/category/pet.png" class="category-item__image" alt="">
 										<span>반려동물</span>
 									</a>
 								</li>
 								<li class="category-item">
 									<a href="">
-										<img src="./image/category/bedroom_furniture.png" class="category-item__image" alt="">
+										<img src="${root}image/category/bedroom_furniture.png" class="category-item__image" alt="">
 										<span>침실가구</span>
 									</a>
 								</li>
 								<li class="category-item">
 									<a href="">
-										<img src="./image/category/table.png" class="category-item__image" alt="">
+										<img src="${root}image/category/table.png" class="category-item__image" alt="">
 										<span>식탁/테이블</span>
 									</a>
 								</li>
 								<li class="category-item">
 									<a href="">
-										<img src="./image/category/carpet.png" class="category-item__image" alt="">
+										<img src="${root}image/category/carpet.png" class="category-item__image" alt="">
 										<span>러그/카페트</span>
 									</a>
 								</li>
 								<li class="category-item">
 									<a href="">
-										<img src="./image/category/curtain_blind.jpg" class="category-item__image" alt="">
+										<img src="${root}image/category/curtain_blind.jpg" class="category-item__image" alt="">
 										<span>커튼/블라인드</span>
 									</a>
 								</li>
 								<li class="category-item">
 									<a href="">
-										<img src="./image/category/necessity.jpg" class="category-item__image" alt="">
+										<img src="${root}image/category/necessity.jpg" class="category-item__image" alt="">
 										<span>생필품</span>
 									</a>
 								</li>
 								<li class="category-item">
 									<a href="">
-										<img src="./image/category/camping.jpg" class="category-item__image" alt="">
+										<img src="${root}image/category/camping.jpg" class="category-item__image" alt="">
 										<span>캠핑용품</span>
 									</a>
 								</li>
 								<li class="category-item">
 									<a href="">
-										<img src="./image/category/diy.png" class="category-item__image" alt="">
+										<img src="${root}image/category/diy.png" class="category-item__image" alt="">
 										<span>DIY/공구</span>
 									</a>
 								</li>
@@ -206,7 +206,7 @@
 						<article class="product-item">
 							<a href="" class="product-item-overlay"></a>
 							<div class="product-item__image-wrap">
-								<img class="product-item__image" src="./image/items/wood_blind.jpg" alt="Nubes wood blind">
+								<img class="product-item__image" src="${root}image/products/wood_blind.jpg" alt="Nubes wood blind">
 							</div>
 							<div class="product-item__content">
 								<div class="product-item__content-wrap">
@@ -235,7 +235,7 @@
 						<article class="product-item">
 							<a href="" class="product-item-overlay"></a>
 							<div class="product-item__image-wrap">
-								<img class="product-item__image" src="./image/items/stepper.jpg" alt="">
+								<img class="product-item__image" src="${root}image/products/stepper.jpg" alt="">
 							</div>
 							<div class="product-item__content">
 								<div class="product-item__content-wrap">
@@ -264,7 +264,7 @@
 						<article class="product-item">
 							<a href="" class="product-item-overlay"></a>
 							<div class="product-item__image-wrap">
-								<img class="product-item__image" src="./image/items/LGcinebim.jpg" alt="LG cinebim">
+								<img class="product-item__image" src="${root}image/products/LGcinebim.jpg" alt="LG cinebim">
 							</div>
 							<div class="product-item__content">
 								<div class="product-item__content-wrap">
@@ -293,7 +293,7 @@
 						<article class="product-item">
 							<a href="" class="product-item-overlay"></a>
 							<div class="product-item__image-wrap">
-								<img class="product-item__image" src="./image/items/bed.jpg" alt="modern baroque bed">
+								<img class="product-item__image" src="${root}image/products/bed.jpg" alt="modern baroque bed">
 							</div>
 							<div class="product-item__content">
 								<div class="product-item__content-wrap">
@@ -342,28 +342,28 @@
 			<div class="row">
 				<div class="col-6 col-md-3">
 					<a href="" class="main-keywords__keyword">
-						<div class="keyword-image" style="background-image: url(./image/keywords/round_table.png)"></div>
+						<div class="keyword-image" style="background-image: url(${root}image/keywords/round_table.png)"></div>
 						<span>#원형테이블</span>
 					</a>
 				</div>
 
 				<div class="col-6 col-md-3">
 					<a href="" class="main-keywords__keyword">
-						<div class="keyword-image" style="background-image: url(./image/keywords/air_cleaner.png)"></div>
+						<div class="keyword-image" style="background-image: url(${root}image/keywords/air_cleaner.png)"></div>
 						<span>#공기청정기</span>
 					</a>
 				</div>
 
 				<div class="col-6 col-md-3">
 					<a href="" class="main-keywords__keyword">
-						<div class="keyword-image" style="background-image: url(./image/keywords/Recliner.png)"></div>
+						<div class="keyword-image" style="background-image: url(${root}image/keywords/Recliner.png)"></div>
 						<span>#리클라이너 소파</span>
 					</a>
 				</div>
 
 				<div class="col-6 col-md-3">
 					<a href="" class="main-keywords__keyword">
-						<div class="keyword-image" style="background-image: url(./image/keywords/keyword_fabric.jpg)"></div>
+						<div class="keyword-image" style="background-image: url(${root}image/keywords/keyword_fabric.jpg)"></div>
 						<span>#패브릭 포스터</span>
 					</a>
 				</div>
@@ -444,7 +444,7 @@
 					<article class="product-item">
 						<a href="" class="product-item-overlay"></a>
 						<div class="product-item__image-wrap">
-							<img src="./image/items/livart_sofa.jpg" alt="livart sofa" class="product-item__image">
+							<img src="${root }image/products/livart_sofa.jpg" alt="livart sofa" class="product-item__image">
 						</div>
 						<div class="product-item__content">
 							<div class="product-item__content-wrap">

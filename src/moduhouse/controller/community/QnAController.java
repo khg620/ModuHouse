@@ -2,6 +2,8 @@ package moduhouse.controller.community;
 
 import java.util.ArrayList;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,7 +17,6 @@ import lombok.RequiredArgsConstructor;
 import moduhouse.bean.community.CommentBean;
 import moduhouse.bean.community.ContentBean;
 import moduhouse.bean.keywords.KeywordsBean;
-import moduhouse.bean.user.UserBean;
 import moduhouse.service.community.QnAService;
 
 @Controller
@@ -54,7 +55,7 @@ public class QnAController {
 	}
 	
 	@PostMapping("/write_question")
-	public String write_pro(@ModelAttribute("writeContentBean") ContentBean writeContentBean, BindingResult result) {
+	public String write_pro(@Valid @ModelAttribute("writeContentBean") ContentBean writeContentBean, BindingResult result) {
 		if(result.hasErrors()) {
 			return "community/write_question";
 		}
@@ -62,7 +63,6 @@ public class QnAController {
 		
 		//등록 후 글읽기 페이지로 가기 위함
 		int content_idx = writeContentBean.getContent_idx();
-		System.out.println(writeContentBean.getContent_idx());
 		int board_info_idx = writeContentBean.getBoard_info_idx();
 		return "redirect:/community/read_question?content_idx="+content_idx+"&board_info_idx="+board_info_idx;
 	}

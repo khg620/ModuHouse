@@ -13,14 +13,14 @@
 <meta name="author" content="Hyun gyung" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../css/sign_up.css">
+<link rel="stylesheet" href="${root }css/sign_up.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
 	rel="stylesheet">
-<link rel="icon" href="${root }image/favicon.ico">
-<link rel="apple-touch-icon" href="${root }image/favicon.ico">
-<link rel="short icon" type="image/x-icon" href="${root }image/favicon.ico">
+<link rel="icon" href="${root }image/icons/favicon.ico">
+<link rel="apple-touch-icon" href="${root }image/icons/favicon.ico">
+<link rel="short icon" type="image/x-icon" href="${root }image/icons/favicon.ico">
 <title>누구나 멋진 인테리어, 모두의 집</title>
 <script src="https://kit.fontawesome.com/7218b951ec.js"
 	crossorigin="anonymous"></script>
