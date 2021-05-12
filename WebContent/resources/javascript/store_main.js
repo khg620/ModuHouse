@@ -4,11 +4,14 @@ const banner_prev_btn = document.querySelector('.store-main__banner-list .banner
 const banner_next_btn = document.querySelector('.store-main__banner-list .banner-next');
 const banner__items = document.querySelectorAll('.banner__list .banner__item');
 
+banner__items[0].classList.add('click');
 //다음 이미지로
 let count = 1;
 const bannerMoveNext = () => {
 	count++;
 	banner_img.style.backgroundImage = 'url(image/banner/banner1_' + count + '.jpg)';
+	banner__items.forEach(x=>{if(x.classList.contains('click')){x.classList.remove('click')}})
+	banner__items[count-1].classList.add('click');
 	if (count >= 7) {
 		count = 0;
 	}
@@ -34,10 +37,17 @@ banner_prev_btn.addEventListener('click', () => {
 	bannerMovePrev();
 })
 
+//배너버튼 클릭 시 해당 아이템 색상 변경
+const changeBackground = (e) => {
+	banner__items.forEach(x => {if(x.classList.contains('click')){x.classList.remove('click')}})
+	e.target.classList.add('click');
+};
+
 //배너 버튼 클릭하여 이미지 이동
 for (let i = 0; i < banner__items.length; i++) {
-	banner__items[i].addEventListener('click', () => {
+	banner__items[i].addEventListener('click', (e) => {
 		banner_img.style.backgroundImage = 'url(image/banner/banner1_' + (i + 1) + '.jpg)';
+		changeBackground(e);
 	});
 }
 

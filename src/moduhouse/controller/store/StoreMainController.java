@@ -1,5 +1,7 @@
 package moduhouse.controller.store;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -8,12 +10,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import lombok.RequiredArgsConstructor;
+import moduhouse.bean.store.CategoryBean;
 import moduhouse.bean.user.UserBean;
+import moduhouse.service.store.StoreMainService;
 
 @Controller
 @RequiredArgsConstructor
-public class StoreController {
+public class StoreMainController {
 	
+	private final StoreMainService storeMainService;
 	private final UserBean signInUserBean;
 	
 	@GetMapping("/store")
@@ -21,6 +26,11 @@ public class StoreController {
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("signInUserBean", signInUserBean);
+		
+		//상품 카테고리
+		List<CategoryBean> storeMainCategoryList = storeMainService.getAllCategory();
+		model.addAttribute("storeMainCategoryList",storeMainCategoryList);
+		System.out.println(storeMainCategoryList.get(0).getMain_category_image());
 		
 		//상품 이미지
 		

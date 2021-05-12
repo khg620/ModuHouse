@@ -75,104 +75,14 @@
 								</div>
 							</div>
 							<ul class="category-wrap" data-position="0">
-
+								<c:forEach var="category" items="${storeMainCategoryList }">
 								<li class="category-item">
 									<a href="">
-										<img src="${root}image/category/furniture.jpg" class="category-item__image" alt="">
-										<span>가구</span>
+										<img src="${root}image/category/${category.main_category_image}" class="category-item__image" alt="">
+										<span>${category.main_category_name }</span>
 									</a>
 								</li>
-								<li class="category-item">
-									<a href="">
-										<img src="${root}image/category/fabric.png" class="category-item__image" alt="">
-										<span>패브릭</span>
-									</a>
-								</li>
-								<li class="category-item">
-									<a href="">
-										<img src="${root}image/category/home_deco.jpg" class="category-item__image" alt="">
-										<span>홈데코</span>
-									</a>
-								</li>
-								<li class="category-item">
-									<a href="">
-										<img src="${root}image/category/storage_tools.png" class="category-item__image" alt="">
-										<span>수납/정리</span>
-									</a>
-								</li>
-								<li class="category-item">
-									<a href="">
-										<img src="${root}image/category/household_goods.png" class="category-item__image" alt="">
-										<span>생활용품</span>
-									</a>
-								</li>
-								<li class="category-item">
-									<a href="">
-										<img src="${root}image/category/appliances.jpg" class="category-item__image" alt="">
-										<span>가전</span>
-									</a>
-								</li>
-								<li class="category-item">
-									<a href="">
-										<img src="${root}image/category/kitchen.png" class="category-item__image" alt="">
-										<span>주방</span>
-									</a>
-								</li>
-								<li class="category-item mobile-show">
-									<a href="">
-										<svg class="more-btn" width="42" height="42" viewBox="0 0 42 42" preserveAspectRatio="xMidYMid meet">
-											<path id="a" d="M21 21v21h-1V21H0v-1h20V0h1v20h21v1H21z" fill="#000" fill-opacity=".74" fill-rule="nonzero"></path></svg>
-										<span>더보기</span>
-									</a>
-								</li>
-								<li class="category-item">
-									<a href="">
-										<img src="${root}image/category/pet.png" class="category-item__image" alt="">
-										<span>반려동물</span>
-									</a>
-								</li>
-								<li class="category-item">
-									<a href="">
-										<img src="${root}image/category/bedroom_furniture.png" class="category-item__image" alt="">
-										<span>침실가구</span>
-									</a>
-								</li>
-								<li class="category-item">
-									<a href="">
-										<img src="${root}image/category/table.png" class="category-item__image" alt="">
-										<span>식탁/테이블</span>
-									</a>
-								</li>
-								<li class="category-item">
-									<a href="">
-										<img src="${root}image/category/carpet.png" class="category-item__image" alt="">
-										<span>러그/카페트</span>
-									</a>
-								</li>
-								<li class="category-item">
-									<a href="">
-										<img src="${root}image/category/curtain_blind.jpg" class="category-item__image" alt="">
-										<span>커튼/블라인드</span>
-									</a>
-								</li>
-								<li class="category-item">
-									<a href="">
-										<img src="${root}image/category/necessity.jpg" class="category-item__image" alt="">
-										<span>생필품</span>
-									</a>
-								</li>
-								<li class="category-item">
-									<a href="">
-										<img src="${root}image/category/camping.jpg" class="category-item__image" alt="">
-										<span>캠핑용품</span>
-									</a>
-								</li>
-								<li class="category-item">
-									<a href="">
-										<img src="${root}image/category/diy.png" class="category-item__image" alt="">
-										<span>DIY/공구</span>
-									</a>
-								</li>
+								</c:forEach>						
 							</ul>
 							<div class="mobile-hide next show" onclick="moveNext()">
 								<div class="category-list-next">
