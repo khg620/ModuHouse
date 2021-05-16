@@ -45,6 +45,11 @@ public class QnADao {
 		return qnaMapper.getContentComments(content_idx);
 	}
 	
+	//게시글 덧글 수 조회
+	public int getCommentCnt(int content_idx) {
+		return qnaMapper.getCommentCnt(content_idx);
+	}
+	
 	//게시글 등록
 	public void addQnAContent(ContentBean writeContentBean) {
 		qnaMapper.addQnAContent(writeContentBean);

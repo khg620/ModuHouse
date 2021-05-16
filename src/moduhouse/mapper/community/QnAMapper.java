@@ -89,6 +89,15 @@ public interface QnAMapper {
 			+ 			"COMMENT_DATE DESC")
 	ArrayList<CommentBean> getContentComments(int content_idx);
 	
+	//게시글 덧글 수 조회
+	@Select("SELECT COUNT(*) "
+			+ 	"FROM "
+			+   "COMMUNITY_QNA_COMMENT_TB "
+			+ 	"WHERE "
+			+   "CONTENT_IDX = #{content_idx}"
+			)
+	int getCommentCnt(int content_idx);
+	
 	//게시글 저장-1
 	//글 작성 후 글 읽기 페이지로 돌아갈 때 빈에 content_idx를 세팅하기 위함
 	@SelectKey(statement = "SELECT COMMUNITY_QNA_SEQ.NEXTVAL FROM DUAL", keyProperty="content_idx", before=true, resultType=int.class)

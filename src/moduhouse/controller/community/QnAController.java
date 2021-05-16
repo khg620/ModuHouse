@@ -38,7 +38,8 @@ public class QnAController {
 		
 		writeCommentBean.setContent_idx(content_idx);
 		writeCommentBean.setBoard_info_idx(board_info_idx);
-	
+		
+		model.addAttribute("comment_cnt",qnaService.getCommentCnt(content_idx));
 		model.addAttribute("readContentBean",readContentBean);
 		model.addAttribute("contentKeywordsBean",contentKeywordsBean);
 		model.addAttribute("readCommentBean",readCommentBean);

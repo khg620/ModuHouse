@@ -23,7 +23,30 @@
 .button--color-skyblue:hover {
   background-color: var(--color-blue);
 }
+.button--color-gray {
+  background-color: var(--color-white-grey);
+  color: var(--color-black);
+  border: none;
+  border-radius: 4px;
+}
+.button--color-gray:hover {
+  background-color: var(--color-light-grey);
+}
+.button--color-gray-inverted {
+  padding: 4px 10px;
+  border-radius: 50px;
+  border: 1px solid var(--color-light-grey);
+  background-color: #fff;
+}
+.button--color-gray-inverted:hover {
+  background-color: var(--color-white);
+}
 /* button size */
+.button-size-60 {
+  padding: 14px 15px;
+  font-size: 18px;
+  line-height: 30px;
+}
 .button-size-50 {
   padding: 11px 10px;
   font-size: 17px;

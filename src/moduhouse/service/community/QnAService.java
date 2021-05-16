@@ -52,6 +52,11 @@ public class QnAService {
 		return qnaDao.getContentComments(content_idx);
 	}
 	
+	//게시글 덧글 수 조회
+	public int getCommentCnt(int content_idx) {
+		return qnaDao.getCommentCnt(content_idx);
+	}
+	
 	//게시글 등록
 	public void addQnAContent(ContentBean writeContentBean) {
 		writeContentBean.setContent_writer_idx(signInUserBean.getUser_idx());

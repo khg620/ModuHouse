@@ -14,4 +14,5 @@ public class CommentBean {
 	private int content_idx;
 	private int board_info_idx;
 	private String user_nickname;
+	private int read_cnt;
 }

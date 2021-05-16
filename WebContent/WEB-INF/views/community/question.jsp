@@ -194,7 +194,7 @@
             </div>
             <footer class="content__footer">
                <div class="content-meta-wrap">
-                  <div class="content-writer-image-wrap" style="background-image: url(${root}image/user_icon.jpg)"></div>
+                  <div class="content-writer-image-wrap" style="background-image: url(${root}image/icons/user_icon.jpg)"></div>
                   <span class="content-author">${content.writer_nickname }</span>
                   <span class="content-meta">
                      <time class="content-date">${content.content_date }</time>
