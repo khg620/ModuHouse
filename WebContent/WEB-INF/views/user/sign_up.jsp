@@ -35,7 +35,7 @@
 		<div class="main-link">
 			<h2>
 				<a href="${root }" class="main-icon"> <img
-					src="${root }image/main_home_icon.png" class="main-img"
+					src="${root }image/icons/main_home_icon.png" class="main-img"
 					alt="go main page"> 모두의 집
 				</a>
 			</h2>
@@ -48,17 +48,17 @@
 					<ul class="sign-up-form__button-list">
 						<li>
 							<a href="#"> 
-								<img src="${root }image/facebook.png" alt="login with facebook" class="sns-sign"/>
+								<img src="${root }image/icons/facebook.png" alt="login with facebook" class="sns-sign"/>
 							</a>
 						</li>
 						<li>
 							<a href="#">
-								<img src="${root }image/naver.png" alt="login with naver" class="sns-sign"/>
+								<img src="${root }image/icons/naver.png" alt="login with naver" class="sns-sign"/>
 							</a>
 						</li>
 						<li>
 							<a href="#">
-								<img src="${root }image/kakao.png"
+								<img src="${root }image/icons/kakao.png"
 								alt="login with kakaotalk" class="sns-sign"/>
 							</a>
 						</li>

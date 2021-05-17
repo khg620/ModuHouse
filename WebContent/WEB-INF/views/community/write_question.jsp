@@ -15,7 +15,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="${root }css/utils.css"/>
    <link rel="stylesheet" href="${root }css/main.css">
-   <link rel="stylesheet" href="${root }css/">
+   <link rel="stylesheet" href="${root }css/community/write_question.css">
    <link rel="stylesheet" href="${root }css/footer.css">
    <link rel="preconnect" href="https://fonts.gstatic.com">
    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -30,41 +30,56 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-	<script src="${root }" defer></script>
+	<script src="${root }javascript/community/write_question.js" defer></script>
 </head>
 <body>
-	<header class="header">
-      <div class="container">
-         <h1>모두의집</h1>
+	<header class="qna-write-header">
+      <div class="qna-write-container">
+         <h1 class="qna-write-head">
+         	<a href="${root }" class="qna-home-link">
+         	<span class="home-icon" style="background-image: url(${root}image/icons/favicon.ico)"></span>
+         	모두의집
+         	</a>
+         </h1>
       </div>
    </header>
-   <main class="question__write">
-      <div class="container">
-         <form:form action="${root }community/write_question" method="post" class="question__form" modelAttribute="writeContentBean" encType="multipart/form-data">
-         	<form:hidden path="board_info_idx"/>
-            <fieldset class="question__form-group">
-               <legend class="question__form__header">
-                  <strong class="question__form__head">질문하기</strong>
-                  <span class="question__form__cs">상품구매, 배송 관련 문의가 필요하시다면 <a class="cs-link" href="">문의하러 가기</a></span>
+   <main class="qna-write">
+      <div class="qna-write-container">
+         <form:form action="${root }community/write_question" method="post" modelAttribute="writeContentBean" encType="multipart/form-data" class="qna-write__form">
+            <form:hidden path="board_info_idx"/>
+            <fieldset class="qna-write__form-group">
+               <legend class="qna-write__form__header">
+                  <span class="qna-write__form__head">질문하기</span>
+                  <span class="qna-write__form__cs">상품구매, 배송 관련 문의가 필요하시다면 <a class="cs-link" href="">문의하러 가기</a></span>
                </legend>
-               <form:input path="content_subject" type="text" minlength="7" placeholder="제목을 적어주세요." class="question__title"/>
-               <form:textarea path="content_text" cols="30" rows="10" 
-               placeholder="내용을 적어주세요. &#13;&#10;참고가 되는 사진을 같이 공유해주시면 더 좋은 답변을 얻을 수 있습니다. &#13;&#10;※ 비슷한 어려움을 겪는 유저를 위해 답변자에게 포인트를 지급하며, 답변이 달린 질문글은 삭제할 수 없습니다. &#13;&#10; ※ 인테리어와 관련 없는 질문은 숨김 및 삭제될 수 있습니다." class="question__text"/>
+               <form:input path="content_subject" class="qna-write__title" minlength="7" placeholder="제목을 적어주세요."/>
+               <form:textarea class="qna-write__text" path="content_text"
+                  placeholder="내용을 적어주세요. 
+참고가 되는 사진을 같이 공유해주시면 더 좋은 답변을 얻을 수 있습니다.
+※ 비슷한 어려움을 겪는 유저를 위해 답변자에게 포인트를 지급하며,
+답변이 달린 질문글은 삭제할 수 없습니다. 
+※ 인테리어와 관련 없는 질문은 숨김 및 삭제될 수 있습니다."/>
             </fieldset>
-               <div class="question__keywords">
-                  <button type="button" class="select-keyword-btn">
-                  <span class="keyword-btn-desc">클릭하여 주요 키워드를 입력해주세요.</span>
+            <div class="question__keywords">
+               <div class="keywords-wrap">
                   <ul class="keywords-list">
-                     <li class="keywords-item">키워드</li>
+                     <li class="keywords-item" role="button">키워드</li>
                   </ul>
-               </button>
+                  <button type="button" class="select-keyword-btn">
+                     클릭하여 주요 키워드를 입력해주세요.
+                  </button>
+               </div>
                <div class="keywords-counter">
                   <span class="current-count">0개</span>
                   <span class="max-count">최대 5개</span>
                </div>
             </div>
             <div class="upload-btn-wrap">
-               <form:input type="file" path="content_file2" class="upload-image-btn"/>사진 추가
+            	<div class="upload-image-btn-wrap">            	
+            		<div class="upload-image-btn" style="background-image:url(${root}image/icons/camera.png)"></div>
+            		사진추가
+            	</div>
+               <form:input type="file" path="content_file2"/>
                <form:button class="submit-question-btn">질문 저장하기</form:button>
             </div>
          </form:form>

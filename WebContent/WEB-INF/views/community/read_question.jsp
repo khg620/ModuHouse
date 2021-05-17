@@ -108,6 +108,8 @@
             <div class="qna__container">
                <h1 class="comment__header">댓글 <span class="comment__cnt">${comment_cnt}</span></h1>
                <form:form action="${root }community/write_comment" method="post" modelAttribute="writeCommentBean" class="comment__form">
+                 	<form:hidden path="content_idx"/>
+                 	<form:hidden path="board_info_idx"/>
                   <div class="comment__writer-img">
                      <img class="profile-img" src="${root }image/user/avatar.png" alt="user profile image">
                   </div>
@@ -129,13 +131,14 @@
                   <li class="comment__item">
                      <article class="comment__article">
                         <div class="comment__writer-img">
+                        	<img class="profile-img" src="${root }image/user/avatar.png" alt="user profile image">
                         </div>
                         <div class="comment__article-wrap">
                            <strong class="comment__nickname">${comment.user_nickname }</strong>
                            <p class="comment__text">${comment.comment_text }</p>
                            <footer class="comment__metadata">
                               <time class="comment-meta-info">${comment.comment_date }</time>
-                              <span class="comment-meta-info">
+                              <span class="comment-meta-info like">
                                  <svg class="likes" width="15" height="14" preserveAspectRatio="xMidYMid meet"
                                     stroke="currentColor">
                                     <path fill-rule="evenodd" class="heart"
@@ -144,8 +147,9 @@
                                  </svg>
                                  좋아요
                               </span>
-                              <span class="comment-meta-info">답글 달기</span>
-                              <span class="comment-meta-info">신고</span>
+                              <span class="comment-meta-info write">답글 달기</span>
+                              	<!-- 클릭 시 상대 아이디가 value로 들어오고, 덧글 인풋창 모양 동일, 등록 후 들여쓰기 표현 -->
+                              <span class="comment-meta-info report">신고</span>
                            </footer>
                         </div>
                      </article>

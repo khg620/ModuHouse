@@ -30,7 +30,7 @@
       <div class="sign-in-form-wrap">
          <div class="sign-in-form">
             <div class="sign-in-form__title">
-               <a href="#"><img src="${root }image/main_home_icon.png" alt="go main page"></a>
+               <a href="#"><img src="${root }image/icons/main_home_icon.png" alt="go main page"></a>
                <h1><a href="${root}">모두의 집</a></h1>
             </div>
             <form:form action="${root }user/sign_in" method="post" modelAttribute="tempSignInUserBean" class="sign-in-form__form">
@@ -50,13 +50,13 @@
             <h2>SNS 계정으로 간편 로그인/회원가입</h2>
             <div class="sign-in-form__button">
                <a href="">
-                  <img src="${root }image/facebook.png" alt="login with facebook" class="facebook-sign">
+                  <img src="${root }image/icons/facebook.png" alt="login with facebook" class="facebook-sign">
                </a>
                <a href="">
-                  <img src="${root }image/naver.png" alt="login with naver" class="naver-sign">
+                  <img src="${root }image/icons/naver.png" alt="login with naver" class="naver-sign">
                </a>
                <a href="">
-                  <img src="${root }image/kakao.png" alt="login with kakaotalk" class="kakao-sign">
+                  <img src="${root }image/icons/kakao.png" alt="login with kakaotalk" class="kakao-sign">
                </a> 
             </div>
          </section>

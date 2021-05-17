@@ -97,7 +97,7 @@
             <div class="form-item-group user_image">
                <form:label path="user_profile_image" class="input-label">프로필 이미지</form:label>
                <button type="button" class="user_image__btn">
-                  <img src="${root }image/user_icon.jpg" alt="upload user profile image" class="user_image">
+                  <img src="${root }image/icons/user_icon.jpg" alt="upload user profile image" class="user_image">
                </button>
             </div>
             <div class="form-item-group">

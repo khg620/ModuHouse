@@ -1194,6 +1194,7 @@ ul {
     transition: opacity 0.2s, transform 0.2s;
     opacity: 0;
     visibility: hidden;
+    z-index: 999;
   }
   .upload-list-wrap.show {
     opacity: 1;
