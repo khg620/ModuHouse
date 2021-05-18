@@ -350,21 +350,22 @@
 				</div>
 			</div>
 			<div class="row">
+					<c:forEach var="product" items="${productList }">
 				<div class="col-6 col-md-3">
 					<article class="product-item">
 						<a href="" class="product-item-overlay"></a>
 						<div class="product-item__image-wrap">
-							<img src="${root }image/products/livart_sofa.jpg" alt="livart sofa" class="product-item__image">
+							<img src="${root }image/products/${product.product_image}" alt="livart sofa" class="product-item__image">
 						</div>
 						<div class="product-item__content">
 							<div class="product-item__content-wrap">
 								<h1 class="today-deal-item__header product-item-header">
-									<span class="today-deal-item__brand product-brand">모던바로크</span>
-									<span class="today-deal-item__name product-name">LED 수납 침대 시리즈</span>
+									<span class="today-deal-item__brand product-brand">${product.product_brand }</span>
+									<span class="today-deal-item__name product-name">${product.product_name }</span>
 								</h1>
 								<div class="product-price">
-									<span class="product-discount-rate">49%</span>
-									<span class="product-discount-price">70,900 외</span>
+									<span class="product-discount-rate">${product.product_discount_rate }%</span>
+									<span class="product-discount-price">${product.product_price } 외</span>
 								</div>
 								<p class="today-deal-item__review product-review">
 									<svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" fill="currentColor">
@@ -378,6 +379,7 @@
 						</div>
 					</article>
 				</div>
+					</c:forEach>			
 			</div>
 		</div>
 	</section>

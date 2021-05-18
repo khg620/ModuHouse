@@ -2,9 +2,12 @@ package moduhouse.mapper.community;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
+import org.apache.ibatis.annotations.Update;
 
 import moduhouse.bean.community.CommentBean;
 import moduhouse.bean.community.ContentBean;
@@ -20,7 +23,7 @@ public interface QnAMapper {
 			+ 		"CONTENT_FILE, "
 			+ 		"CONTENT_WRITER_IDX, "
 			+     "USER_NICKNAME AS WRITER_NICKNAME, "
-			+ 		"CONTENT_DATE, "
+			+ 		"TO_CHAR(CONTENT_DATE,'YYYY-MM-DD HH24:MI:SS') AS CONTENT_DATE, "
 			+ 		"READ_COUNT, "
 			+ 		"CLIP_COUNT, "
 			+ 		"BOARD_INFO_IDX,"
@@ -146,6 +149,28 @@ public interface QnAMapper {
 			+ 			"#{board_info_idx}"
 			+ ")")
 	void addQnAComment(CommentBean writeCommentBean);
+
+	//게시글 수정
+	@Update("UPDATE "
+			+ 	"COMMUNITY_QNA_TB "
+			+ 	"SET "
+			+ 	"CONTENT_SUBJECT=#{content_subject}, "
+			+ 	"CONTENT_TEXT=#{content_text}, "
+			+ 	"CONTENT_FILE=#{content_file} "
+			+ 	"WHERE CONTENT_IDX = #{content_idx} "
+			+   "AND "
+			+ 	"BOARD_INFO_IDX = #{board_info_idx}")
+	void updateQnAContent(ContentBean editContentBean);
+
+	//게시글 삭제
+	@Delete("DELETE "
+			+ 	"FROM "
+			+   "COMMUNITY_QNA_TB "
+			+		"WHERE "
+			+   "CONTENT_IDX = #{content_idx} "
+			+   "AND "
+			+ 	"BOARD_INFO_IDX = #{board_info_idx}")
+	void deleteContent(@Param(value = "board_info_idx") int board_info_idx, @Param(value="content_idx") int content_idx);
 	
 	
 	

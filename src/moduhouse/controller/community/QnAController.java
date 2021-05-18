@@ -47,7 +47,6 @@ public class QnAController {
 		model.addAttribute("contentKeywordsBean",contentKeywordsBean);
 		model.addAttribute("readCommentBean",readCommentBean);
 		
-		System.out.println(readContentBean.getContent_writer_idx() + " " + signInUserBean.getUser_idx());
 		return "community/read_question";
 	}
 	
@@ -72,18 +71,35 @@ public class QnAController {
 	}
 	
 	@GetMapping("/edit_question")
-	public String modify() {
+	public String edit(@RequestParam int board_info_idx, @RequestParam int content_idx, @ModelAttribute("editContentBean") ContentBean editContentBean, Model model) {
+		editContentBean = qnaService.getContentInfo(content_idx);
+		model.addAttribute("editContentBean",editContentBean);
+		model.addAttribute("board_info_idx",content_idx);
 		return "community/edit_question";
 	}
 	
-	//@PostMapping("")
-	public String modify_pro() {
-		return "";
+	@PostMapping("/edit_question")
+	public String edit_pro(@Valid @ModelAttribute("editContentBean") ContentBean editContentBean, BindingResult result) {
+		if(result.hasErrors()) {
+			return "community/edit_question";
+		}
+		
+		qnaService.updateQnAContent(editContentBean);
+		int board_info_idx = editContentBean.getBoard_info_idx();
+		int content_idx = editContentBean.getContent_idx();
+		return "redirect:/community/read_question?board_info_idx="+board_info_idx+"&content_idx="+content_idx;
 	}
 	
 	@GetMapping("/delete_question")
-	public String delete() {
-		return "";
+	public String delete(@RequestParam int board_info_idx, @RequestParam int content_idx) {
+		System.out.println(content_idx + " " + board_info_idx);
+		qnaService.deleteContent(board_info_idx,content_idx);
+		return "redirect:/community/question";
+	}
+	
+	@GetMapping("/not_writer")
+	public String not_writer() {
+		return "community/not_writer";
 	}
 	
 }

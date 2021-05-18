@@ -60,4 +60,16 @@ public class QnADao {
 		qnaMapper.addQnAComment(writeCommentBean);
 	}
 
+	//게시글 수정
+	public void updateQnAContent(ContentBean editContentBean) {
+		qnaMapper.updateQnAContent(editContentBean);
+	}
+
+	//게시글 삭제
+	public void deleteContent(int board_info_idx, int content_idx) {
+		qnaMapper.deleteContent(board_info_idx,content_idx);
+	}
+
+	
+
 }

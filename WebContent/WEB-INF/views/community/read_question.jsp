@@ -26,7 +26,7 @@
 <script src="https://kit.fontawesome.com/7218b951ec.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-<script src="${root }javascript/community/read_question.js" defer></script>
+
 </head>
 <body>
 	<section class="store-main__header">
@@ -252,7 +252,7 @@
 		if(e.target === edit_btn[0]) {
 			location.href="${root}community/edit_question?board_info_idx=${readContentBean.board_info_idx}&content_idx=${readContentBean.content_idx}";
 		} else {
-			location.href="${root}community/edit_question?board_info_idx=${readContentBean.board_info_idx}&content_idx=${readContentBean.content_idx}";
+			location.href="${root}community/delete_question?board_info_idx=${readContentBean.board_info_idx}&content_idx=${readContentBean.content_idx}";
 		}
 	}));
 	</script>

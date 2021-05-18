@@ -16,6 +16,7 @@
    <link rel="stylesheet" href="${root }css/utils.css"/>
    <link rel="stylesheet" href="${root }css/main.css">
    <link rel="stylesheet" href="${root }css/community/write_question.css">
+   <link rel="stylesheet" href="${root }css/community/edit_question.css">
    <link rel="stylesheet" href="${root }css/footer.css">
    <link rel="preconnect" href="https://fonts.gstatic.com">
    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -31,6 +32,7 @@
 	<script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 	<script src="${root }javascript/community/write_question.js" defer></script>
+	
 </head>
 <body>
 	<header class="qna-write-header">
@@ -45,22 +47,24 @@
    </header>
    <main class="qna-write">
       <div class="qna-write-container">
-         <form:form action="${root }community/write_question" method="post" modelAttribute="writeContentBean" encType="multipart/form-data" class="qna-write__form">
+         <form:form action="${root }community/edit_question" method="post" modelAttribute="editContentBean" encType="multipart/form-data" class="qna-write__form">
             <form:hidden path="board_info_idx"/>
+            <form:hidden path="content_idx"/>
             <fieldset class="qna-write__form-group">
                <legend class="qna-write__form__header">
                   <span class="qna-write__form__head">질문하기</span>
                   <span class="qna-write__form__cs">상품구매, 배송 관련 문의가 필요하시다면 <a class="cs-link" href="">문의하러 가기</a></span>
                </legend>
-               <form:input path="content_subject" class="qna-write__title" minlength="7" placeholder="제목을 적어주세요."/>
+               <form:input path="content_subject" class="qna-write__title" minlength="7"/>
                <form:errors path="content_subject" style="display: block; margin-bottom: 8px; color: #ff7777; font-size: 12px"/>
-               <form:textarea class="qna-write__text" path="content_text"
-                  placeholder="내용을 적어주세요. 
-참고가 되는 사진을 같이 공유해주시면 더 좋은 답변을 얻을 수 있습니다.
-※ 비슷한 어려움을 겪는 유저를 위해 답변자에게 포인트를 지급하며,
-답변이 달린 질문글은 삭제할 수 없습니다. 
-※ 인테리어와 관련 없는 질문은 숨김 및 삭제될 수 있습니다."/>
+               <form:textarea path="content_text" class="qna-write__text"/>
 					<form:errors path="content_text" style="display: block; margin-top: 7px; color: #ff7777; font-size: 12px"/>
+               <c:if test="${editContentBean.content_file != null }">
+               <div class="qna-edit__img">           
+               <img src = "${root }upload/${editContentBean.content_file}" alt="uploaded image" class="uploaded-image"/>
+               <form:hidden path="content_file"/>
+               </div>
+               </c:if>
             </fieldset>
             <div class="question__keywords">
                <div class="keywords-wrap">

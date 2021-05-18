@@ -24,7 +24,7 @@ public class CommunityHomeController {
 		
 		//키워드 
 		//ArrayList<KeywordsBean> allKeywordsList = qnaService.getAllKeywords();
-		
+
 		//게시글 목록
 		ArrayList<ContentBean> allContentList = qnaService.getAllContent();
 		//게시글 키워드

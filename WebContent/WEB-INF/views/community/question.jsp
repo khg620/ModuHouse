@@ -159,7 +159,7 @@
             </div>
          </div>
          <div class="question__write">
-            <a href="${root }community/write_question" class="question__write-link button--color-skyblue button-size-30">질문하기</a>
+            <a href="${root }community/write_question?board_info_idx=2" class="question__write-link button--color-skyblue button-size-30">질문하기</a>
          </div>
       </section>
       <section class="question__notice">

@@ -3,6 +3,8 @@ package moduhouse.service.community;
 import java.io.File;
 import java.util.ArrayList;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
@@ -88,4 +90,21 @@ public class QnAService {
 	public void addQnAComment(CommentBean writeCommentBean) {
 		qnaDao.addQnAComment(writeCommentBean);
 	}
+
+	//게시글 수정
+	public void updateQnAContent(ContentBean editContentBean) {
+		if(editContentBean.getContent_file2().getSize() > 0) {
+			String content_file = uploadContentFile(editContentBean.getContent_file2());
+			editContentBean.setContent_file(content_file);
+		}
+		
+		qnaDao.updateQnAContent(editContentBean);
+	}
+
+	//게시글 삭제
+	public void deleteContent(int board_info_idx, int content_idx) {
+		qnaDao.deleteContent(board_info_idx,content_idx);
+	}
+
+	
 }
