@@ -23,6 +23,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import moduhouse.bean.user.UserBean;
 import moduhouse.interceptor.CheckSignInInterceptor;
+import moduhouse.interceptor.CheckWriterInterceptor;
 import moduhouse.interceptor.HeaderInterceptor;
 import moduhouse.interceptor.StoreTopMenuInterceptor;
 import moduhouse.mapper.community.QnAKeywordsMapper;
@@ -30,6 +31,7 @@ import moduhouse.mapper.community.QnAMapper;
 import moduhouse.mapper.include.StoreTopMenuMapper;
 import moduhouse.mapper.store.StoreMainMapper;
 import moduhouse.mapper.user.UserMapper;
+import moduhouse.service.community.QnAService;
 import moduhouse.service.include.StoreTopMenuService;
 
 @Configuration
@@ -52,6 +54,8 @@ public class ServletAppContext implements WebMvcConfigurer{
 
 	@Autowired
 	private StoreTopMenuService storeTopMenuService;
+	@Autowired
+	private QnAService qnaService; 
 	@Autowired
 	private UserBean signInUserBean;
 	
@@ -121,6 +125,10 @@ public class ServletAppContext implements WebMvcConfigurer{
 		reg3.addPathPatterns("/user/mypage/*","/user/sign_out","/community/*");
 		reg3.excludePathPatterns("/community/question","/community/read_question"); 
 		
+		//글작성자와 로그인 사용자 일치여부 확인
+		CheckWriterInterceptor checkWriterInterceptor = new CheckWriterInterceptor(signInUserBean, qnaService);
+		InterceptorRegistration reg4 = registry.addInterceptor(checkWriterInterceptor);
+		reg4.addPathPatterns("/community/edit_question","/community/delete_question");
 	}
 	
 	//mapper

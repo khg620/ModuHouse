@@ -89,6 +89,12 @@ ul {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.edit-btn-wrap > .edit-btn {
+	margin-right: 3px;
+	padding: 5px 15px;
+	border-radius: 4px;
+	color: var(--dark-grey);
+}
 .content__header-writer .follow-btn {
   height: 100%;
 }

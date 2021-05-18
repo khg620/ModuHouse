@@ -17,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import moduhouse.bean.community.CommentBean;
 import moduhouse.bean.community.ContentBean;
 import moduhouse.bean.keywords.KeywordsBean;
+import moduhouse.bean.user.UserBean;
 import moduhouse.service.community.QnAService;
 
 @Controller
@@ -24,6 +25,7 @@ import moduhouse.service.community.QnAService;
 @RequiredArgsConstructor
 public class QnAController {
 	
+	private final UserBean signInUserBean;
 	private final QnAService qnaService;
 	
 	@GetMapping("/read_question")
@@ -39,12 +41,13 @@ public class QnAController {
 		writeCommentBean.setContent_idx(content_idx);
 		writeCommentBean.setBoard_info_idx(board_info_idx);
 		
+		model.addAttribute("signInUserBean",signInUserBean);
 		model.addAttribute("comment_cnt",qnaService.getCommentCnt(content_idx));
 		model.addAttribute("readContentBean",readContentBean);
 		model.addAttribute("contentKeywordsBean",contentKeywordsBean);
 		model.addAttribute("readCommentBean",readCommentBean);
 		
-		
+		System.out.println(readContentBean.getContent_writer_idx() + " " + signInUserBean.getUser_idx());
 		return "community/read_question";
 	}
 	
@@ -70,11 +73,16 @@ public class QnAController {
 	
 	@GetMapping("/edit_question")
 	public String modify() {
-		return "";
+		return "community/edit_question";
 	}
 	
 	//@PostMapping("")
 	public String modify_pro() {
+		return "";
+	}
+	
+	@GetMapping("/delete_question")
+	public String delete() {
 		return "";
 	}
 	

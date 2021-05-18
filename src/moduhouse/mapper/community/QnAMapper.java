@@ -40,6 +40,7 @@ public interface QnAMapper {
 			+ 		"CONTENT_TEXT, "
 			+ 		"CONTENT_FILE, "
 			+ 		"USER_NICKNAME AS WRITER_NICKNAME, "
+			+     "CONTENT_WRITER_IDX, "
 			+ 		"BOARD_INFO_IDX, "
 			+ 		"TO_CHAR(CONTENT_DATE,'YYYY/MM/DD/HH24:MI:SS') AS CONTENT_DATE, "
 			+ 		"READ_COUNT, "

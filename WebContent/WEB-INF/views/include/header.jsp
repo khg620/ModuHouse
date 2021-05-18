@@ -36,7 +36,7 @@
                            <%-- 로그인 시 --%>                        
                            <c:otherwise>                           
                            <span class="navigation-drawer__user-image">
-                              <img src="${root }image/user_icon.jpg" alt="user profile image" class="image">
+                              <img src="${root }image/icons/user_icon.jpg" alt="user profile image" class="image">
                            </span>
                            <span class="navigation-drawer__user-nickname">
                               ${signInUserBean.user_nickname }
