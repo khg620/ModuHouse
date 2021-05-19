@@ -1,8 +1,8 @@
 package moduhouse.dao.community;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Repository;
 
 import lombok.RequiredArgsConstructor;
@@ -20,8 +20,13 @@ public class QnADao {
 	private final QnAKeywordsMapper qnaKeywordsMapper;
 	
 	//커뮤니티 질문과 답변 메인페이지 - 전체 게시글 목록
-	public ArrayList<ContentBean> getAllContent() {
-	 	return qnaMapper.getAllContent();
+	public ArrayList<ContentBean> getAllContent(RowBounds rowBounds) {
+	 	return qnaMapper.getAllContent(rowBounds);
+	}
+	
+	//페이징
+	public int getContentCnt() {
+		return qnaMapper.getContentCnt();
 	}
 	
 	//커뮤니티 질문과 답변 메인페이지 - 키워드
@@ -69,6 +74,7 @@ public class QnADao {
 	public void deleteContent(int board_info_idx, int content_idx) {
 		qnaMapper.deleteContent(board_info_idx,content_idx);
 	}
+
 
 	
 

@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.session.RowBounds;
 
 import moduhouse.bean.community.CommentBean;
 import moduhouse.bean.community.ContentBean;
@@ -34,7 +35,14 @@ public interface QnAMapper {
 			+ 		"USER_TB "
 			+  "ON(CONTENT_WRITER_IDX = USER_IDX) "
 			+  "ORDER BY CONTENT_DATE DESC")
-	ArrayList<ContentBean> getAllContent();
+	ArrayList<ContentBean> getAllContent(RowBounds rowBounds);
+	
+	//페이징 전체 글 개수 조회
+	@Select("SELECT "
+			+ 		"COUNT(*) "
+			+ 	"FROM "
+			+ 		"COMMUNITY_QNA_TB")
+	int getContentCnt();
 
 	//게시글 단건 조회
 	@Select("SELECT "
@@ -171,6 +179,8 @@ public interface QnAMapper {
 			+   "AND "
 			+ 	"BOARD_INFO_IDX = #{board_info_idx}")
 	void deleteContent(@Param(value = "board_info_idx") int board_info_idx, @Param(value="content_idx") int content_idx);
+
+	
 	
 	
 	

@@ -62,6 +62,7 @@ public class QnAController {
 		if(result.hasErrors()) {
 			return "community/write_question";
 		}
+	
 		qnaService.addQnAContent(writeContentBean);
 		
 		//등록 후 글읽기 페이지로 가기 위함

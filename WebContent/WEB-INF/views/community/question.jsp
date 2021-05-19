@@ -214,33 +214,54 @@
       	</c:forEach>
       </div>
    </section>
-   <div class="questions__paginator"><!-- 페이징 나중에 구현 -->
+   <div class="questions__paginator"><!-- 페이징 -->
       <ul class="paginator-list">
-         <li class="paginator-item prev" role="button">
+      	<c:if test="${pageBean.prev > 0 }">
+         <li class="paginator-item prev show" role="button">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 40" x="0px" y="0px"><title>030-Prev</title><g data-name="030-Prev"><path d="M22.29,30.71l-14-14a1,1,0,0,1,0-1.42l14-14a1,1,0,1,1,1.42,1.42L10.41,16l13.3,13.29a1,1,0,0,1-1.42,1.42Z"/></g></svg>
          </li>
-         <li class="paginator-item selected">
-            <a href="#" class="paginator-link selected">1</a>
+         </c:if>
+      	<c:forEach var="page" begin="${pageBean.min }" end="${pageBean.max }">
+         <li class="paginator-item page">
+            <a href="${root }community/question?page=${page}" class="paginator-link">${page}</a>
          </li>
-         <li class="paginator-item">
-            <a href="#" class="paginator-link">2</a>
-         </li>
-         <li class="paginator-item">
-            <a href="#" class="paginator-link">3</a>
-         </li>
-         <li class="paginator-item">
-            <a href="#" class="paginator-link">4</a>
-         </li>
-         <li class="paginator-item">
-            <a href="#" class="paginator-link">5</a>
-         </li>
+         </c:forEach>
+         <c:if test="${pageBean.pageCnt > pageBean.max }">
          <li class="paginator-item next show" role="button">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><g><path d="M72.655,50.921c0.029-0.056,0.062-0.11,0.086-0.168c0.026-0.063,0.041-0.128,0.06-0.193   c0.017-0.059,0.038-0.117,0.05-0.177c0.012-0.064,0.016-0.129,0.022-0.194c0.006-0.063,0.015-0.125,0.015-0.188   s-0.009-0.125-0.015-0.188c-0.006-0.065-0.009-0.13-0.022-0.194c-0.012-0.06-0.032-0.118-0.05-0.177   c-0.019-0.065-0.035-0.13-0.06-0.193c-0.024-0.058-0.056-0.112-0.086-0.168c-0.031-0.06-0.059-0.121-0.097-0.178   c-0.037-0.055-0.083-0.105-0.125-0.158c-0.037-0.045-0.067-0.094-0.108-0.137l-41.779-43c-0.771-0.793-2.036-0.811-2.828-0.041   c-0.792,0.77-0.811,2.036-0.041,2.828L68.101,50L27.676,91.606c-0.77,0.792-0.751,2.058,0.041,2.828   C28.105,94.812,28.608,95,29.11,95c0.521,0,1.042-0.203,1.435-0.606l41.779-43c0.042-0.043,0.072-0.091,0.108-0.137   c0.043-0.052,0.089-0.102,0.125-0.158C72.596,51.042,72.623,50.981,72.655,50.921z"/></g></svg>
          </li>
+         </c:if>
       </ul>
    </div>
 
    <!--footer-->
    <c:import url="/WEB-INF/views/include/footer.jsp"/>
+   
+   <script>
+   const prev = document.querySelector('.paginator-item.prev');
+   const next = document.querySelector('.paginator-item.next');
+   if(prev !== null){
+	   prev.addEventListener('click',() => {
+		   location.href='${root}community/question?page=${pageBean.prev}';
+	   });
+   }
+   if(next !== null){	   
+   	next.addEventListener('click',() => {
+	   	location.href = '${root}community/question?page=${pageBean.next}';
+   	});
+   }
+   
+   const page_list = document.querySelectorAll('.paginator-item.page');
+   const page_link = document.querySelectorAll('.paginator-link');
+   window.onload = () => {
+	  for(let i = 0; i < page_list.length; i++) {
+		  if(page_link[i].innerText == ${pageBean.currentPage}){
+			  page_list[i].classList.add('selected');
+			  page_link[i].classList.add('selected');
+		  }
+	  }
+   }
+   
+   </script>
 </body>
 </html>

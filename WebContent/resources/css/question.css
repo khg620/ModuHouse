@@ -393,6 +393,13 @@ ul {
   width: 26px;
   height: 26px;
   border-radius: 4px;
+  color: var(--dark-grey);
+}
+.paginator-item.page:hover {
+	background-color: var(--color-skyblue);
+}
+.paginator-item.page:hover .paginator-link {
+	color: #fff;
 }
 .paginator-item.selected {
   background-color: var(--color-skyblue);

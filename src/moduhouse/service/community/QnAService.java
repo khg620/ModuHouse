@@ -3,14 +3,14 @@ package moduhouse.service.community;
 import java.io.File;
 import java.util.ArrayList;
 
-import javax.validation.Valid;
-
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.RequiredArgsConstructor;
+import moduhouse.bean.PageBean;
 import moduhouse.bean.community.CommentBean;
 import moduhouse.bean.community.ContentBean;
 import moduhouse.bean.keywords.KeywordsBean;
@@ -19,7 +19,7 @@ import moduhouse.dao.community.QnADao;
 
 @Service
 @RequiredArgsConstructor
-@PropertySource("/WEB-INF/properties/option.properties")
+@PropertySource("/WEB-INF/properties/option.properties") //페이징
 public class QnAService {
 	
 	private final QnADao qnaDao;
@@ -28,10 +28,27 @@ public class QnAService {
 	//게시글 첨부파일 저장 경로
 	@Value("${path.upload}")
 	private String path_upload;
+	//페이징
+	@Value("${page.listcnt}")
+	private int page_listcnt;
+	@Value("${page.paginationcnt}")
+	private int page_paginationcnt;
 	
 	//커뮤니티 질문과 답변 메인페이지 - 전체 게시글 목록
-	public ArrayList<ContentBean> getAllContent() {
-		return qnaDao.getAllContent();
+	public ArrayList<ContentBean> getAllContent(int page) {
+		//글을 조회할 시작 인덱스
+		int start = (page-1) * page_listcnt;
+		RowBounds rowBounds = new RowBounds(start,page_listcnt);
+		
+		return qnaDao.getAllContent(rowBounds);
+	}
+	
+	//페이징
+	public PageBean getContentCnt(int page) {
+		int content_cnt = qnaDao.getContentCnt();
+		
+		PageBean pageBean = new PageBean(content_cnt,page, page_listcnt, page_paginationcnt);
+		return pageBean;
 	}
 	
 	//커뮤니티 질문과 답변 메인페이지 - 키워드
@@ -105,6 +122,8 @@ public class QnAService {
 	public void deleteContent(int board_info_idx, int content_idx) {
 		qnaDao.deleteContent(board_info_idx,content_idx);
 	}
+
+	
 
 	
 }
