@@ -114,7 +114,7 @@
 				<div class="row">
 					<div class="col-12 col-md-4 col-lg-3">
 						<article class="product-item">
-							<a href="" class="product-item-overlay"></a>
+							<a href="${root }store/product" class="product-item-overlay"></a>
 							<div class="product-item__image-wrap">
 								<img class="product-item__image" src="${root}image/products/wood_blind.jpg" alt="Nubes wood blind">
 							</div>

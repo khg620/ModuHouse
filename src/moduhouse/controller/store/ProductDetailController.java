@@ -1,0 +1,16 @@
+package moduhouse.controller.store;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequiredArgsConstructor
+public class ProductDetailController {
+
+	@GetMapping("/store/product")
+	public String product_detail() {
+		return "store/product_detail";
+	}
+}
