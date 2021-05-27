@@ -36,9 +36,9 @@ import moduhouse.service.include.StoreTopMenuService;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("moduhouse.controller")
-@ComponentScan("moduhouse.dao")
-@ComponentScan("moduhouse.service")
+@ComponentScan(
+		basePackages = {"moduhouse.controller","moduhouse.service","moduhouse.dao"}
+)
 @PropertySource("/WEB-INF/properties/db.properties")
 public class ServletAppContext implements WebMvcConfigurer{
 	

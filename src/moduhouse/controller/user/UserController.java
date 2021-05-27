@@ -47,7 +47,7 @@ public class UserController {
 	//나의 쇼핑 - 고객센터
 	@GetMapping("/contact_us")
 	public String ContactCS() {
-		return "";
+		return "user/customer_service";
 	}
 	
 	//나의 리뷰 - 작성 

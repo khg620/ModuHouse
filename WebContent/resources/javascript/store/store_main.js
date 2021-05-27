@@ -8,13 +8,13 @@ banner__items[0].classList.add('click');
 //다음 이미지로
 let count = 1;
 const bannerMoveNext = () => {
+	if (count >= 7) {
+		count = 0;
+	}
 	count++;
 	banner_img.style.backgroundImage = 'url(image/banner/banner1_' + count + '.jpg)';
 	banner__items.forEach(x=>{if(x.classList.contains('click')){x.classList.remove('click')}})
 	banner__items[count-1].classList.add('click');
-	if (count >= 7) {
-		count = 0;
-	}
 }
 //이전 이미지로
 const bannerMovePrev = () => {
@@ -24,6 +24,8 @@ const bannerMovePrev = () => {
 		count = 7;
 	}
 	banner_img.style.backgroundImage = 'url(image/banner/banner1_' + count + '.jpg)';
+   banner__items.forEach(x=>{if(x.classList.contains('click')){x.classList.remove('click')}})
+	banner__items[count-1].classList.add('click');
 }
 
 //배너 자동 넘김
@@ -39,7 +41,11 @@ banner_prev_btn.addEventListener('click', () => {
 
 //배너버튼 클릭 시 해당 아이템 색상 변경
 const changeBackground = (e) => {
-	banner__items.forEach(x => {if(x.classList.contains('click')){x.classList.remove('click')}})
+	banner__items.forEach(x => {
+		if(x.classList.contains('click')){
+			x.classList.remove('click')
+		}
+	})
 	e.target.classList.add('click');
 };
 
@@ -50,6 +56,8 @@ for (let i = 0; i < banner__items.length; i++) {
 		changeBackground(e);
 	});
 }
+
+
 
 //category
 const category_wrap = document.querySelector('.category-wrap');

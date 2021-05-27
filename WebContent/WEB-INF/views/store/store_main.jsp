@@ -12,8 +12,8 @@
 <meta name="author" content="Hyun gyung" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="${root }css/main.css">
-<link rel="stylesheet" href="${root }css/footer.css">
+<link rel="stylesheet" href="${root }css/store/main.css">
+<link rel="stylesheet" href="${root }css/commons/footer.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <link rel="icon" href="${root }image/icons/favicon.ico">
@@ -21,7 +21,7 @@
 <link rel="short icon" type="image/x-icon" href="${root }image/icons/favicon.ico">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 <title>누구나 멋진 인테리어, 모두의 집</title>
-<script src="${root }javascript/store_main.js" defer></script>
+<script src="${root }javascript/store/store_main.js" defer></script>
 <script src="https://kit.fontawesome.com/7218b951ec.js" crossorigin="anonymous"></script>
 </head>
 
@@ -112,17 +112,18 @@
 					</div>
 				</div>
 				<div class="row">
+					<c:forEach var="product" items="${todayDealList }">
 					<div class="col-12 col-md-4 col-lg-3">
 						<article class="product-item">
 							<a href="${root }store/product" class="product-item-overlay"></a>
 							<div class="product-item__image-wrap">
-								<img class="product-item__image" src="${root}image/products/wood_blind.jpg" alt="Nubes wood blind">
+								<img class="product-item__image" src="${root}image/products/${product.product_image}" alt="Nubes wood blind">
 							</div>
 							<div class="product-item__content">
 								<div class="product-item__content-wrap">
 									<h1 class="today-deal-item__header product-item-header">
-										<span class="today-deal-item__brand product-brand">누베스</span>
-										<span class="today-deal-item__name product-name">오동나무 우드 블라인드 셀프 블라인드</span>
+										<span class="today-deal-item__brand product-brand">${product.product_brand}</span>
+										<span class="today-deal-item__name product-name">${product.product_name }</span>
 									</h1>
 									<p class="today-deal-item__review product-review">
 										<svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" fill="currentColor">
@@ -133,100 +134,14 @@
 										<span class="review">리뷰 231</span>
 									</p>
 									<div class="product-price">
-										<span class="product-discount-rate">49%</span>
-										<span class="product-discount-price">70,900 외</span>
+										<span class="product-discount-rate">${product.product_discount_rate }%</span>
+										<span class="product-discount-price">${product.product_price} 외</span>
 									</div>
 								</div>
 							</div>
 						</article>
 					</div>
-
-					<div class="col-12 col-md-4 col-lg-3">
-						<article class="product-item">
-							<a href="" class="product-item-overlay"></a>
-							<div class="product-item__image-wrap">
-								<img class="product-item__image" src="${root}image/products/stepper.jpg" alt="">
-							</div>
-							<div class="product-item__content">
-								<div class="product-item__content-wrap">
-									<h1 class="today-deal-item__header product-item-header">
-										<span class="today-deal-item__brand product-brand">미드브로</span>
-										<span class="today-deal-item__name product-name">스텝퍼 실내 계단 오르기 운동기구</span>
-									</h1>
-									<p class="today-deal-item__review product-review">
-										<svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" fill="currentColor">
-                                 <path fill-rule="evenodd" d="M12 19.72l-5.677 2.405c-.76.322-1.318-.094-1.247-.906l.533-6.142-4.042-4.656c-.54-.624-.317-1.283.477-1.467l6.006-1.39L11.23 2.28c.426-.707 1.122-.699 1.542 0l3.179 5.282 6.006 1.391c.805.187 1.011.851.477 1.467l-4.042 4.656.533 6.142c.072.822-.497 1.224-1.247.906L12 19.72z">
-                                 </path>
-                              </svg>
-										<strong class="avg"> 4.6 </strong>
-										<span class="review">리뷰 231</span>
-									</p>
-									<div class="product-price">
-										<span class="product-discount-rate">49%</span>
-										<span class="product-discount-price">70,900 외</span>
-									</div>
-								</div>
-							</div>
-						</article>
-					</div>
-
-					<div class="col-12 col-md-4 col-lg-3">
-						<article class="product-item">
-							<a href="" class="product-item-overlay"></a>
-							<div class="product-item__image-wrap">
-								<img class="product-item__image" src="${root}image/products/LGcinebim.jpg" alt="LG cinebim">
-							</div>
-							<div class="product-item__content">
-								<div class="product-item__content-wrap">
-									<h1 class="today-deal-item__header product-item-header">
-										<span class="today-deal-item__brand product-brand">LG전자</span>
-										<span class="today-deal-item__name product-name">LG 시네빔 베스트</span>
-									</h1>
-									<p class="today-deal-item__review product-review">
-										<svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" fill="currentColor">
-                                 <path fill-rule="evenodd" d="M12 19.72l-5.677 2.405c-.76.322-1.318-.094-1.247-.906l.533-6.142-4.042-4.656c-.54-.624-.317-1.283.477-1.467l6.006-1.39L11.23 2.28c.426-.707 1.122-.699 1.542 0l3.179 5.282 6.006 1.391c.805.187 1.011.851.477 1.467l-4.042 4.656.533 6.142c.072.822-.497 1.224-1.247.906L12 19.72z">
-                                 </path>
-                              </svg>
-										<strong class="avg"> 4.6 </strong>
-										<span class="review">리뷰 231</span>
-									</p>
-									<div class="product-price">
-										<span class="product-discount-rate">49%</span>
-										<span class="product-discount-price">70,900 외</span>
-									</div>
-								</div>
-							</div>
-						</article>
-					</div>
-
-					<div class="col-12 col-md-4 col-lg-3">
-						<article class="product-item">
-							<a href="" class="product-item-overlay"></a>
-							<div class="product-item__image-wrap">
-								<img class="product-item__image" src="${root}image/products/bed.jpg" alt="modern baroque bed">
-							</div>
-							<div class="product-item__content">
-								<div class="product-item__content-wrap">
-									<h1 class="today-deal-item__header product-item-header">
-										<span class="today-deal-item__brand product-brand">모던바로크</span>
-										<span class="today-deal-item__name product-name">LED 수납 침대 시리즈</span>
-									</h1>
-									<p class="today-deal-item__review product-review">
-										<svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M12 19.72l-5.677 2.405c-.76.322-1.318-.094-1.247-.906l.533-6.142-4.042-4.656c-.54-.624-.317-1.283.477-1.467l6.006-1.39L11.23 2.28c.426-.707 1.122-.699 1.542 0l3.179 5.282 6.006 1.391c.805.187 1.011.851.477 1.467l-4.042 4.656.533 6.142c.072.822-.497 1.224-1.247.906L12 19.72z">
-                                    </path>
-                                 </svg>
-										<strong class="avg"> 4.6 </strong>
-										<span class="review">리뷰 231</span>
-									</p>
-									<div class="product-price">
-										<span class="product-discount-rate">49%</span>
-										<span class="product-discount-price">70,900 외</span>
-									</div>
-								</div>
-							</div>
-						</article>
-					</div>
+					</c:forEach>
 				</div>
 				<div class="row">
 					<div class="col-12">
@@ -350,7 +265,7 @@
 				</div>
 			</div>
 			<div class="row">
-					<c:forEach var="product" items="${productList }">
+					<c:forEach var="product" items="${popularList }">
 				<div class="col-6 col-md-3">
 					<article class="product-item">
 						<a href="" class="product-item-overlay"></a>

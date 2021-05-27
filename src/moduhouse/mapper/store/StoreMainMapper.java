@@ -18,6 +18,22 @@ public interface StoreMainMapper {
 			+ 		"PRODUCT_MAIN_CATEGORY_TB")
 	List<CategoryBean> getAllCategory();
 
+	//스토어 메인 오늘의 딜 리스트
+	@Select("SELECT "
+			+ 		"PRODUCT_IDX, "
+			+ 		"MAIN_CATEGORY_IDX, "
+			+ 		"SUB_CATEGORY_IDX, "
+			+ 		"PRODUCT_BRAND, "
+			+ 		"PRODUCT_NAME, "
+			+ 		"PRODUCT_IMAGE, "
+			+ 		"PRODUCT_PRICE, "
+			+ 		"PRODUCT_DISCOUNT_RATE "
+			+ 	"FROM PRODUCT_TB "
+			+ 	"WHERE "
+			+ 		"PRODUCT_DISCOUNT_RATE >= 49 "
+			+   "AND ROWNUM <=4")
+	List<ProductBean> getTodayDealList();
+	
 	//스토어 메인 인기상품 리스트
 	@Select("SELECT "
 			+ 		"PRODUCT_IDX, "
@@ -28,7 +44,9 @@ public interface StoreMainMapper {
 			+ 		"PRODUCT_IMAGE, "
 			+ 		"PRODUCT_PRICE, "
 			+ 		"PRODUCT_DISCOUNT_RATE "
-			+ 	"FROM PRODUCT_TB")
-	List<ProductBean> getProductList();
+			+ 	"FROM PRODUCT_TB "
+			+ 	"ORDER BY "
+			+ 		"PRODUCT_SALES_QTY DESC")
+	List<ProductBean> getPopularList();
 	
 }

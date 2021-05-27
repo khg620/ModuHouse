@@ -12,10 +12,10 @@
    <meta name="author" content="Hyun gyung" />
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="${root }css/utils.css"/>
-   <link rel="stylesheet" href="${root }css/main.css">
-   <link rel="stylesheet" href="${root }css/question.css">
-   <link rel="stylesheet" href="${root }css/footer.css">
+   <link rel="stylesheet" href="${root }css/commons/utils.css"/>
+   <link rel="stylesheet" href="${root }css/store/main.css">
+   <link rel="stylesheet" href="${root }css/community/question.css">
+   <link rel="stylesheet" href="${root }css/commons/footer.css">
    <link rel="preconnect" href="https://fonts.gstatic.com">
    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
    <link rel="icon" href="${root }image/icons/favicon.ico">
@@ -29,7 +29,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-	<script src="${root }javascript/question.js" defer></script>
+	<script src="${root }javascript/community/question.js" defer></script>
 </head>
 
 <body>

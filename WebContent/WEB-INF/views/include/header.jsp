@@ -105,7 +105,7 @@
                          <li class="navigation-drawer__list second close">
                             <ul class="navigation-drawer__second-menu">
                                <li class="navigation-drawer__list second-list">
-                                  <a href="${root }">스토어홈</a>
+                                  <a href="${root }store/main.jsp">스토어홈</a>
                                </li>
                                <li class="navigation-drawer__list second-list">
                                   <a href="${root }">카테고리</a>
@@ -239,5 +239,5 @@
            </div>
         </div>
 </header>
-<script src="${root }javascript/header.js" defer></script>
+<script src="${root }javascript/commons/header.js" defer></script>
 			

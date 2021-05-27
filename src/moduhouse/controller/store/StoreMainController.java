@@ -32,10 +32,15 @@ public class StoreMainController {
 		List<CategoryBean> storeMainCategoryList = storeMainService.getAllCategory();
 		model.addAttribute("storeMainCategoryList",storeMainCategoryList);
 		
-		//상품 정보
-		List<ProductBean> productList = storeMainService.getProductList();
-		model.addAttribute("productList",productList);
-		return "store_main";
+		//오늘의 딜
+		List<ProductBean> todayDealList = storeMainService.getTodayDealList();
+		model.addAttribute("todayDealList",todayDealList);
+		
+		//인기상품
+		List<ProductBean> popularList = storeMainService.getPopularList();
+		model.addAttribute("popularList",popularList);
+		
+		return "store/store_main";
 	}
 
 }

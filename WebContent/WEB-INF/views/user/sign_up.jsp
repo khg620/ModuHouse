@@ -13,7 +13,7 @@
 <meta name="author" content="Hyun gyung" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="${root }css/sign_up.css">
+<link rel="stylesheet" href="${root }css/user/sign_up.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
@@ -292,7 +292,7 @@
 					if(result.trim() === "0" && regexp.test(user_nickname)) {
 						$("#user_nickname").parent().children('p').remove();
 					   $("#user_nickname").removeClass("input_error");
-					   console.log(regexp.test(user_nickname));
+					   //console.log(regexp.test(user_nickname));
 						$("#user_nickname").parent().append('<p style="color:#23b3df; font-size: 13px; margin-top: 7px">사용 가능한 별명입니다.</p>');
 					} else if(result.trim() === "1") {
 						$("#user_nickname").parent().children('p').remove();

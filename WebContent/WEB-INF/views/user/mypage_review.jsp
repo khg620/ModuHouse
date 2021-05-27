@@ -12,8 +12,8 @@
 <meta name="author" content="Hyun gyung" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="${root }css/main.css">
-<link rel="stylesheet" href="${root }css/footer.css">
+<link rel="stylesheet" href="${root }css/store/main.css">
+<link rel="stylesheet" href="${root }css/commons/footer.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <link rel="icon" href="${root }image/icons/favicon.ico">

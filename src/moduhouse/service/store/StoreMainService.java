@@ -20,8 +20,13 @@ public class StoreMainService {
 		return storeMainDao.getAllCategory();
 	}
 
+	//스토어 메인 투데이딜 리스트
+	public List<ProductBean> getTodayDealList() {
+		return storeMainDao.getTodayDealList();
+	}
+	
 	//스토어 메인 인기상품 리스트
-	public List<ProductBean> getProductList() {
-		return storeMainDao.getProductList();
+	public List<ProductBean> getPopularList() {
+		return storeMainDao.getPopularList();
 	}
 }
