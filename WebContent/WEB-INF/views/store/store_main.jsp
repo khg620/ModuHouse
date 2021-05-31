@@ -268,9 +268,9 @@
 					<c:forEach var="product" items="${popularList }">
 				<div class="col-6 col-md-3">
 					<article class="product-item">
-						<a href="" class="product-item-overlay"></a>
+						<a href="${root }store/product?product_idx=${product.product_idx}" class="product-item-overlay"></a>
 						<div class="product-item__image-wrap">
-							<img src="${root }image/products/${product.product_image}" alt="livart sofa" class="product-item__image">
+							<img src="${root }image/products/${product.product_image}" alt="" class="product-item__image">
 						</div>
 						<div class="product-item__content">
 							<div class="product-item__content-wrap">

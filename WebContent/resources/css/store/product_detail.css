@@ -95,6 +95,7 @@ ol {
 }
 .overview__content .title-wrap {
   display: flex;
+  justify-content: space-between;
   margin-bottom: 2px;
 }
 .overview__content .title {

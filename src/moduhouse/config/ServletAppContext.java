@@ -29,6 +29,7 @@ import moduhouse.interceptor.StoreTopMenuInterceptor;
 import moduhouse.mapper.community.QnAKeywordsMapper;
 import moduhouse.mapper.community.QnAMapper;
 import moduhouse.mapper.include.StoreTopMenuMapper;
+import moduhouse.mapper.store.ProductDetailMapper;
 import moduhouse.mapper.store.StoreMainMapper;
 import moduhouse.mapper.user.UserMapper;
 import moduhouse.service.community.QnAService;
@@ -164,6 +165,13 @@ public class ServletAppContext implements WebMvcConfigurer{
 	@Bean
 	public MapperFactoryBean<StoreMainMapper> getStoreMainMapper(SqlSessionFactory factory) throws Exception {
 		MapperFactoryBean<StoreMainMapper> factoryBean = new MapperFactoryBean<StoreMainMapper>(StoreMainMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	
+	@Bean
+	public MapperFactoryBean<ProductDetailMapper> getProductDetailMapper(SqlSessionFactory factory) throws Exception {
+		MapperFactoryBean<ProductDetailMapper> factoryBean = new MapperFactoryBean<ProductDetailMapper>(ProductDetailMapper.class);
 		factoryBean.setSqlSessionFactory(factory);
 		return factoryBean;
 	}

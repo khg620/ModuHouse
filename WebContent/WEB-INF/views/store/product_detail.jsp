@@ -11,6 +11,7 @@
 <meta name="author" content="Hyun gyung" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="${root }css/commons/utils.css">
 <link rel="stylesheet" href="${root }css/store/main.css">
 <link rel="stylesheet" href="${root }css/store/product_detail.css">
 <link rel="stylesheet" href="${root }css/commons/footer.css">
@@ -47,7 +48,7 @@
          <div class="product-carousel-wrap col-12 col-md-6 col-lg-7">
             <div class="carousel-list-entry">
                <div class="carousel-list__image">
-                  <img class="carousel" src="${root }image/products/curtain.jpg" alt="product image">
+                  <img class="carousel" src="${root }image/products/${productInfo.product_image}" alt="product image">
                </div>
                <ul class="carousel-list__list">
                   <li class="carousel-list-btn"><span class="carousel-paginator"></span></li>
@@ -59,8 +60,8 @@
             <div class="header">
                <div class="title-wrap">
                   <div class="title-group">
-                     <strong class="brand">누베스</strong>
-                     <h1 class="title">[10%쿠폰] [썸머마켓] 맞춤제작 오동나무 우드 블라인드 셀프 블라인드 20 colors</h1>
+                     <strong class="brand">${productInfo.product_brand }</strong>
+                     <h1 class="title">${productInfo.product_name }</h1>
                   </div>
                   <div class="icon-group">
                      <button class="icon-wrap scrab">
@@ -81,9 +82,9 @@
                </span>
                <span class="review">(564)</span>
                <div>
-                  <span class="discount">43%</span><span class="discount price">24,900원</span>
+                  <span class="discount">${productInfo.product_discount_rate }%</span><span class="discount price">${productInfo.product_price }원</span>
                </div>
-               <strong class="price">14,000</strong><span class="price">원</span>
+               <strong class="price">${price}</strong><span class="price">원</span>
                <button class="coupon">
                   <div class="coupon-left">최대 10% 할인쿠폰</div>
                   <svg width="28" height="46" fill="none" preserveAspectRatio="xMidYMid meet"><g><path d="M0 1h7.468c.592 0 1.191.215 1.864.595.452.255.857.534 1.294.834l.004.003c.251.173.514.353.801.54.88.572 1.937.903 3.069.903s2.19-.331 3.069-.903c.287-.187.548-.367.8-.54l.005-.003c.437-.3.842-.579 1.294-.834.673-.38 1.273-.595 1.864-.595H29V0h-7.468c-1.386 0-2.603.835-3.777 1.64a35.96 35.96 0 01-.732.494 4.617 4.617 0 01-2.523.741 4.617 4.617 0 01-2.524-.741 35.92 35.92 0 01-.731-.494C10.07.835 8.854 0 7.468 0H0v1zM7.468 45H0v1h7.468c1.386 0 2.603-.835 3.777-1.64l.002-.002c.245-.168.488-.334.73-.492a4.617 4.617 0 012.523-.741c.935 0 1.804.273 2.523.741.243.158.485.324.73.492l.002.002c1.174.805 2.391 1.64 3.777 1.64H29v-1h-7.468c-.591 0-1.191-.215-1.864-.595a17.204 17.204 0 01-1.294-.834 37.248 37.248 0 00-.805-.543 5.618 5.618 0 00-3.069-.903c-1.132 0-2.19.331-3.069.903-.289.188-.552.37-.805.543-.437.3-.842.579-1.294.834-.673.38-1.272.595-1.864.595z" fill="#6CD5F4"></path><path d="M14.5 4v38" stroke="#DADCE0" stroke-dasharray="5 3"></path></g></svg>
@@ -92,13 +93,20 @@
                <div class="info-wrap">
                   <div class="overview__info">
                      <span class="info__title">혜택</span>
-                     <span class="info">42P 적립 </span>
+                     <span class="info">${productInfo.product_point }P 적립 </span>
                      <span class="info-detail">(WELCOME 0.3% 적립)</span>
                   </div>
                   <div class="overview__info">
                      <span class="info__title">배송</span>
                      <div class="info-group">
+                     <c:choose>
+                     	<c:when test="${productInfo.product_shipping_fee == 0 }">
                         <span class="info">무료배송</span>
+                        </c:when>
+                        <c:otherwise>
+                        <span class="info">${productInfo.product_shipping_fee }원</span>
+                        </c:otherwise>
+                     </c:choose>
                         <span class="info-other">
                            <svg class="check-icon" width="10" height="9" fill="none" preserveAspectRatio="xMidYMid meet"><path d="M1 3.83l2.153 3.03a1 1 0 001.627.005L9 1" stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                            제주도/도서산간 지역 5,000원
@@ -107,7 +115,7 @@
                   </div>
                   <div class="info__seller">
                      <svg class="icon" width="24" height="24" fill="none" preserveAspectRatio="xMidYMid meet"><path d="M3.972 8.694c0-.26.212-.472.472-.472h12.278a.472.472 0 010 .945H4.444a.472.472 0 01-.472-.473z" fill="#35C5F0"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M17.51 5.5H6.492a1 1 0 00-.93.632l-.99 2.5A1 1 0 005.498 10h13.004a1 1 0 00.927-1.368l-.99-2.5a1 1 0 00-.93-.632zM3.642 8.263a2.002 2.002 0 001.397 2.684V17.5a2.5 2.5 0 002.5 2.5H16.474a2.5 2.5 0 002.487-2.5v-6.553a2.002 2.002 0 001.398-2.684l-.99-2.5a2 2 0 00-1.86-1.263H6.493a2 2 0 00-1.86 1.263l-.99 2.5zM6.04 17.5V11h11.921v6.5a1.5 1.5 0 01-1.487 1.5v-4a2 2 0 00-2-2h-.97a2 2 0 00-2 2v4H7.54a1.5 1.5 0 01-1.5-1.5zm6.464 1.5h2.97v-4a1 1 0 00-1-1h-.97a1 1 0 00-1 1v1h.847a.5.5 0 110 1h-.847v2zM8 13h1.5v1.5H8V13zm-1 0a1 1 0 011-1h1.5a1 1 0 011 1v1.5a1 1 0 01-1 1H8a1 1 0 01-1-1V13z" fill="#3F474D"></path></svg>
-                     누베스
+                     ${productInfo.product_brand }
                   </div>
                </div>
             </div>
@@ -156,10 +164,9 @@
             <div class="product-desc__content">
                <div class="content-wrap">
                   <div class="content-img">
-                     <img src="${root }image/product_detail/nubes/blind/A1.jpg" alt="">
-                     <img src="${root }image/product_detail/nubes/blind/A2.jpg" alt="">
-                     <img src="${root }image/product_detail/nubes/blind/A3.jpg" alt="">
-                     <img src="${root }image/product_detail/nubes/blind/A4.jpg" alt="">
+                  <c:forEach var="list" items="${list }">
+                     <img src="${root }image/product_detail/${productInfo.product_brand }/${productInfo.product_name }/${list.product_image}" alt="">
+                  </c:forEach> 
                   </div>
                   <button class="button--color-skyblue button-size-60">펼치기</button>
                </div>
