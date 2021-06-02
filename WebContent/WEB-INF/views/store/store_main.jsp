@@ -115,7 +115,7 @@
 					<c:forEach var="product" items="${todayDealList }">
 					<div class="col-12 col-md-4 col-lg-3">
 						<article class="product-item">
-							<a href="${root }store/product" class="product-item-overlay"></a>
+							<a href="${root }store/product?product_idx=${product.product_idx}" class="product-item-overlay"></a>
 							<div class="product-item__image-wrap">
 								<img class="product-item__image" src="${root}image/products/${product.product_image}" alt="Nubes wood blind">
 							</div>

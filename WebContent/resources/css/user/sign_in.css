@@ -144,6 +144,10 @@ main {
   margin-right: 4px;
   border-radius: 100%;
   transition: opacity 200ms ease-in;
+  cursor: pointer;
+}
+.sign-in-form__button path {
+	cursor: pointer;
 }
 .sign-in-form__sns > .sign-in-form__button .icon:hover {
   cursor: pointer;

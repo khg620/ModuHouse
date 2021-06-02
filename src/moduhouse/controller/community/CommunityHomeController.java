@@ -38,4 +38,6 @@ public class CommunityHomeController {
 		
 		return "community/question";
 	}
+	
+
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="root" value="${pageContext.request.contextPath }/"/>
 <!DOCTYPE html>
 <html lang="en">
@@ -165,7 +166,7 @@
                <div class="content-wrap">
                   <div class="content-img">
                   <c:forEach var="list" items="${list }">
-                     <img src="${root }image/product_detail/${productInfo.product_brand }/${productInfo.product_name }/${list.product_image}" alt="">
+                     <img src="${root }image/product_detail/${productInfo.product_brand }/${productInfo.product_idx }/${list.product_image}" alt="">
                   </c:forEach> 
                   </div>
                   <button class="button--color-skyblue button-size-60">펼치기</button>
