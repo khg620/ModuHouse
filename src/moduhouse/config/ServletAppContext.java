@@ -72,6 +72,7 @@ public class ServletAppContext implements WebMvcConfigurer{
 		WebMvcConfigurer.super.addResourceHandlers(registry);
 		registry.addResourceHandler("/**").addResourceLocations("/resources/");
 		registry.addResourceHandler("/image/icons/**").addResourceLocations("file:///D://00_Projects//모두의집이미지/icons/");
+		registry.addResourceHandler("/image/icons/order/**").addResourceLocations("file:///D://00_Projects//모두의집이미지/icons/order/");
 		registry.addResourceHandler("/image/banner/**").addResourceLocations("file:///D://00_Projects//모두의집이미지/store_main_banner/");
 		registry.addResourceHandler("/image/category/**").addResourceLocations("file:///D://00_Projects//모두의집이미지/product_category/");
 		registry.addResourceHandler("/image/products/**").addResourceLocations("file:///D://00_Projects//모두의집이미지/products/");

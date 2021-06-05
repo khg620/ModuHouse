@@ -23,7 +23,6 @@
 <link rel="short icon" type="image/x-icon" href="${root }image/icons/favicon.ico">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 <title>누구나 멋진 인테리어, 모두의 집</title>
-<script src="${root }javascript/store/store_main.js" defer></script>
 <script src="https://kit.fontawesome.com/7218b951ec.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -521,5 +520,11 @@
    </div>
    <!--footer-->
    <c:import url="/WEB-INF/views/include/footer.jsp"/>
+   
+   <script>
+   const root = ${root}
+   const order_btn = document.querySelector('.order-btn');
+   order_btn.addEventListener('click',()=>{location.href=root+"order"})
+   </script>
 </body>
 </html>
