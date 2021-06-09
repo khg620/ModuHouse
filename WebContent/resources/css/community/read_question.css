@@ -20,7 +20,7 @@
   line-height: 1;
   letter-spacing: -0.04em;
   word-spacing: -0.08em;
-  font-family: "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", sans-serif;
+  font-family: "Noto Sans KR","Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", sans-serif;
   color: var(--color-black);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -330,7 +330,7 @@ ul {
   .qna__content {
     display: flex;
     margin: 0 auto;
-    max-width: 1136px;
+    max-width: 1256px;
     width: 100%;
   }
   .qna-article-wrap {
@@ -385,6 +385,7 @@ ul {
     display: none;
   }
   .qna__comment {
-    max-width: 720px;
+    width: 100%;
   }
+
 }

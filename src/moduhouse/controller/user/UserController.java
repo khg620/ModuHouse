@@ -19,11 +19,17 @@ public class UserController {
 	private final UserService userService;
 	private final UserBean signInUserBean;
 	
-	//마이페이지 홈
+	//마이페이지 홈(프로필)
 	//@GetMapping("/user/{user_idx}")
 	@GetMapping("/user/home")
 	public String userPage() {
 		return "user/mypage_home";
+	}
+	
+	//프로필(홈) - 질문과 답변
+	@GetMapping("/user/question")
+	public String userQuestion() {
+		return "user/mypage_question";
 	}
 	
 	//나의 쇼핑 홈

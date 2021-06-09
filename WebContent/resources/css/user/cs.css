@@ -19,7 +19,7 @@
   line-height: 1;
   letter-spacing: -0.04em;
   word-spacing: -0.08em;
-  font-family: "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", sans-serif;
+  font-family: "Noto Sans KR","Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", sans-serif;
   color: var(--color-black);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
