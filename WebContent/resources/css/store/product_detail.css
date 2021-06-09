@@ -609,7 +609,7 @@ ol {
   margin-bottom: 2px;
   fill: #fff;
 }
-.selling-bottom > .order-btn {
+.selling-bottom .buy-btn {
   flex: 1 0 0;
   padding: 11px 12px;
   font-size: 17px;

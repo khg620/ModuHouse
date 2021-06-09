@@ -138,7 +138,7 @@
                </div>
                <div class="order-btn">
                   <button class="button--color-skyblue-inverted button-size-55">장바구니</button>
-                  <button class="button--color-skyblue button-size-55">바로구매</button>
+                  <button class="button--color-skyblue button-size-55 buy-btn">바로구매</button>
                </div>
             </div>
          </div>
@@ -487,7 +487,7 @@
                <svg class="icon--stroke" aria-label="스크랩" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path></svg>
                <span class="scrab-cnt">8,707</span>
             </div>
-            <button class="button--color-skyblue order-btn">구매하기</button>
+            <button class="button--color-skyblue buy-btn">구매하기</button>
          </div>
          <!--recommend-->
       </div>
@@ -513,7 +513,7 @@
             </div>
             <div class="order-btn">
                <button class="button--color-skyblue-inverted button-size-55">장바구니</button>
-               <button class="button--color-skyblue button-size-55">바로구매</button>
+               <button class="button--color-skyblue button-size-55 buy-btn">바로구매</button>
             </div>
          </div>
       </section>
@@ -523,8 +523,9 @@
    
    <script>
    const root = ${root}
-   const order_btn = document.querySelector('.order-btn');
-   order_btn.addEventListener('click',()=>{location.href=root+"order"})
+   const buy_btn = document.querySelectorAll('.buy-btn');
+
+   buy_btn.forEach(x => x.addEventListener('click',()=>{location.href=root+"order"}));
    </script>
 </body>
 </html>

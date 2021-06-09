@@ -55,12 +55,14 @@
 							<button type="button" class="button--color-gray button-size-30 follow-btn">팔로우</button>
 						</c:if>
 					</div>
-					<c:if test="${signInUserBean.user_idx == readContentBean.content_writer_idx }">
+					
+					<c:if test="${signInUserBean.userSignIn == true && signInUserBean.user_idx == readContentBean.content_writer_idx }">
 						<div class="edit-btn-wrap">
 							<button class="button--color-gray-inverted button-size-30 edit-btn">수정</button>
 							<button class="button--color-gray-inverted button-size-30 edit-btn">삭제</button>	
 						</div>
 					</c:if>
+					
 				</header>
 				<main>
 					<div class="content__body">
