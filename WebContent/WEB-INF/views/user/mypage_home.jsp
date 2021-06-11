@@ -79,7 +79,7 @@
 									질문과 답변
 									<span class="cnt">0</span>
 								</h2>
-								<a href="" class="qna-more-btn">전체보기</a>
+								<a href="${root }user/question" class="qna-more-btn">전체보기</a>
 							</div>
 
 							<div class="qna__shorts__content">

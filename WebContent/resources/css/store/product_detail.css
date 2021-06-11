@@ -764,7 +764,10 @@ ol {
   }
   .product-selling-sidebar {
     flex: 1 0 0;
-    padding: 15px;
+    min-width: 300px;
+    max-width: 300px;
+    margin-left: 15px;
+    padding: 0;
     position: relative;
   }
   .product-selling-sidebar .product-selling-order {
