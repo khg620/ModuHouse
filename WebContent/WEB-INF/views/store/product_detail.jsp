@@ -700,11 +700,13 @@
 					opt.setAttribute('value',x.option2_idx);
 					opt.innerText = x.option2_name;
 					option2.appendChild(opt);
+					
 				});
+				nav_option2.innerHTML = option2.innerHTML;
+				changeOptions(1);
 			}
 		})
 		
-		changeOptions(1);
 	}
 	
 	function getProductOption2Nav() {
@@ -730,35 +732,35 @@
 					opt.innerText = x.option2_name;
 					nav_option2.appendChild(opt);
 				});
+				option2.innerHTML = nav_option2.innerHTML;
+				
+				changeOptions(2);
 			}
 		})
 			
-		changeOptions(2);
 	}
 	
 	function changeOptions(i) {
 		if(i === 1) {
-			nav_option1.value = option1.value;
-			nav_option2.innerHTML = option2.innerHTML;
-			nav_option2.value = option2.value;
+			nav_option1.value = option1.value;	
 		}	else if (i === 2) {
 			option1.value = nav_option1.value;
-			option2.innerHTML = nav_option2.innerHTML;
-			option2.value = nav_option2.value;
 		}
 	}
+	option2.addEventListener('change',e => nav_option2.value = e.target.value)
+	nav_option2.addEventListener('change',e => option2.value = e.target.value)
 	
 	//상품 가격 조회해오기
 	option2.addEventListener('change',getPrice)
 	function getPrice() {
-		console.log('왔음')
+		
 		let option1_idx = option1.options[option1.selectedIndex].value;
 		let option2_idx = option2.options[option2.selectedIndex].value;
 		$.ajax({
 			url: root+"price/"+option1_idx+"/"+option2_idx,
 			type: "get",
 			success: function(result) {
-				console.log(result)
+				
 				price.innerText = Number(result)+${price}+"원";
 			}
 		});
