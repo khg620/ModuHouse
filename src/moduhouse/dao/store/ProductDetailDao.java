@@ -42,7 +42,11 @@ public class ProductDetailDao {
 		return productDetailMapper.getOption2Cnt(product_idx);
 	}
 
-	public OrderBean getPrice(int option1_idx, int option2_idx) {
-		return productDetailMapper.getPrice(option1_idx, option2_idx);
+	public OrderBean getOptionsPrice(int option1_idx, int option2_idx) {
+		return productDetailMapper.getOptionsPrice(option1_idx, option2_idx);
+	}
+
+	public OrderBean getOption1Price(int option1_idx) {
+		return productDetailMapper.getOption1Price(option1_idx);
 	}
 }

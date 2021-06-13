@@ -190,7 +190,20 @@
 							</c:if>
 							<p class="order-price">
 								<span>주문금액</span>
-								<span class="total-price">0원</span>
+								<c:choose>
+									<c:when test="${optionList1.isEmpty() }">
+										<span class="total-price">${price}원</span>
+									</c:when>
+									<c:when test="${optionList1.size() > 0 && optionCnt == 0 }">
+										<span class="total-price">원</span>
+									</c:when>
+									<c:when test="${optionList1.size() > 0 && optionCnt > 0 }">
+										<span class="total-price">${price}원</span>
+									</c:when>
+									<c:otherwise>
+										<span class="total-price">0원</span>
+									</c:otherwise>
+								</c:choose>
 							</p>
 						</div>
 						<div class="order-btn">
@@ -648,7 +661,20 @@
 						</c:if>
 						<p class="order-price">
 							<span>주문금액</span>
+							<c:choose>
+							<c:when test="${optionList1.isEmpty() }">
+							<span class="total-price">${price}원</span>
+							</c:when>
+							<c:when test = "${optionList1.size() > 0 && optionCnt == 0 }">
+							<span class="total-price">${price + optionList}원</span>
+							</c:when>
+							<c:when test = "${optionList1.size() > 0 && optionCnt > 0 }">
+							<span class="total-price">${price}원</span>
+							</c:when>
+							<c:otherwise>
 							<span class="total-price">0원</span>
+							</c:otherwise>
+							</c:choose>	
 						</p>
 					</div>
 					<div class="order-btn">
@@ -673,39 +699,42 @@
    const option2 = document.querySelector('.option.option2'); //상단 옵션선택
    const nav_option1 = document.querySelector('.option.nav-option1'); //nav 옵션선택
    const nav_option2 = document.querySelector('.option.nav-option2'); //nav 옵션선택
-   const price = document.querySelector('.total-price');
+   const price = document.querySelectorAll('.total-price');
    
 	option1.addEventListener('change',getProductOption2);
    nav_option1.addEventListener('change',getProductOption2Nav);
 	
 	function getProductOption2() {
 		
-		let product_idx = ${productInfo.product_idx};
-		let option1_idx = option1.options[option1.selectedIndex].value;
-		
-		for(let i = 0; i < option2.children.length;i++) {	
-			if(option2.children.length > 1){
-				option2.removeChild(option2.lastChild);
-				i--;
-			}	
+		if(option2 !== null) {
+			let product_idx = ${productInfo.product_idx};
+			let option1_idx = option1.options[option1.selectedIndex].value;
+			
+			for(let i = 0; i < option2.children.length;i++) {	
+				if(option2.children.length > 1){
+					option2.removeChild(option2.lastChild);
+					i--;
+				}	
+			}
+			
+			$.ajax({
+				url: root+"option/"+product_idx+"/"+option1_idx,
+				type: "get",
+				success:function(result){
+				
+					result.forEach(x => {
+						var opt = document.createElement('option');
+						opt.setAttribute('value',x.option2_idx);
+						opt.innerText = x.option2_name;
+						option2.appendChild(opt);
+						
+					});
+					nav_option2.innerHTML = option2.innerHTML;
+				}
+			})
 		}
 		
-		$.ajax({
-			url: root+"option/"+product_idx+"/"+option1_idx,
-			type: "get",
-			success:function(result){
-			
-				result.forEach(x => {
-					var opt = document.createElement('option');
-					opt.setAttribute('value',x.option2_idx);
-					opt.innerText = x.option2_name;
-					option2.appendChild(opt);
-					
-				});
-				nav_option2.innerHTML = option2.innerHTML;
-				changeOptions(1);
-			}
-		})
+		
 		
 	}
 	
@@ -714,56 +743,64 @@
 		let product_idx = ${productInfo.product_idx};
 		let option1_idx = nav_option1.options[nav_option1.selectedIndex].value;
 		
-		for(let i = 0; i < nav_option2.children.length;i++) {	
-			if(nav_option2.children.length > 1){
-				nav_option2.removeChild(nav_option2.lastChild);
-				i--;
-			}	
-		}
-		
-		$.ajax({
-			url: root+"option/"+product_idx+"/"+option1_idx,
-			type: "get",
-			success:function(result){
-			
-				result.forEach(x => {
-					var opt = document.createElement('option');
-					opt.setAttribute('value',x.option2_idx);
-					opt.innerText = x.option2_name;
-					nav_option2.appendChild(opt);
-				});
-				option2.innerHTML = nav_option2.innerHTML;
-				
-				changeOptions(2);
+		if(nav_option2 !== null) {
+			for(let i = 0; i < nav_option2.children.length;i++) {	
+				if(nav_option2.children.length > 1){
+					nav_option2.removeChild(nav_option2.lastChild);
+					i--;
+				}	
 			}
-		})
 			
+			$.ajax({
+				url: root+"option/"+product_idx+"/"+option1_idx,
+				type: "get",
+				success:function(result){
+				
+					result.forEach(x => {
+						var opt = document.createElement('option');
+						opt.setAttribute('value',x.option2_idx);
+						opt.innerText = x.option2_name;
+						nav_option2.appendChild(opt);
+					});
+					option2.innerHTML = nav_option2.innerHTML;
+				}
+			})	
+		}	
 	}
 	
-	function changeOptions(i) {
-		if(i === 1) {
-			nav_option1.value = option1.value;	
-		}	else if (i === 2) {
-			option1.value = nav_option1.value;
-		}
+	option1.addEventListener('change', e => nav_option1.value = e.target.value);
+	nav_option1.addEventListener('change', e => option1.value = e.target.value);
+	if(option2 !== null) {
+		option2.addEventListener('change',e => nav_option2.value = e.target.value);
+		nav_option2.addEventListener('change',e => option2.value = e.target.value);	
 	}
-	option2.addEventListener('change',e => nav_option2.value = e.target.value)
-	nav_option2.addEventListener('change',e => option2.value = e.target.value)
+	
+	
 	
 	//상품 가격 조회해오기
-	option2.addEventListener('change',getPrice)
+	option1.addEventListener('change',getPrice);
+	nav_option1.addEventListener('change',getPrice);
+	
+	if(option2 !== null) {
+		option2.addEventListener('change',getPrice);
+		nav_option2.addEventListener('change',getPrice);
+	}
+	
+	
 	function getPrice() {
 		
 		let option1_idx = option1.options[option1.selectedIndex].value;
-		let option2_idx = option2.options[option2.selectedIndex].value;
+		let option2_idx = option2 !== null? option2.options[option2.selectedIndex].value : 0;
+		
 		$.ajax({
 			url: root+"price/"+option1_idx+"/"+option2_idx,
 			type: "get",
 			success: function(result) {
 				
-				price.innerText = Number(result)+${price}+"원";
+				price.forEach(x => x.innerText = Number(result)+${price}+"원");
 			}
 		});
+		
 	}
    </script>
 </body>

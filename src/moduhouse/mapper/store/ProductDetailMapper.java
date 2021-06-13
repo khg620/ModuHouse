@@ -90,5 +90,10 @@ public interface ProductDetailMapper {
 			+ "JOIN PRODUCT_OPTION_TB2 USING(OPTION1_IDX) "
 			+ "WHERE OPTION1_IDX =  #{option1_idx} "
 			+ "AND OPTION2_IDX = #{option2_idx}")
-	OrderBean getPrice(@Param(value="option1_idx") int option1_idx, @Param(value="option2_idx") int option2_idx);
+	OrderBean getOptionsPrice(@Param(value="option1_idx") int option1_idx, @Param(value="option2_idx") int option2_idx);
+
+	@Select("SELECT OPTION1_PRICE "
+			+ "FROM PRODUCT_OPTION_TB1 "
+			+ "WHERE OPTION1_IDX =  #{option1_idx}")
+	OrderBean getOption1Price(int option1_idx);
 }

@@ -43,6 +43,10 @@ public class ProductDetailService {
 	}
 
 	public OrderBean getPrice(int option1_idx, int option2_idx) {
-		return productDetailDao.getPrice(option1_idx, option2_idx);
+		if(option2_idx != 0) {
+			return productDetailDao.getOptionsPrice(option1_idx, option2_idx);			
+		} else {
+			return productDetailDao.getOption1Price(option1_idx);
+		}
 	}
 }

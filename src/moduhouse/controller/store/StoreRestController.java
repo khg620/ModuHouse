@@ -31,6 +31,7 @@ public class StoreRestController {
 	//가격 조회
 	@GetMapping("/price/{option1_idx}/{option2_idx}")
 	public String getPrice(@PathVariable int option1_idx, @PathVariable int option2_idx) {
+		System.out.println(option2_idx);
 		
 		OrderBean tempPrice = productDetailService.getPrice(option1_idx, option2_idx);
 		
