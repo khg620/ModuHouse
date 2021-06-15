@@ -188,20 +188,25 @@
 									<option value="2" readonly="true" selected>2차옵션</option>
 								</form:select>
 							</c:if>
+							
+							 <div class="selected-option-box">
+                     
+                  	</div>
+							
 							<p class="order-price">
 								<span>주문금액</span>
 								<c:choose>
 									<c:when test="${optionList1.isEmpty() }">
-										<span class="total-price">${price}원</span>
+										<span class="total-price">${price}</span>
 									</c:when>
 									<c:when test="${optionList1.size() > 0 && optionCnt == 0 }">
-										<span class="total-price">원</span>
+										<span class="total-price"></span>
 									</c:when>
 									<c:when test="${optionList1.size() > 0 && optionCnt > 0 }">
-										<span class="total-price">${price}원</span>
+										<span class="total-price"></span>
 									</c:when>
 									<c:otherwise>
-										<span class="total-price">0원</span>
+										<span class="total-price">0</span>
 									</c:otherwise>
 								</c:choose>
 							</p>
@@ -659,20 +664,22 @@
 								<option value="2" readonly="true" selected>2차옵션</option>
 							</select>
 						</c:if>
+						
+						<div class="selected-option-box--nav"></div>
 						<p class="order-price">
 							<span>주문금액</span>
 							<c:choose>
 							<c:when test="${optionList1.isEmpty() }">
-							<span class="total-price">${price}원</span>
+							<span class="total-price">${price}</span>
 							</c:when>
 							<c:when test = "${optionList1.size() > 0 && optionCnt == 0 }">
-							<span class="total-price">${price + optionList}원</span>
+							<span class="total-price">${price + optionList}</span>
 							</c:when>
 							<c:when test = "${optionList1.size() > 0 && optionCnt > 0 }">
-							<span class="total-price">${price}원</span>
+							<span class="total-price">${price}</span>
 							</c:when>
 							<c:otherwise>
-							<span class="total-price">0원</span>
+							<span class="total-price">0</span>
 							</c:otherwise>
 							</c:choose>	
 						</p>
@@ -699,13 +706,14 @@
    const option2 = document.querySelector('.option.option2'); //상단 옵션선택
    const nav_option1 = document.querySelector('.option.nav-option1'); //nav 옵션선택
    const nav_option2 = document.querySelector('.option.nav-option2'); //nav 옵션선택
-   const price = document.querySelectorAll('.total-price');
    
-	option1.addEventListener('change',getProductOption2);
-   nav_option1.addEventListener('change',getProductOption2Nav);
+   if(option1 != null) {	   
+		option1.addEventListener('change',getProductOption2);
+   	nav_option1.addEventListener('change',getProductOption2Nav);
+   }
 	
 	function getProductOption2() {
-		
+	
 		if(option2 !== null) {
 			let product_idx = ${productInfo.product_idx};
 			let option1_idx = option1.options[option1.selectedIndex].value;
@@ -767,9 +775,10 @@
 			})	
 		}	
 	}
-	
-	option1.addEventListener('change', e => nav_option1.value = e.target.value);
-	nav_option1.addEventListener('change', e => option1.value = e.target.value);
+	if(option1 !== null) {		
+		option1.addEventListener('change', e => nav_option1.value = e.target.value);
+		nav_option1.addEventListener('change', e => option1.value = e.target.value);
+	}
 	if(option2 !== null) {
 		option2.addEventListener('change',e => nav_option2.value = e.target.value);
 		nav_option2.addEventListener('change',e => option2.value = e.target.value);	
@@ -778,8 +787,13 @@
 	
 	
 	//상품 가격 조회해오기
-	option1.addEventListener('change',getPrice);
-	nav_option1.addEventListener('change',getPrice);
+	//선택된 옵션 표시하는 박스 추가
+   const total_price = document.querySelectorAll('.total-price');
+	
+	if(option1 != null) {		
+		option1.addEventListener('change',getPrice);
+		nav_option1.addEventListener('change',getPrice);
+	}
 	
 	if(option2 !== null) {
 		option2.addEventListener('change',getPrice);
@@ -796,11 +810,64 @@
 			url: root+"price/"+option1_idx+"/"+option2_idx,
 			type: "get",
 			success: function(result) {
+				let box1 = document.createElement('div');
+				let box2 = document.createElement('div');
+				let boxes = [box1, box2];
 				
-				price.forEach(x => x.innerText = Number(result)+${price}+"원");
+				boxes.forEach(x => {x.innerHTML =
+                '<div class="selected-option-wrap"><div class="selected-option">'+option1.options[option1.selectedIndex].innerText + (option2 !== null ? ' / ' + option2.options[option2.selectedIndex].innerText : '')+'</div>'+
+                '<div class="close-btn-wrap">'+
+                   '<button type="button" class="close-btn" onclick="deleteOption(event)"></button>'+
+                      '<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" preserveAspectRatio="xMidYMid meet">'+
+                         '<path fill-rule="nonzero" d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z">'+
+                        '</path></svg></div></div><div class="qty-option-wrap"><select class="qty-option"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option> <option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select><span class="price-detail">'+(Number(result)+${price})+'</span></div>';
+				});
+            document.querySelector('.selected-option-box').appendChild(box1);
+        		document.querySelector('.selected-option-box--nav').appendChild(box2);
+        		
+        		changePrice(Number(result) + ${price});
+        		
+        		getTotalPrice();
 			}
 		});
 		
+	}
+	
+	//수량 변경 시 금액 변경표시
+	function changePrice(i){
+		let qty = Array.from(document.querySelectorAll('.qty-option'));
+		const option_box_top = document.querySelector('.selected-option-box');
+		const option_box_nav = document.querySelector('.selected-option-box--nav');
+		
+		qty.forEach(x => x.addEventListener('change', e => {
+		
+			let current_price_detail = e.target.parentElement.querySelector('.price-detail');
+			current_price_detail.innerText = i * e.target.value;
+			
+			//다른 한쪽도 맞춰주기
+			if(e.target.parentElement.parentElement.parentElement === option_box_top) {
+				console.log(qty.indexOf(e.target))
+				qty[qty.indexOf(e.target) + qty.length/2].value = e.target.value;
+				qty[qty.indexOf(e.target) + qty.length/2].parentElement.querySelector('.price-detail').innerText = current_price_detail.innerText;
+			} else if (e.target.parentElement.parentElement.parentElement === option_box_nav) {
+				console.log(qty.indexOf(e.target))
+				qty[qty.indexOf(e.target) - qty.length/2].value = e.target.value;
+				qty[qty.indexOf(e.target) - qty.length/2].parentElement.querySelector('.price-detail').innerText = current_price_detail.innerText;
+			}
+			
+			getTotalPrice();
+		}));
+	
+	}
+	
+	//하단 총 주문금액 표시
+	function getTotalPrice() {
+		let sum = 0;
+		document.querySelectorAll('.price-detail').forEach(x => {
+			sum += Number(x.innerText)
+			
+			document.querySelectorAll('.total-price').forEach(x => x.innerText = sum/2)
+		});
 	}
    </script>
 </body>

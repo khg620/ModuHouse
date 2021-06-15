@@ -704,7 +704,7 @@ ol {
     line-height: 40px;
   }
   .product-selling-option .option {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     padding: 0 30px 0 15px;
     height: 40px;
     outline: none;
@@ -721,6 +721,9 @@ ol {
   .product-selling-option .order-price > .total-price {
     font-size: 20px;
   }
+  .product-selling-option .order-price > .total-price::after{
+  	 content:"원";
+  }
   .product-selling-order .order-btn {
     display: flex;
     width: 100%;
@@ -730,6 +733,60 @@ ol {
     margin: 0 3px;
     flex: 1 0 0;
   }
+   .selected-option-box > div,
+   .selected-option-box--nav > div {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: var(--color-white-grey);
+    border-radius: 6px;
+  }
+  .selected-option-wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .close-btn-wrap {
+    position: relative;
+  }
+  .close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .close-btn svg,
+  .close-btn path {
+    fill: var(--color-darkgrey);
+    cursor: pointer;
+  }
+  .selected-option,
+  .price-detail {
+    font-weight: 400;
+    font-size: 15px;
+  }
+  .qty-option-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .qty-option {
+    width: 80px;
+    height: 24px;
+    padding: 0 10px;
+    line-height: 22px;
+    outline: none;
+    border: 1px solid var(--color-grey);
+    border-radius: 3px;
+    text-align: center;
+  }
+  .price-detail {
+    font-weight: 700;
+  }
+  .price-detail::after {
+    content: "원";
+  }
+  
   /*상단카테고리*/
   .product-desc .nav-wrap {
     background-color: var(--color-white);
