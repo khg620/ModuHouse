@@ -904,11 +904,11 @@
 			
 			//다른 한쪽도 맞춰주기
 			if(e.target.parentElement.parentElement.parentElement === option_box_top) {
-				console.log(qty.indexOf(e.target))
+				
 				qty[qty.indexOf(e.target) + qty.length/2].value = e.target.value;
 				qty[qty.indexOf(e.target) + qty.length/2].parentElement.querySelector('.price-detail').innerText = current_price_detail.innerText;
 			} else if (e.target.parentElement.parentElement.parentElement === option_box_nav) {
-				console.log(qty.indexOf(e.target))
+				
 				qty[qty.indexOf(e.target) - qty.length/2].value = e.target.value;
 				qty[qty.indexOf(e.target) - qty.length/2].parentElement.querySelector('.price-detail').innerText = current_price_detail.innerText;
 			}
