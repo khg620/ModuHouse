@@ -194,13 +194,7 @@
 							<div>
 								<div class="selected-option-wrap">
 								<div class="selected-option">${productInfo.product_name }</div>
-								<div class="close-btn-wrap">
-									<button type="button" class="close-btn" onclick="deleteOption(event)"></button>
-									<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" preserveAspectRatio="xMidYMid meet">
-                         <path fill-rule="nonzero" d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z">
-                        </path>
-                        </svg>
-								</div>
+								
 							</div>
 							<div class="qty-option-wrap">
 								<select class="qty-option" onmouseup="changePrice(${price })">
@@ -698,13 +692,7 @@
 							<div>
 								<div class="selected-option-wrap">
 								<div class="selected-option">${productInfo.product_name }</div>
-								<div class="close-btn-wrap">
-									<button type="button" class="close-btn" onclick="deleteOption(event)"></button>
-									<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" preserveAspectRatio="xMidYMid meet">
-                         <path fill-rule="nonzero" d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z">
-                        </path>
-                        </svg>
-								</div>
+								
 							</div>
 							<div class="qty-option-wrap">
 								<select class="qty-option" onmouseup="changePrice(${price })">
