@@ -29,6 +29,7 @@ import moduhouse.interceptor.StoreTopMenuInterceptor;
 import moduhouse.mapper.community.QnAKeywordsMapper;
 import moduhouse.mapper.community.QnAMapper;
 import moduhouse.mapper.include.StoreTopMenuMapper;
+import moduhouse.mapper.order.OrderMapper;
 import moduhouse.mapper.store.ProductDetailMapper;
 import moduhouse.mapper.store.StoreMainMapper;
 import moduhouse.mapper.user.UserMapper;
@@ -125,7 +126,7 @@ public class ServletAppContext implements WebMvcConfigurer{
 		//로그인 필요한 페이지 로그인 확인 후 분기 처리
 		CheckSignInInterceptor checkSignInInterceptor = new CheckSignInInterceptor(signInUserBean);
 		InterceptorRegistration reg3 = registry.addInterceptor(checkSignInInterceptor);
-		reg3.addPathPatterns("/user/mypage/*","/user/sign_out","/community/*");
+		reg3.addPathPatterns("/user/mypage/*","/user/sign_out","/community/*"/*,"/order"*/);
 		reg3.excludePathPatterns("/community/question","/community/read_question"); 
 		
 		//글작성자와 로그인 사용자 일치여부 확인
@@ -173,6 +174,13 @@ public class ServletAppContext implements WebMvcConfigurer{
 	@Bean
 	public MapperFactoryBean<ProductDetailMapper> getProductDetailMapper(SqlSessionFactory factory) throws Exception {
 		MapperFactoryBean<ProductDetailMapper> factoryBean = new MapperFactoryBean<ProductDetailMapper>(ProductDetailMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	
+	@Bean
+	public MapperFactoryBean<OrderMapper> getOrderMapper(SqlSessionFactory factory) throws Exception {
+		MapperFactoryBean<OrderMapper> factoryBean = new MapperFactoryBean<OrderMapper>(OrderMapper.class);
 		factoryBean.setSqlSessionFactory(factory);
 		return factoryBean;
 	}

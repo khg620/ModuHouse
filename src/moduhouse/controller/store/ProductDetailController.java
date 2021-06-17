@@ -13,7 +13,6 @@ import moduhouse.bean.order.OrderBean;
 import moduhouse.bean.store.ProductBean;
 import moduhouse.bean.store.ProductDetailBean;
 import moduhouse.bean.store.ProductOption1Bean;
-import moduhouse.bean.store.ProductOption2Bean;
 import moduhouse.service.store.ProductDetailService;
 
 @Controller

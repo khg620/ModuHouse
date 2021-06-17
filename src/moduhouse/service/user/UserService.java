@@ -40,6 +40,13 @@ public class UserService {
 		if(tempSignInUserBean2.isPresent()) {
 			signInUserBean.setUser_idx(tempSignInUserBean2.get().getUser_idx());
 			signInUserBean.setUser_nickname(tempSignInUserBean2.get().getUser_nickname());
+			signInUserBean.setUser_email1(tempSignInUserBean2.get().getUser_email1());
+			signInUserBean.setUser_email2(tempSignInUserBean2.get().getUser_email2());
+			signInUserBean.setUser_homepage(tempSignInUserBean2.get().getUser_homepage());
+			signInUserBean.setUser_gender(tempSignInUserBean2.get().getUser_gender());
+			signInUserBean.setUser_birthday(tempSignInUserBean2.get().getUser_birthday());
+			signInUserBean.setUser_profile_image(tempSignInUserBean2.get().getUser_profile_image());
+			signInUserBean.setUser_introduce(tempSignInUserBean2.get().getUser_introduce());
 			signInUserBean.setUserSignIn(true);
 		} else {
 			tempSignInUserBean.setUserSignInFail(true);

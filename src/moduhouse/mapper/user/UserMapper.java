@@ -47,7 +47,14 @@ public interface UserMapper {
 
 	//로그인
 	@Select("select user_idx, "
-			 +  "user_nickname "
+			 +  "user_nickname,"
+			 +  "user_email1, "
+			 +  "user_email2, "
+			 +  "user_homepage, "
+			 +  "user_gender, "
+			 +  "user_birthday, "
+			 +  "user_profile_image, "
+			 +  "user_introduce "
 			 + " from user_tb"
 			 + " where user_email1 = #{user_email1}"
 			 + " and user_email2 = #{user_email2}"

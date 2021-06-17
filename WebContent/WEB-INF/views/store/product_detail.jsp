@@ -174,73 +174,77 @@
 					</div>
 				</div>
 				<div class="product-selling-order">
-					<form:form action="${root }order" method="POST" modelAttribute="orderBean">
-						<div class="product-selling-option">
-							<c:if test="${optionList1.size() > 0 }">
-								<form:select class="option option1" path="option1_idx">
-									<c:forEach var="option1" items="${optionList1 }">
-										<form:option value="${option1.option1_idx }">${option1.option1_name }</form:option>
-									</c:forEach>
-								</form:select>
-							</c:if>
-							<c:if test="${option2Cnt > 0 }">
-								<form:select class="option option2" path="option2_idx">
-									<option value="2" readonly="true" selected>2차옵션</option>
-								</form:select>
-							</c:if>
+					<div>
+						<form:form action="${root }order" method="POST" modelAttribute="orderBean">
+						<form:hidden path="product_idx"/>
+							<div class="product-selling-option">
+								<c:if test="${optionList1.size() > 0 }">
+									<select class="option option1">
+										<!-- <option value="-1" readonly="true" selected>1차옵션</option> -->
+										<c:forEach var="option1" items="${optionList1 }">
+											<option value="${option1.option1_idx }">${option1.option1_name }</option>
+										</c:forEach>
+									</select>
+								</c:if>
+								<c:if test="${option2Cnt > 0 }">
+									<select class="option option2">
+										<option value="2" readonly="true" selected>2차옵션</option>
+									</select>
+								</c:if>
 
-							<div class="selected-option-box">
-								<c:if test="${optionList1.isEmpty() }">
-							<div>
-								<div class="selected-option-wrap">
-								<div class="selected-option">${productInfo.product_name }</div>
-								
-							</div>
-							<div class="qty-option-wrap">
-								<select class="qty-option" onmouseup="changePrice(${price })">
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									<option value="10">10</option>
-								</select>
-								<span class="price-detail">${price }</span>
-							</div>
-							</div>
-						</c:if>
-							</div>
+								<div class="selected-option-box">
+									<c:if test="${optionList1.isEmpty() }">
+										<div>
+											<div class="selected-option-wrap">
+												<div class="selected-option">${productInfo.product_name }</div>
 
-							<p class="order-price">
-								<span>주문금액</span>
-								<c:choose>
-									<c:when test="${optionList1.isEmpty() }">
-										<span class="total-price">${price}</span>
-									</c:when>
-									<c:when test="${optionList1.size() > 0 && optionCnt == 0 }">
-										<span class="total-price"></span>
-									</c:when>
-									<c:when test="${optionList1.size() > 0 && optionCnt > 0 }">
-										<span class="total-price"></span>
-									</c:when>
-									<c:otherwise>
-										<span class="total-price">0</span>
-									</c:otherwise>
-								</c:choose>
-							</p>
-						</div>
-						<div class="order-btn">
-							<button class="button--color-skyblue-inverted button-size-55 cart-btn">장바구니</button>
-							<form:button class="button--color-skyblue button-size-55 buy-btn">바로구매</form:button>
-						</div>
-					</form:form>
+											</div>
+											<div class="qty-option-wrap">
+												<select class="qty-option" onmouseup="changePrice(${price })">
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+													<option value="7">7</option>
+													<option value="8">8</option>
+													<option value="9">9</option>
+													<option value="10">10</option>
+												</select>
+												<span class="price-detail">${price }</span>
+											</div>
+										</div>
+									</c:if>
+								</div>
+
+								<p class="order-price">
+									<span>주문금액</span>
+									<c:choose>
+										<c:when test="${optionList1.isEmpty() }">
+											<span class="total-price">${price}</span>
+										</c:when>
+										<c:when test="${optionList1.size() > 0 && optionCnt == 0 }">
+											<span class="total-price"></span>
+										</c:when>
+										<c:when test="${optionList1.size() > 0 && optionCnt > 0 }">
+											<span class="total-price"></span>
+										</c:when>
+										<c:otherwise>
+											<span class="total-price">0</span>
+										</c:otherwise>
+									</c:choose>
+								</p>
+							</div>
+							<div class="order-btn">
+								<a class="button--color-skyblue-inverted button-size-55 cart-btn">장바구니</a>
+								<button class="button--color-skyblue button-size-55 buy-btn" onclick="submitoption()">바로구매</button>
+							</div>
+						</form:form>
+						<!-- form -->
+					</div>
 				</div>
 			</div>
-		</div>
 	</section>
 
 	<section class="product-desc">
@@ -691,24 +695,24 @@
 						<c:if test="${optionList1.isEmpty() }">
 							<div>
 								<div class="selected-option-wrap">
-								<div class="selected-option">${productInfo.product_name }</div>
-								
-							</div>
-							<div class="qty-option-wrap">
-								<select class="qty-option" onmouseup="changePrice(${price })">
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									<option value="10">10</option>
-								</select>
-								<span class="price-detail">${price }</span>
-							</div>
+									<div class="selected-option">${productInfo.product_name }</div>
+
+								</div>
+								<div class="qty-option-wrap">
+									<select class="qty-option" onmouseup="changePrice(${price })">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+									</select>
+									<span class="price-detail">${price }</span>
+								</div>
 							</div>
 						</c:if>
 					</div>
@@ -731,7 +735,7 @@
 					</p>
 				</div>
 				<div class="order-btn">
-					<button class="button--color-skyblue-inverted button-size-55">장바구니</button>
+					<a class="button--color-skyblue-inverted button-size-55">장바구니</a>
 					<button class="button--color-skyblue button-size-55 buy-btn">바로구매</button>
 				</div>
 			</div>
@@ -744,7 +748,11 @@
    const root = ${root}
    const buy_btn = document.querySelectorAll('.buy-btn');
 
-   buy_btn.forEach(x => x.addEventListener('click',()=>{location.href=root+"order"}));
+   buy_btn.forEach(x => x.addEventListener('click',()=>{
+	   	
+	   })
+	);
+   
    
    //상품옵션2
    //상품옵션1 선택 시 상품 옵션2 조회
@@ -866,7 +874,7 @@
                    '<button type="button" class="close-btn" onclick="deleteOption(event)"></button>'+
                       '<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" preserveAspectRatio="xMidYMid meet">'+
                          '<path fill-rule="nonzero" d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z">'+
-                        '</path></svg></div></div><div class="qty-option-wrap"><select class="qty-option"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option> <option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select><span class="price-detail">'+(Number(result)+${price})+'</span></div>';
+                        '</path></svg></div></div><div class="qty-option-wrap"><select name="order_qty" class="qty-option"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option> <option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select><span class="price-detail">'+(Number(result)+${price})+'</span></div>';
 				});
             document.querySelector('.selected-option-box').appendChild(box1);
         		document.querySelector('.selected-option-box--nav').appendChild(box2);
@@ -874,6 +882,8 @@
         		changePrice(Number(result) + ${price});
         		
         		getTotalPrice();
+        		
+        		
 			}
 		});
 		
@@ -902,6 +912,8 @@
 			}
 			
 			getTotalPrice();
+			
+
 		}));
 	
 	}
@@ -914,6 +926,12 @@
 			
 			document.querySelectorAll('.total-price').forEach(x => x.innerText = sum/2)
 		});
+	}
+	
+	//구매버튼
+	function submitoption() {
+		
+		
 	}
    </script>
 </body>

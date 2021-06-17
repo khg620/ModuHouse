@@ -31,3 +31,7 @@ function checkAll() {
 
 checkall.addEventListener('click',checkAll);
 checkboxes.forEach(x => x.addEventListener('click',checkAll));
+
+
+
+

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,12 +32,10 @@ public class StoreRestController {
 	//가격 조회
 	@GetMapping("/price/{option1_idx}/{option2_idx}")
 	public String getPrice(@PathVariable int option1_idx, @PathVariable int option2_idx) {
-		System.out.println(option2_idx);
 		
 		OrderBean tempPrice = productDetailService.getPrice(option1_idx, option2_idx);
-		
 		int price = tempPrice.getOption1_price() + tempPrice.getOption2_price();
-		
+	
 		return String.valueOf(price);
 	}
 }
