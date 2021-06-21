@@ -66,7 +66,7 @@
 										<label>이메일</label>
 										<div class="input-binding">
 											<div class="input-email">
-												<form:input type="text" class="email" value="${email1 }" path="orderer_email1"/>
+												<form:input type="text" class="email" value="${orderBean.orderer_email1 }" path="orderer_email1"/>
 												<span>@</span>
 											</div>
 											<form:select name="orderBean" class="email2" path="orderer_email2">
@@ -180,27 +180,29 @@
 								</button>
 							</div>
 						</div>
+						<c:forEach items="${orderBeanList.getOrderBeanList() }" var="item">
 						<div class="order-content">
 							<div class="order-content__head">
-								<div class="content-title">(주)브랜드명</div>
+								<div class="content-title">${item.product_brand }</div>
 								<div>
 									<span class="content-title grey">배송비 </span>
-									<span class="price">3000</span>
-									원
+									<span class="price">${item.product_shipping_fee }</span>
+						
 								</div>
 							</div>
 							<div class="order-content__main">
-								<div class="product-img" style="background-image: url(${root}image/category/appliances.jpg);"></div>
+								<div class="product-img" style="background-image: url(${root}image/products/${item.product_image });"></div>
 								<div class="product-info">
-									<h2 class="product-name">상품명 상품명 상품명</h2>
-									<p class="product-option">옵션 옵션 옵션 옵션</p>
+									<h2 class="product-name">${item.product_name }</h2>
+									<p class="product-option">${item.option_name }</p>
 									<p class="product-price-qty">
-										<span class="content-title">0000</span>
-										<span class="qty">1</span>
+										<span class="content-title">${item.each_price }</span>
+										<span class="qty">${item.order_qty }</span>
 									</p>
 								</div>
 							</div>
 						</div>
+						</c:forEach>
 					</div>
 				</section>
 				<!--쿠폰-->
@@ -259,11 +261,11 @@
 							<div class="content-wrap">
 								<div class="line">
 									<span>총 상품 금액</span>
-									<span class="payment">00000</span>
+									<span class="payment">${orderBeanList.getOrderBeanList()[0].total_price}</span>
 								</div>
 								<div class="line">
 									<span>배송비</span>
-									<span class="payment">00000</span>
+									<span class="payment delivery">${orderBeanList.getOrderBeanList()[0].product_shipping_fee}</span>
 								</div>
 								<div class="line">
 									<span>쿠폰 사용</span>
@@ -392,11 +394,11 @@
 								<div class="content-wrap">
 									<div class="line">
 										<span>총 상품 금액</span>
-										<span class="payment">00000</span>
+										<span class="payment">${orderBeanList.getOrderBeanList()[0].total_price}</span>
 									</div>
 									<div class="line">
 										<span>배송비</span>
-										<span class="payment">00000</span>
+										<span class="payment delivery">${orderBeanList.getOrderBeanList()[0].product_shipping_fee}</span>
 									</div>
 									<div class="line">
 										<span>쿠폰 사용</span>
@@ -474,9 +476,9 @@
 	<script>
    const email2_option = document.querySelector('.email2');
    
-   const email2 = "${email2}";
+   const email2 = "${orderBean.orderer_email2}";
    console.log(email2_option.options[email2_option.selectedIndex].innerText);
-   console.log(email2_option.options);
+   console.log(email2);
   
 	for(let i = 0; i < email2_option.options.length-1; i++) {
 		   console.log(email2_option.options[i].innerText);

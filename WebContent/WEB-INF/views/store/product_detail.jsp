@@ -70,6 +70,7 @@
 				<div class="header">
 					<div class="title-wrap">
 						<div class="title-group">
+							<span class="product-idx">${productInfo.product_idx }</span>
 							<strong class="brand">${productInfo.product_brand }</strong>
 							<h1 class="title">${productInfo.product_name }</h1>
 						</div>
@@ -152,10 +153,10 @@
 							<div class="info-group">
 								<c:choose>
 									<c:when test="${productInfo.product_shipping_fee == 0 }">
-										<span class="info">무료배송</span>
+										<span class="info delivery">무료배송</span>
 									</c:when>
 									<c:otherwise>
-										<span class="info">${productInfo.product_shipping_fee }원</span>
+										<span class="info delivery">${productInfo.product_shipping_fee }원</span>
 									</c:otherwise>
 								</c:choose>
 								<span class="info-other">
@@ -175,8 +176,7 @@
 				</div>
 				<div class="product-selling-order">
 					<div>
-						<form:form action="${root }order" method="POST" modelAttribute="orderBean">
-						<form:hidden path="product_idx"/>
+					
 							<div class="product-selling-option">
 								<c:if test="${optionList1.size() > 0 }">
 									<select class="option option1">
@@ -238,10 +238,12 @@
 							</div>
 							<div class="order-btn">
 								<a class="button--color-skyblue-inverted button-size-55 cart-btn">장바구니</a>
-								<button class="button--color-skyblue button-size-55 buy-btn" onclick="submitoption()">바로구매</button>
+								<button class="button--color-skyblue button-size-55 buy-btn">바로구매</button>
+								<form action="${root }order" method="post" id="order" style="display: none">
+								<button type="submit"></button>
+								</form>
 							</div>
-						</form:form>
-						<!-- form -->
+						
 					</div>
 				</div>
 			</div>
@@ -746,13 +748,6 @@
 
 	<script>
    const root = ${root}
-   const buy_btn = document.querySelectorAll('.buy-btn');
-
-   buy_btn.forEach(x => x.addEventListener('click',()=>{
-	   	
-	   })
-	);
-   
    
    //상품옵션2
    //상품옵션1 선택 시 상품 옵션2 조회
@@ -869,7 +864,7 @@
 				let boxes = [box1, box2];
 				
 				boxes.forEach(x => {x.innerHTML =
-                '<div class="selected-option-wrap"><div class="selected-option">'+option1.options[option1.selectedIndex].innerText + (option2 !== null ? ' / ' + option2.options[option2.selectedIndex].innerText : '')+'</div>'+
+                '<div class="selected-option-wrap"><div class="selected-option"><span class="option1_idx" style="display:none">'+option1.options[option1.selectedIndex].value+'</span>'+option1.options[option1.selectedIndex].innerText + (option2 !== null ? ' / ' + option2.options[option2.selectedIndex].innerText+'<span class="option2_idx" style="display:none">'+option2.options[option2.selectedIndex].value+'</span>' : '')+'</div>'+
                 '<div class="close-btn-wrap">'+
                    '<button type="button" class="close-btn" onclick="deleteOption(event)"></button>'+
                       '<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" preserveAspectRatio="xMidYMid meet">'+

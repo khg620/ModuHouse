@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.RequiredArgsConstructor;
+import moduhouse.bean.order.OrderBeanList;
 import moduhouse.bean.user.UserBean;
 import moduhouse.service.user.UserService;
 
@@ -46,6 +47,12 @@ public class SignInContorller {
 		if(signInUserBean.isUserSignIn()) {
 			HttpSession session = request.getSession();
 			session.setAttribute("signInUserBean", signInUserBean);
+			
+			if(session.getAttribute("url") != null && session.getAttribute("url").equals("/order")) { 
+				//비로그인 상태에서 주문 요청 시 세션에 주문정보 저장 후 로그인 페이지로 인입		
+				//다시 주문 진행할 수 있도록 order 페이지 요청
+				return "redirect:/order";
+			}
 			return "redirect:/store";
 		} else {
 			return "user/sign_in";

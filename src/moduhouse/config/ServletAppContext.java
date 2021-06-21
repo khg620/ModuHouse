@@ -126,7 +126,7 @@ public class ServletAppContext implements WebMvcConfigurer{
 		//로그인 필요한 페이지 로그인 확인 후 분기 처리
 		CheckSignInInterceptor checkSignInInterceptor = new CheckSignInInterceptor(signInUserBean);
 		InterceptorRegistration reg3 = registry.addInterceptor(checkSignInInterceptor);
-		reg3.addPathPatterns("/user/mypage/*","/user/sign_out","/community/*"/*,"/order"*/);
+		reg3.addPathPatterns("/user/mypage/*","/user/sign_out","/community/*");
 		reg3.excludePathPatterns("/community/question","/community/read_question"); 
 		
 		//글작성자와 로그인 사용자 일치여부 확인

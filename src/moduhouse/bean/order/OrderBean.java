@@ -18,16 +18,18 @@ public class OrderBean {
 	@Pattern(regexp = "(^01[01679])-\\d{3,4}-\\d{4}$")
 	private String orderer_hp;
 	private int product_idx;
+	private String product_brand;
 	private String product_name;
 	private String product_image;
+	private String option_name;
+	private int each_price;
 	private int option1_idx;
 	private int option1_price;
 	private int option2_idx;
-	private String option2_name;
 	private int option2_price;
 	private int order_qty;
-	private int order_price;
+	private int total_price;
 	private String order_date;
-	private int product_shipping_fee;
+	private String product_shipping_fee;
 	private int product_point;
 }

@@ -131,6 +131,7 @@ input[type="tel"].error {
 }
 .input-wrap {
   display: flex;
+  align-items:center;
   width: 100%;
 }
 .input-binding {
@@ -393,7 +394,11 @@ input[type="tel"].error {
   color: var(--color-skyblue);
 }
 .payment::after {
-  content: " 원";
+  content: "원";
+  color: #000;
+}
+.payment.delivery::after {
+  content: "";
   color: #000;
 }
 .order-info__footer {
