@@ -6,9 +6,11 @@ import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class UserBean {
 	
 	private int user_idx;
@@ -21,6 +23,8 @@ public class UserBean {
 	@Size(min=2, max=15)
 	@Pattern(regexp = "^[a-zA-Z가-힣0-9]+$")
 	private String user_nickname;
+	private String user_membership;
+	private int user_point;
 	private String user_homepage;
 	private String user_gender;
 	private String user_birthday;

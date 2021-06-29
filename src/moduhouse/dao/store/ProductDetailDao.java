@@ -46,7 +46,12 @@ public class ProductDetailDao {
 		return productDetailMapper.getOptionsPrice(option1_idx, option2_idx);
 	}
 
-	public OrderBean getOption1Price(int option1_idx) {
+	//선택된 옵션 개별 가격 조회
+	public int getOption1Price(int option1_idx) {
 		return productDetailMapper.getOption1Price(option1_idx);
+	}
+	
+	public int getOption2Price(int option2_idx) {
+		return productDetailMapper.getOption2Price(option2_idx);
 	}
 }

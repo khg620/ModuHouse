@@ -2,22 +2,19 @@ package moduhouse.controller.user;
 
 import java.util.Optional;
 
-import javax.validation.Valid;
-
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
+import moduhouse.bean.user.UserBean;
 import moduhouse.service.user.UserService;
 
 @RestController
 @RequiredArgsConstructor
 public class RestApiController {
 
+	private final UserBean signInUserBean;
 	private final UserService userService;
 	
 	@GetMapping("/user/checkUserEmailExist/{user_email1}/{user_email2}")
@@ -31,6 +28,11 @@ public class RestApiController {
 	public String checkNicknameExist(@PathVariable String user_nickname) {
 		int chk = userService.checkNicknameExist(user_nickname);
 		return chk + "";
+	}
+	
+	@GetMapping("/user/userMembership")
+	public String userMembership() {
+		return signInUserBean.getUser_membership().equals("WELCOME") ? "1" : "3";
 	}
 	
 }

@@ -221,8 +221,13 @@ input[type="tel"].error {
   height: 20px;
   margin-top: 8px;
   margin-right: 8px;
+  cursor: default;
 }
-.message-wrap {
+.input-box.message-wrap {
+	display: none;
+}
+.message-wrap.show {
+	display: block;
   position: relative;
   padding: 10px 15px 25px;
   border: 1px solid var(--color-grey);
@@ -296,6 +301,7 @@ input[type="tel"].error {
   content: " | ";
   color: var(--color-grey);
 }
+.order-content__head .price.won::after,
 .product-price-qty > .content-title::after {
   content: "원";
 }
@@ -348,14 +354,30 @@ input[type="tel"].error {
 .order-info__container.point {
   margin-top: 94.45px;
 }
-.input-box.point > .button--color-skyblue-inverted--not-available {
-  font-size: 15px;
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.input-box.point > .button--color-skyblue-inverted {
+	font-size: 15px;
   line-height: 1.16;
   margin-left: 8px;
   padding: 11px 10px;
 }
-.input-box.point > .not.available {
+.input-box.point > .point-not-available {
+  border: none;
+  color: var(--color-black);
+  cursor: default;
+}
+.input-box.point > .point-not-available:hover {
+	background-color: #fff;
+}
+.input-box.point > .not-available {
   background-color: var(--color-white);
+}
+.input-box.point > .not-available:focus {
+	box-shadow: none;
 }
 .available-point {
   font-size: 15px;
@@ -397,10 +419,6 @@ input[type="tel"].error {
   content: "원";
   color: #000;
 }
-.payment.delivery::after {
-  content: "";
-  color: #000;
-}
 .order-info__footer {
   display: flex;
   justify-content: space-between;
@@ -434,6 +452,8 @@ input[type="tel"].error {
 .payment-method-wrap .payment-method {
   width: 25%;
   min-height: 110px;
+  margin-right:-1px;
+  border-left: 1px solid var(--color-light-grey);
   border-right: 1px solid var(--color-light-grey);
   border-bottom: 1px solid var(--color-light-grey);
   cursor: pointer;
@@ -441,10 +461,12 @@ input[type="tel"].error {
 .payment-method-wrap .payment-method.selected {
   border: 2px solid var(--color-skyblue);
   background-color: #effbff;
+  z-index: 1;
 }
 .payment-method img {
   width: 100%;
-  margin: 8px 0px 4px;
+  max-width: 60px;
+  margin: 0 4px;
   cursor: inherit;
 }
 .payment-method div {
@@ -532,7 +554,9 @@ input[type="tel"].error {
 .pay-btn .button--color-skyblue::after {
   content: "원 결제하기";
 }
-
+.main-container__right {
+ 	display: none;
+ }
 @media screen and (min-width: 756px) {
   .main__header {
     display: block;
@@ -550,6 +574,9 @@ input[type="tel"].error {
   	 flex: 1 1 0;
     max-width: 64%;
     margin-bottom: 23px;
+  }
+   .main-container__right {
+ 	display: block;
   }
   .order-info__container {
     width: 100%;
@@ -618,6 +645,10 @@ input[type="tel"].error {
   .order-info__head .title {
     font-size: 20px;
   }
+  .form-display-none {
+  	display: none;
+  }
+  
   /*배송*/
   .line > input {
     max-width: 100%;

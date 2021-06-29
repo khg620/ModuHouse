@@ -39,28 +39,10 @@ function subtractPrice(option_price) {
 //바로구매 버튼
 const buy_btn = document.querySelectorAll('.buy-btn');
 buy_btn.forEach(x => x.addEventListener('click', proceedOrder));
-/*
-class OptionInfo {
-	constructor({ selected_option, selected_qty, selected_price }) {
-		this.selected_option = selected_option;
-		this.selected_qty = selected_qty;
-		this.selected_price = selected_price;
-	}
-}
-class ProductInfo {
-	constructor({product_idx, product_name, total_price})  {
-		this.product_idx = product_idx;
-		this.product_name = product_name;
-		this.total_price = total_price;
-	}
-}
-*/
+
 function proceedOrder() {
 	const form = document.querySelector('#order');
 	const product_idx = document.querySelector('.overview__content .product-idx').innerText;
-	const product_brand = document.querySelector('.overview__content .brand').innerText;
-	const product_name = document.querySelector('.overview__content .title').innerText;
-	const product_shipping_fee = document.querySelector('.overview__content .info.delivery').innerText;
 	const top_option = document.querySelector('.selected-option-box');
 	const selected_option = Array.from(top_option.querySelectorAll('.selected-option-box .selected-option'));
 	const option1_idx = Array.from(top_option.querySelectorAll('.option1_idx'));
@@ -75,27 +57,19 @@ function proceedOrder() {
 	}
 	
 	let input1 = document.createElement('input');
-	let input2 = document.createElement('input');
-	let input3 = document.createElement('input');
 	let input4 = document.createElement('input');
-	let input5 = document.createElement('input');
+	
 
 	input1.setAttribute('name', 'idx');
 	input1.setAttribute('value', product_idx);
-	input2.setAttribute('name', 'brand');
-	input2.setAttribute('value', product_brand);
-	input3.setAttribute('name', 'name');
-	input3.setAttribute('value', product_name);
+	
 	input4.setAttribute('name', 'price');
 	input4.setAttribute('value', total_price);
-	input5.setAttribute('name', 'shipping_fee');
-	input5.setAttribute('value', product_shipping_fee);
+	
 	
 	form.append(input1);
-	form.append(input2);
-	form.append(input3);
+	
 	form.append(input4);
-	form.append(input5);
 	
 	if (option1_idx.length === 0) {
 		let input6 = document.createElement('input');
@@ -137,6 +111,7 @@ function proceedOrder() {
 			input9.setAttribute('value', selected_qty[i].value);
 			input10.setAttribute('name', 'option_price');
 			input10.setAttribute('value', selected_price[i].innerText);
+			input10.style.display = 'none';
 
 			form.append(input6);
 

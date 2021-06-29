@@ -47,6 +47,8 @@ public class UserService {
 			signInUserBean.setUser_birthday(tempSignInUserBean2.get().getUser_birthday());
 			signInUserBean.setUser_profile_image(tempSignInUserBean2.get().getUser_profile_image());
 			signInUserBean.setUser_introduce(tempSignInUserBean2.get().getUser_introduce());
+			signInUserBean.setUser_point(tempSignInUserBean2.get().getUser_point());
+			signInUserBean.setUser_membership(tempSignInUserBean2.get().getUser_membership());
 			signInUserBean.setUserSignIn(true);
 		} else {
 			tempSignInUserBean.setUserSignInFail(true);

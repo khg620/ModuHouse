@@ -46,7 +46,18 @@ public class ProductDetailService {
 		if(option2_idx != 0) {
 			return productDetailDao.getOptionsPrice(option1_idx, option2_idx);			
 		} else {
-			return productDetailDao.getOption1Price(option1_idx);
+			OrderBean orderBean = new OrderBean();
+			orderBean.setOption1_price(productDetailDao.getOption1Price(option1_idx));
+			return orderBean;
 		}
+	}
+	
+  //선택된 옵션 개별 가격 조회
+	public int getOption1Price(int option1_idx) {
+		return productDetailDao.getOption1Price(option1_idx);
+	}
+	
+	public int getOption2Price(int option2_idx) {
+		return productDetailDao.getOption2Price(option2_idx);
 	}
 }

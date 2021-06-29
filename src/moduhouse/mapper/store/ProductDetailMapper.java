@@ -85,15 +85,26 @@ public interface ProductDetailMapper {
 
 	
 	//상품 옵션 선택에 따른 가격 조회
+	@Select("SELECT "
+			+ "			OPTION1_PRICE "
+			+ "	 FROM"
+			+ "			PRODUCT_OPTION_TB1"
+			+ "	 WHERE"
+			+ "			OPTION1_IDX=#{option1_idx}")
+	int getOption1Price(int option1_idx);
+	
+	@Select("SELECT "
+			+ "			OPTION2_PRICE "
+			+ "	 FROM"
+			+ "			PRODUCT_OPTION_TB2"
+			+ "	 WHERE"
+			+ "			OPTION2_IDX=#{option2_idx}")
+	int getOption2Price(int option2_idx);
+	
 	@Select("SELECT OPTION1_PRICE, OPTION2_PRICE "
 			+ "FROM PRODUCT_OPTION_TB1 "
 			+ "JOIN PRODUCT_OPTION_TB2 USING(OPTION1_IDX) "
 			+ "WHERE OPTION1_IDX =  #{option1_idx} "
 			+ "AND OPTION2_IDX = #{option2_idx}")
 	OrderBean getOptionsPrice(@Param(value="option1_idx") int option1_idx, @Param(value="option2_idx") int option2_idx);
-
-	@Select("SELECT OPTION1_PRICE "
-			+ "FROM PRODUCT_OPTION_TB1 "
-			+ "WHERE OPTION1_IDX =  #{option1_idx}")
-	OrderBean getOption1Price(int option1_idx);
 }

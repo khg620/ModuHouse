@@ -24,11 +24,10 @@
 <title>누구나 멋진 인테리어, 모두의 집</title>
 <script src="${root }javascript/store/store_main.js" defer></script>
 <script src="${root }javascript/order/order.js" defer></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://kit.fontawesome.com/7218b951ec.js" crossorigin="anonymous"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
 	<!--head-->
@@ -57,16 +56,18 @@
 						</div>
 						<div class="order__input">
 							<form:form action="${root }/order_proc/order" method="POST" modelAttribute="orderBean">
+								<form:hidden path="used_point" />
+								<form:hidden path="payment_method" />
 								<div class="input-box">
 									<label>이름</label>
-									<form:input type="text" path="orderer_name"/>
+									<form:input type="text" path="orderer_name" />
 								</div>
 								<div class="input-box">
 									<div class="input-wrap">
 										<label>이메일</label>
 										<div class="input-binding">
 											<div class="input-email">
-												<form:input type="text" class="email" value="${orderBean.orderer_email1 }" path="orderer_email1"/>
+												<form:input type="text" class="email" value="${orderBean.orderer_email1 }" path="orderer_email1" />
 												<span>@</span>
 											</div>
 											<form:select name="orderBean" class="email2" path="orderer_email2">
@@ -86,20 +87,21 @@
 								<div class="input-box">
 									<label>휴대전화</label>
 									<div class="input-line">
-										<select class="width-85">
-											<option value="010">010</option>
-											<option value="010">011</option>
-											<option value="010">016</option>
-											<option value="010">017</option>
-											<option value="010">018</option>
-											<option value="010">019</option>
-										</select>
-										<input type="tel" required placeholder="입력해주세요"/>
+										<form:select class="width-85" path="orderer_hp1">
+											<form:option value="010">010</form:option>
+											<form:option value="011">011</form:option>
+											<form:option value="016">016</form:option>
+											<form:option value="017">017</form:option>
+											<form:option value="018">018</form:option>
+											<form:option value="019">019</form:option>
+										</form:select>
+										<form:input type="tel" path="orderer_hp2" required="required" placeholder="입력해주세요" />
 									</div>
 								</div>
 								<div class="input-btn-wrap">
 									<button type="button" class="button--color-skyblue show">인증번호 발송</button>
 								</div>
+
 							</form:form>
 						</div>
 					</div>
@@ -110,41 +112,47 @@
 						<div class="order-info__head">
 							<div class="title-wrap">
 								<h1 class="title">배송지</h1>
-								<button type="button">위와 동일하게 채우기</button>
+								<button type="button" class="same-info">위와 동일하게 채우기</button>
 							</div>
 						</div>
 						<div class="order__input">
 							<form:form action="${root }order_proc/delivery" method="POST" modelAttribute="deliveryBean">
 								<div class="input-box">
 									<label>받는 사람</label>
-									<form:input type="text" path="receiver_name"/>
+									<form:input type="text" path="receiver_name" value="${defaultAddressBean.receiver_name }" />
 								</div>
 								<div class="input-box">
 									<label>연락처</label>
 									<div class="input-line">
-										<select class="width-85">
-											<option value="010">010</option>
-											<option value="010">011</option>
-											<option value="010">016</option>
-											<option value="010">017</option>
-											<option value="010">018</option>
-											<option value="010">019</option>
-										</select>
-										<input type="tel" required placeholder="입력해주세요"/>
+										<form:select path="receiver_hp1" class="width-85">
+											<form:option value="010">010</form:option>
+											<form:option value="011">011</form:option>
+											<form:option value="016">016</form:option>
+											<form:option value="017">017</form:option>
+											<form:option value="018">018</form:option>
+											<form:option value="019">019</form:option>
+										</form:select>
+										<form:input path="receiver_hp2" type="tel" required="required" placeholder="입력해주세요" value="${defaultAddressBean.receiver_hp2 }" />
 									</div>
 								</div>
 								<div class="input-box">
 									<label class="address-label">주소</label>
 									<div class="address-wrap">
 										<div class="line">
-											<button class="button--color-skyblue-inverted width-85">주소찾기</button>
-											<input class="zipcode" type="number" readonly/>
+											<button type="button" class="button--color-skyblue-inverted width-85 postcode">주소찾기</button>
+											<form:input path="delivery_zipcode" class="zipcode" type="number" readonly="true" value="${defaultAddressBean.delivery_zipcode }" />
+										</div>
+										<div id="wrap" style="display: none; border: 1px solid; width: 500px; height: 300px; margin: 5px 0; position: relative">
+											<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor: pointer; position: absolute; right: 0px; top: -1px; z-index: 1" onclick="foldDaumPostcode()" alt="접기 버튼">
 										</div>
 										<div class="line">
-											<input type="text" placeholder="상세주소 입력"/>
+											<form:input path="delivery_address1" class="address" type="text" readonly="true" value="${defaultAddressBean.delivery_address1 }" />
+										</div>
+										<div class="line">
+											<form:input path="delivery_address2" type="text" placeholder="상세주소 입력" class="address-detail" value="${defaultAddressBean.delivery_address2 }"/>
 										</div>
 										<div class="checkbox-wrap">
-											<input type="checkbox">
+											<form:checkbox class="default-address" path="default_address_yn" />
 											<label>기본 배송지로 저장</label>
 										</div>
 									</div>
@@ -156,10 +164,10 @@
 								<div class="input-box">
 									<form:select path="delivery_message" class="select-message">
 										<form:option value="" disabled="true" selected="true">배송시 요청사항을 선택해주세요</form:option>
-										<form:option value="">부재 시 문 앞에 놓아주세요</form:option>
-										<form:option value="">배송 전에 미리 연락주세요</form:option>
-										<form:option value="">부재 시 경비실에 맡겨주세요</form:option>
-										<form:option value="">부재 시 연락주세요</form:option>
+										<form:option value="부재 시 문 앞에 놓아주세요">부재 시 문 앞에 놓아주세요</form:option>
+										<form:option value="배송 전에 미리 연락주세요">배송 전에 미리 연락주세요</form:option>
+										<form:option value="부재 시 경비실에 맡겨주세요">부재 시 경비실에 맡겨주세요</form:option>
+										<form:option value="부재 시 연락주세요">부재 시 연락주세요</form:option>
 										<form:option value="">직접입력</form:option>
 									</form:select>
 								</div>
@@ -180,29 +188,35 @@
 								</button>
 							</div>
 						</div>
+
 						<c:forEach items="${orderBeanList.getOrderBeanList() }" var="item">
-						<div class="order-content">
-							<div class="order-content__head">
-								<div class="content-title">${item.product_brand }</div>
-								<div>
-									<span class="content-title grey">배송비 </span>
-									<span class="price">${item.product_shipping_fee }</span>
-						
+							<div class="order-content">
+								<div class="order-content__head">
+									<div class="content-title">${item.product_brand }</div>
+									<div>
+										<span class="content-title grey">배송비 </span>
+										<c:if test="${item.product_shipping_fee > 0 }">
+											<span class="price won">${item.product_shipping_fee }</span>
+										</c:if>
+										<c:if test="${item.product_shipping_fee == 0}">
+											<span class="price">무료배송</span>
+										</c:if>
+									</div>
+								</div>
+								<div class="order-content__main">
+									<div class="product-img" style="background-image: url(${root}image/products/${item.product_image });"></div>
+									<div class="product-info">
+										<h2 class="product-name">${item.product_name }</h2>
+										<p class="product-option">${item.option_name }</p>
+										<p class="product-price-qty">
+											<span class="content-title">${item.each_price }</span>
+											<span class="qty">${item.order_qty }</span>
+										</p>
+									</div>
 								</div>
 							</div>
-							<div class="order-content__main">
-								<div class="product-img" style="background-image: url(${root}image/products/${item.product_image });"></div>
-								<div class="product-info">
-									<h2 class="product-name">${item.product_name }</h2>
-									<p class="product-option">${item.option_name }</p>
-									<p class="product-price-qty">
-										<span class="content-title">${item.each_price }</span>
-										<span class="qty">${item.order_qty }</span>
-									</p>
-								</div>
-							</div>
-						</div>
 						</c:forEach>
+
 					</div>
 				</section>
 				<!--쿠폰-->
@@ -236,16 +250,18 @@
 						<div class="order-info__head">
 							<div class="title-wrap">
 								<h1 class="title">포인트</h1>
-								<div class="not-available"">사용 가능한 포인트가 없습니다</div>
+								<c:if test="${user_point == 0 }">
+									<div class="not-available">사용 가능한 포인트가 없습니다</div>
+								</c:if>
 							</div>
 						</div>
 						<div class="input-box point">
-							<input type="number" placeholder="0" class="not available">
-							<button class="button--color-skyblue-inverted--not-available">전액사용</button>
+							<input type="number" placeholder="0" value="">
+							<button class="button--color-skyblue-inverted">전액사용</button>
 						</div>
 						<div class="available-point">
 							사용 가능 포인트
-							<span class="point">0 </span>
+							<span class="point">${user_point }</span>
 						</div>
 					</div>
 				</section>
@@ -261,7 +277,7 @@
 							<div class="content-wrap">
 								<div class="line">
 									<span>총 상품 금액</span>
-									<span class="payment">${orderBeanList.getOrderBeanList()[0].total_price}</span>
+									<span class="payment total">${orderBeanList.getOrderBeanList()[0].total_price + orderBeanList.getOrderBeanList()[0].product_shipping_fee}</span>
 								</div>
 								<div class="line">
 									<span>배송비</span>
@@ -273,14 +289,14 @@
 								</div>
 								<div class="line">
 									<span>포인트 사용</span>
-									<span class="payment">00000</span>
+									<span class="payment point">0</span>
 								</div>
 							</div>
 							<div class="order-info__footer">
 								<strong class="title">최종 결제 금액</strong>
 								<div class="total-price">
-									<strong class="payment skyblue">0000</strong>
-									<span class="save-up-point">00</span>
+									<strong class="payment skyblue">${orderBeanList.getOrderBeanList()[0].total_price}</strong>
+									<span class="save-up-point">${orderBeanList.getOrderBeanList()[0].product_point}</span>
 								</div>
 							</div>
 						</div>
@@ -295,7 +311,7 @@
 							</div>
 						</div>
 						<div class="payment-method-wrap">
-							<button type="button" class="payment-method selected">
+							<button type="button" class="payment-method">
 								<img src="${root }image/icons/order/img_card.png" alt="">
 								<div>카드</div>
 							</button>
@@ -335,7 +351,7 @@
 					<div class="order-info">
 						<div class="order-info__head">
 							<div class="title-wrap">
-								<input type="checkbox">
+								<input type="checkbox" class="terms-agree">
 								<label>아래 내용에 모두 동의합니다. (필수)</label>
 							</div>
 						</div>
@@ -374,7 +390,7 @@
 				</section>
 				<!--최종 결제 버튼(992px 이하)-->
 				<section class="pay-btn">
-					<button class="button--color-skyblue submit-btn">0000</button>
+					<button class="button--color-skyblue submit-btn">${orderBeanList.getOrderBeanList()[0].total_price }</button>
 				</section>
 			</section>
 
@@ -394,7 +410,7 @@
 								<div class="content-wrap">
 									<div class="line">
 										<span>총 상품 금액</span>
-										<span class="payment">${orderBeanList.getOrderBeanList()[0].total_price}</span>
+										<span class="payment total">${orderBeanList.getOrderBeanList()[0].total_price + orderBeanList.getOrderBeanList()[0].product_shipping_fee}</span>
 									</div>
 									<div class="line">
 										<span>배송비</span>
@@ -406,14 +422,14 @@
 									</div>
 									<div class="line">
 										<span>포인트 사용</span>
-										<span class="payment">00000</span>
+										<span class="payment point">0</span>
 									</div>
 								</div>
 								<div class="order-info__footer">
 									<strong class="title">최종 결제 금액</strong>
 									<div class="total-price">
-										<strong class="payment skyblue">0000</strong>
-										<span class="save-up-point">00</span>
+										<strong class="payment skyblue">${orderBeanList.getOrderBeanList()[0].total_price }</strong>
+										<span class="save-up-point">${orderBeanList.getOrderBeanList()[0].product_point}</span>
 									</div>
 								</div>
 							</div>
@@ -424,7 +440,7 @@
 						<div class="order-info">
 							<div class="order-info__head">
 								<div class="title-wrap">
-									<input type="checkbox">
+									<input type="checkbox" class="terms-agree">
 									<label>아래 내용에 모두 동의합니다. (필수)</label>
 								</div>
 							</div>
@@ -463,7 +479,7 @@
 					</section>
 					<!--최종 결제 버튼-->
 					<section class="pay-btn aside">
-						<button class="button--color-skyblue submit-btn">0000</button>
+						<button class="button--color-skyblue submit-btn">${orderBeanList.getOrderBeanList()[0].total_price }</button>
 					</section>
 				</div>
 			</section>
@@ -474,19 +490,15 @@
 	<c:import url="/WEB-INF/views/include/footer.jsp" />
 
 	<script>
-   const email2_option = document.querySelector('.email2');
-   
-   const email2 = "${orderBean.orderer_email2}";
-   console.log(email2_option.options[email2_option.selectedIndex].innerText);
-   console.log(email2);
-  
-	for(let i = 0; i < email2_option.options.length-1; i++) {
-		   console.log(email2_option.options[i].innerText);
-		if(email2_option.options[i].innerText === email2) {
-			   email2_option.options.selectedIndex = i; 
+		const email2_option = document.querySelector('.email2');
+		const email2 = "${orderBean.orderer_email2}";
+
+		for (let i = 0; i < email2_option.options.length - 1; i++) {
+			console.log(email2_option.options[i].innerText);
+			if (email2_option.options[i].innerText === email2) {
+				email2_option.options.selectedIndex = i;
+			}
 		}
-	}
-   
-   </script>
+	</script>
 </body>
 </html>
