@@ -60,7 +60,7 @@ public class OrderController {
 	}
 	
 	
-	@PostMapping(value="/order") //주문 요청
+	@PostMapping(value="/order") //주문 페이지 요청
 	public String order(@ModelAttribute OrderBean orderBean, @ModelAttribute OrderBeanList orderBeanList, @ModelAttribute DeliveryBean deliveryBean, HttpServletRequest request, Model model) {
 		
 		HttpSession session = request.getSession();
@@ -74,6 +74,7 @@ public class OrderController {
 		DefaultAddressBean defaultAddressBean = orderService.getDefaultAddress(signInUserBean.getUser_idx());
 		request.setAttribute("defaultAddressBean", defaultAddressBean);
 		
+		//주문 상세에서 넘겨지는 상품 정보를 받아서 orderBean에 세팅한다
 		if(request.getParameterValues("opt1_idx") == null) {    //옵션이 아예 없는 상품의 경우
 			
 			setOrderInfo(orderBean, request);
@@ -110,7 +111,7 @@ public class OrderController {
 			
 		}
 	  
-		session.setAttribute("orderInfo", orderBeanList);
+		session.setAttribute("orderInfo", orderBeanList); //주문상세에서 넘어온 선택 상품들을 세션빈에 저장한다
 		
 		if(signInUserBean.isUserSignIn() == false) { //로그인 상태가 아니라면 로그인 페이지로
 			session.setAttribute("url", "/order");
@@ -138,7 +139,7 @@ public class OrderController {
 		for(int i = 0; i < orderBeanList.getOrderBeanList().size();i++) {
 			String order_number = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")) + signInUserBean.getUser_idx();//주문 번호
 			orderBeanList.getOrderBeanList().get(i).setOrder_number(order_number);
-			deliveryBean.setOrder_number(order_number);
+			deliveryBean.setOrder_number(order_number); //배송정보에 같은 주문번호 저장
 			orderBeanList.getOrderBeanList().get(i).setUser_idx(signInUserBean.getUser_idx());
 			orderBeanList.getOrderBeanList().get(i).setOrderer_name(orderBean.getOrderer_name());
 			orderBeanList.getOrderBeanList().get(i).setOrderer_email1(orderBean.getOrderer_email1());
@@ -228,4 +229,6 @@ public class OrderController {
 		orderBean.setTotal_price(Integer.parseInt(request.getParameter("price")));
 		orderBean.setProduct_shipping_fee(productBean.getProduct_shipping_fee());
 	}
+	
+
 }

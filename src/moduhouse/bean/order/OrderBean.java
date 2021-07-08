@@ -37,4 +37,6 @@ public class OrderBean {
 	private int product_shipping_fee;
 	private int product_point; //적립 예정 포인트
 	private int used_point; //결제 시 사용 포인트
+	private String delivery_method; //배송방법(delivery_tb에 속하는 속성, 편의상 orderBean에도 추가)
+	private String delivery_company; //배송사명(delivery_tb에 속하는 속성, 편의상 orderBean에도 추가)
 }

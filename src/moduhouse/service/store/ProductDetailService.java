@@ -53,11 +53,11 @@ public class ProductDetailService {
 	}
 	
   //선택된 옵션 개별 가격 조회
-	public int getOption1Price(int option1_idx) {
+	public Integer getOption1Price(int option1_idx) {
 		return productDetailDao.getOption1Price(option1_idx);
 	}
 	
-	public int getOption2Price(int option2_idx) {
+	public Integer getOption2Price(int option2_idx) {
 		return productDetailDao.getOption2Price(option2_idx);
 	}
 }

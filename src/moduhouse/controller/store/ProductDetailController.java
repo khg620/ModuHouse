@@ -22,8 +22,8 @@ public class ProductDetailController {
 	private final ProductDetailService productDetailService;
 
 	@GetMapping("/store/product")
-	public String product_detail(@RequestParam("product_idx") int product_idx, Model model) {
-		
+	public String product_detail(@RequestParam("product_idx") int product_idx, @ModelAttribute("cartBean") OrderBean cartBean, Model model) {
+	
 	  //상품 상세 이미지
 		List<ProductDetailBean> imageList = productDetailService.getProductImage(product_idx); 
 		//상품 정보

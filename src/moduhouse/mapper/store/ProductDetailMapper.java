@@ -35,6 +35,7 @@ public interface ProductDetailMapper {
 			+			"PRODUCT_PRICE, "
 			+			"PRODUCT_DISCOUNT_RATE, "
 			+		  "PRODUCT_POINT, "
+			+ 		"PRODUCT_DELIVERY_METHOD, "
 			+     "PRODUCT_SHIPPING_COMPANY, "
 			+ 		"PRODUCT_SHIPPING_FEE, "
 			+     "PRODUCT_INFO, "
@@ -66,7 +67,7 @@ public interface ProductDetailMapper {
 			+ 		"PRODUCT_OPTION_TB2 "
 			+ 	"WHERE "
 			+ 		"PRODUCT_IDX = #{product_idx} ")
-	public int getOption2Cnt(int product_idx);
+	public Integer getOption2Cnt(int product_idx);
 
 	//상품옵션2 조회
 	@Select("SELECT "
@@ -91,7 +92,7 @@ public interface ProductDetailMapper {
 			+ "			PRODUCT_OPTION_TB1"
 			+ "	 WHERE"
 			+ "			OPTION1_IDX=#{option1_idx}")
-	int getOption1Price(int option1_idx);
+	Integer getOption1Price(int option1_idx);
 	
 	@Select("SELECT "
 			+ "			OPTION2_PRICE "
@@ -99,7 +100,7 @@ public interface ProductDetailMapper {
 			+ "			PRODUCT_OPTION_TB2"
 			+ "	 WHERE"
 			+ "			OPTION2_IDX=#{option2_idx}")
-	int getOption2Price(int option2_idx);
+	Integer getOption2Price(int option2_idx);
 	
 	@Select("SELECT OPTION1_PRICE, OPTION2_PRICE "
 			+ "FROM PRODUCT_OPTION_TB1 "
@@ -107,4 +108,6 @@ public interface ProductDetailMapper {
 			+ "WHERE OPTION1_IDX =  #{option1_idx} "
 			+ "AND OPTION2_IDX = #{option2_idx}")
 	OrderBean getOptionsPrice(@Param(value="option1_idx") int option1_idx, @Param(value="option2_idx") int option2_idx);
+	
+	
 }

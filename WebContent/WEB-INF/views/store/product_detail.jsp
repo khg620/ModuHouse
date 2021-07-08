@@ -237,7 +237,10 @@
 								</p>
 							</div>
 							<div class="order-btn">
-								<a class="button--color-skyblue-inverted button-size-55 cart-btn">장바구니</a>
+								<form:form modelAttribute="cartBean" action="${root }order/cart" method="post" style="display:none">
+								<form:input path="product_idx" value="${productInfo.product_idx }" style="display:none"/>
+								</form:form>
+								<button type="button" class="button--color-skyblue-inverted button-size-55 cart-btn" onclick="addCart()">장바구니</button>
 								<button class="button--color-skyblue button-size-55 buy-btn">바로구매</button>
 								<form action="${root }order" method="post" id="order" style="display: none">
 								<button type="submit"></button>
@@ -737,7 +740,7 @@
 					</p>
 				</div>
 				<div class="order-btn">
-					<a class="button--color-skyblue-inverted button-size-55">장바구니</a>
+					<button type="button" class="button--color-skyblue-inverted button-size-55 cart-btn" onclick="addCart()">장바구니</button>
 					<button class="button--color-skyblue button-size-55 buy-btn">바로구매</button>
 				</div>
 			</div>
@@ -923,11 +926,7 @@
 		});
 	}
 	
-	//구매버튼
-	function submitoption() {
-		
-		
-	}
+	
    </script>
 </body>
 </html>

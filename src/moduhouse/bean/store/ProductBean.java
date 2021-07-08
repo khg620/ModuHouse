@@ -19,11 +19,13 @@ public class ProductBean {
 	private int product_price;
 	private int product_discount_rate;
 	private double product_point;
+	private String product_delivery_method;
 	private String product_shipping_company;
 	private int product_shipping_fee;
 	private String product_info;
 	private String product_receiving_date;
 	private int product_view_cnt;
 	private int product_sales_qty;
-	
+	private int option1_price;
+	private int option2_price;
 }

@@ -156,6 +156,7 @@
 							<a href="${root }" class="navigation__icon"> 
 								<svg class="navigation-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#757575" stroke-width="2" preserveAspectRatio="xMidYMid meet"><path d="M22 22l-5-5"></path><circle cx="11" cy="11" r="8"></circle></svg>
 							</a> 
+							
 							<c:choose>
 							<c:when test="${signInUserBean.userSignIn == true }">
 							<a href="${root }" class="navigation__icon mobile-hide">								
@@ -164,11 +165,14 @@
 							<a href="${root }" class="navigation__icon mobile-hide">
 								<svg class="navigation-icon" width="24" height="24" stroke="#757575" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.04 4.19C10.16 3.16 10.6 2 12.05 2c1.35 0 1.78 1.11 1.9 2.13C21.05 5.25 21 13.43 21 19H3c0-5.48-.05-13.48 7.04-14.81zM10 19c0 1.66.9 3 2 3s2-1.34 2-3"></path></svg>
 							</a>
-							<a href="${root }order/cart" class="navigation__icon"> 
+							<a href="${root }cart" class="navigation__icon"> 
 								<svg class="navigation-icon" width="24" height="24" viewBox="0 0 24 24" stroke="#757575" fill="none" stroke-linejoin="round" stroke-width="2" preserveAspectRatio="xMidYMid meet"><path stroke-linecap="round" d="M4 5h18l-2.6 10.5a2 2 0 0 1-2 1.5H8.6a2 2 0 0 1-2-1.5L4 5zm4 15.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 1 1-3 0zm7 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 1 1-3 0z"></path><path d="M1 2h3v3"></path></svg>
 							</a> 
 							</c:when>
 							<c:otherwise>	
+							<a href="${root }cart" class="navigation__icon"> 
+								<svg class="navigation-icon" width="24" height="24" viewBox="0 0 24 24" stroke="#757575" fill="none" stroke-linejoin="round" stroke-width="2" preserveAspectRatio="xMidYMid meet"><path stroke-linecap="round" d="M4 5h18l-2.6 10.5a2 2 0 0 1-2 1.5H8.6a2 2 0 0 1-2-1.5L4 5zm4 15.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 1 1-3 0zm7 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 1 1-3 0z"></path><path d="M1 2h3v3"></path></svg>
+							</a>
 							<a href="${root }user/sign_in" class="navigation-sign-in">로그인</a>
 							<a href="${root }user/sign_up" class="navigation-sign-up">회원가입</a>
 							</c:otherwise>
