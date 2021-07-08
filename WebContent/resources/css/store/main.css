@@ -1094,7 +1094,7 @@ ul {
 	.store-main__header, .store-main__banner-list, .store-main__category,
 		.store-main__today-deal, .store-main__keywords,
 		.store-main__best-product {
-		max-width: 1256px;
+		max-width: 1136px;
 		
 		margin: 0 auto;
 	}

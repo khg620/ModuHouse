@@ -28,6 +28,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 
 <body>
@@ -161,6 +162,10 @@
 	</section>
 
 	<script>
+		//카카오 API
+		Kakao.init('18be994d545412360842aeee1bc67f30');
+		console.log(Kakao.isInitialized());
+	
 		//전체 선택
     	const user_terms_agree1 = document.querySelector('.terms_accept_all')
     	const user_terms_agree2 = document.querySelector('.terms_check_all');
