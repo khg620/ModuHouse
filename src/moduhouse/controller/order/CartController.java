@@ -232,12 +232,18 @@ public class CartController {
 		int totalShippingFee = 0; // 총 배송비
 
 		ProductBean product = productDetailService.getProductInfo(cartBean.get(0).getProduct_idx());
-		
+
 		int discountRate = product.getProduct_discount_rate();
-		//orgPrice = cartBean.get(0).getTotal_price() * (100 + discountRate) / 100;
-		
-		orgPrice = (product.getProduct_price() + (cartBean.get(0).getOption1_idx() != 0 ? productDetailService.getOption1Price(cartBean.get(0).getOption1_idx()) : 0 )+ (cartBean.get(0).getOption2_idx() != 0 ? productDetailService.getOption2Price(cartBean.get(0).getOption2_idx()) : 0));
-		//discountPrice = (orgPrice - cartBean.get(0).getTotal_price());
+		// orgPrice = cartBean.get(0).getTotal_price() * (100 + discountRate) / 100;
+
+		orgPrice = (product.getProduct_price()
+				+ (cartBean.get(0).getOption1_idx() != 0
+						? productDetailService.getOption1Price(cartBean.get(0).getOption1_idx())
+						: 0)
+				+ (cartBean.get(0).getOption2_idx() != 0
+						? productDetailService.getOption2Price(cartBean.get(0).getOption2_idx())
+						: 0));
+		// discountPrice = (orgPrice - cartBean.get(0).getTotal_price());
 		totalPayment = (cartBean.get(0).getEach_price() + cartBean.get(0).getProduct_shipping_fee());
 		discountPrice = (orgPrice - totalPayment);
 
@@ -246,25 +252,30 @@ public class CartController {
 		if (i > 0) { // 장바구니에 추가된 상품 목록이 한 개 이상인 경우
 
 			for (int j = 1; j < i; j++) {
-			//	for (int k = 0; k < j; k++) {
 
-					// if (cartBean.get(j - 1).getProduct_idx() != cartBean.get(j).getProduct_idx()){
-					// 같은 상품idx는 중목으로 금액을 더하지 않도록 한다
-					if (true) {
-						product = productDetailService.getProductInfo(cartBean.get(j).getProduct_idx());
-						discountRate = productDetailService.getProductInfo(cartBean.get(j).getProduct_idx())
-								.getProduct_discount_rate();
-						//orgPrice += (cartBean.get(j).getTotal_price() * (100 + discountRate) / 100);
-						orgPrice += (product.getProduct_price() + (cartBean.get(j).getOption1_idx() != 0 ? productDetailService.getOption1Price(cartBean.get(j).getOption1_idx()) : 0 )+ (cartBean.get(j).getOption2_idx() != 0 ? productDetailService.getOption2Price(cartBean.get(j).getOption2_idx()) : 0));
-						
-						
-						totalPayment += (cartBean.get(j).getEach_price() + cartBean.get(j).getProduct_shipping_fee());
-						
-						discountPrice = (orgPrice - totalPayment);
+				product = productDetailService.getProductInfo(cartBean.get(j).getProduct_idx());
+				discountRate = productDetailService.getProductInfo(cartBean.get(j).getProduct_idx()).getProduct_discount_rate();
+				// orgPrice += (cartBean.get(j).getTotal_price() * (100 + discountRate) / 100);
+				orgPrice += (product.getProduct_price()
+						+ (cartBean.get(j).getOption1_idx() != 0
+								? productDetailService.getOption1Price(cartBean.get(j).getOption1_idx())
+								: 0)
+						+ (cartBean.get(j).getOption2_idx() != 0
+								? productDetailService.getOption2Price(cartBean.get(j).getOption2_idx())
+								: 0));
 
-						totalShippingFee += cartBean.get(j).getProduct_shipping_fee();
-					}
-				//}
+				totalPayment += cartBean.get(j).getEach_price();
+
+				discountPrice = (orgPrice - totalPayment);
+				
+				//같은 상품은 배송비가 한 번만 계산이 되어야 한다.
+				ArrayList<Integer> cntList = new ArrayList<Integer>();
+				if(!cntList.contains(cartBean.get(j).getProduct_idx())) {			
+					totalPayment += cartBean.get(j).getProduct_shipping_fee();
+					
+					totalShippingFee += cartBean.get(j).getProduct_shipping_fee();
+				}
+				cntList.add(cartBean.get(j).getProduct_idx());
 			}
 		}
 
