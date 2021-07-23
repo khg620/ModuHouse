@@ -29,4 +29,9 @@ public class StoreMainDao {
 	public List<ProductBean> getPopularList() {
 		return storeMainMapper.getPopularList();
 	}
+	
+	//상품명 검색
+	public List<ProductBean> SearchProduct(String word) {
+		return storeMainMapper.SearchProduct(word);
+	}
 }

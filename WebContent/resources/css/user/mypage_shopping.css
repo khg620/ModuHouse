@@ -1,0 +1,352 @@
+/*Global*/
+:root {
+  /*color*/
+  --color-white: #fafafa;
+  --color-blue: #23b3df;
+  --color-skyblue: #35c5f0;
+  --color-green: #1ec800;
+  --color-black: #424242;
+  --color-darkgrey: #757575;
+  --color-grey: #dbdbdb;
+  --color-light-grey: #ededed;
+  --color-white-grey: #f5f5f5;
+  --color-red: #ff7777;
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  word-spacing: -0.08em;
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", "맑은 고딕",
+    "Malgun Gothic", sans-serif;
+  color: var(--color-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: default;
+}
+/*Universal tags*/
+h1 {
+  margin-bottom: 0;
+}
+button {
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+}
+a {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--color-black);
+}
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+/*commons*/
+
+/* navigation menu */
+.navigation-bar-secondary__menu {
+  border-bottom: 1px solid var(--color-light-grey);
+  margin: 0 -15px 0 -15px;
+}
+.navigation-bar-secondary__list .menu-link {
+  margin: 0;
+  padding: 0 10px;
+  line-height: 50px;
+  font-size: 16px;
+}
+.navigation-bar-secondary__list:hover .menu-link {
+  color: var(--color-skyblue);
+}
+.navigation-bar-secondary__list.mobile-hide {
+  display: none;
+}
+.sub-navigation {
+  height: 50px;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--color-light-grey);
+}
+.sub-navigation__menu {
+  padding-left: inherit;
+  display: flex;
+  justify-content: center;
+}
+.sub-navigation__list {
+  padding: 0 10px;
+  height: 50px;
+  line-height: 50px;
+}
+.sub-navigation__list .link {
+  line-height: 50px;
+  height: 50px;
+  color: inherit;
+  text-decoration: inherit;
+}
+.sub-navigation__list:hover .link {
+  /*클릭 시에 페이지에 해당하는 부분에 적용으로 수정해야 함*/
+  border-bottom: 5px solid var(--color-skyblue);
+}
+/* 쿠폰, 포인트, 구매등급 부분 */
+.info__wrap {
+  margin-top: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid var(--color-white-grey);
+  border-bottom: 1px solid var(--color-light-grey);
+}
+.info__content {
+  flex: 1 0 0;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: inherit;
+}
+.info__content .content__icon,
+.info__content .content__icon g,
+.info__content .content__icon path,
+.info__content .content__name,
+.info__content .content__value {
+  cursor: inherit;
+}
+.info__wrap .info__content:not(:last-child) {
+  border-right: 1px solid var(--color-light-grey);
+}
+.content__name {
+  font-size: 12px;
+  margin-bottom: 7px;
+}
+.content__icon {
+  margin: 0 auto 10px;
+}
+.content__value.point::after {
+  content: "P";
+}
+.content__value {
+  color: var(--color-skyblue);
+  font-size: 12px;
+  font-weight: 700;
+}
+/* 주문 상태 확인 메뉴 */
+.order-status {
+  margin-top: 20px;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--color-light-grey);
+}
+.order-status__wrap {
+  margin-bottom: 0;
+  padding-left: 0;
+  display: flex;
+}
+.order-status__list {
+  flex: 1 0 0;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+.status__title {
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: inherit;
+  color: inherit;
+}
+.status__value {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-skyblue);
+  cursor: inherit;
+}
+/* 주문 내역 */
+.order-list {
+  margin-top: 50px;
+  padding: 30px;
+  border-bottom: 1px solid var(--color-light-grey);
+}
+.filter-btn {
+  margin-right: 4px;
+  padding: 7px 8px 6px;
+  font-size: 15px;
+  line-height: 19px;
+  color: var(--color-darkgrey);
+  background-color: var(--color-white-grey);
+  border-radius: 4px;
+}
+.order-item__top {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  border-bottom: 1px solid var(--color-light-grey);
+}
+.order-number::after {
+  content: "|";
+  margin: 0 4px;
+}
+.detail-btn {
+  text-decoration: inherit;
+  color: var(--color-darkgrey);
+  font-weight: 400;
+}
+.detail-btn::after {
+  content: ">";
+  margin-left: 4px;
+}
+.detail-btn:hover {
+  color: var(--color-darkgrey);
+}
+.item-info-wrap,
+.item-name,
+.item-price-wrap,
+.item-etc {
+  cursor: inherit;
+}
+.order-item__content {
+  display: flex;
+  min-height: 110px;
+  padding-top: 20px;
+  cursor: pointer;
+}
+.item-image-wrap {
+  margin-right: 10px;
+  width: 75px;
+  height: 75px;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: inherit;
+}
+.item-image {
+  width: 100%;
+  height: 100%;
+  cursor: inherit;
+}
+.item-info-wrap,
+.item-info {
+  cursor: inherit;
+}
+.item-name {
+  font-size: 15px;
+  font-weight: 700;
+}
+.item-brand {
+  display: block;
+  margin-bottom: 10px;
+  cursor: inherit;
+}
+.option-name,
+.item-price-wrap,
+.item-etc {
+  margin-bottom: 0.5rem;
+}
+.option-name,
+.item-price,
+.item-qty,
+.item-etc .item-status,
+.item-etc .item-delivery {
+  font-size: 14px;
+  font-weight: 400;
+  cursor: inherit;
+}
+.item-etc .item-status,
+.item-etc .item-delivery {
+  color: var(--color-skyblue);
+}
+.item-price::after,
+.item-status::after {
+  content: "|";
+  margin: 0 4px;
+  cursor: inherit;
+}
+
+@media screen and (min-width: 768px) {
+  .navigation-bar-secondary__menu {
+    justify-content: center;
+  }
+  .navigation-bar-secondary__list.mobile-hide {
+    display: block;
+  }
+  .navigation-bar-secondary__list .menu-link {
+    font-size: 18px;
+  }
+  .sub-navigation__list .link {
+    font-size: 15px;
+  }
+  /* 최대너비 지정 */
+  .user-shopping-info {
+    margin: auto;
+    max-width: 1136px;
+  }
+  /* 쿠폰, 포인트, 구매등급 */
+  .info__wrap {
+    box-shadow: 0 1px 3px 0 #dbdbdb;
+  }
+  .info__content {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .content__icon,
+  .content__name {
+    margin: 0 20px 0 0;
+  }
+  .content__name,
+  .content__value {
+    font-size: 15px;
+  }
+  /* 주문 상태 */
+  .order-status {
+    margin-top: 20px;
+    padding: 20px;
+    border-bottom: none;
+    box-shadow: 0 1px 3px 0 #dbdbdb;
+  }
+  .status__title,
+  .status__value {
+    font-size: 20px;
+  }
+  .order-status__list {
+    position: relative;
+  }
+  .order-status__list:not(:nth-last-child(1))::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 12px;
+    height: 12px;
+    transform: rotate(45deg);
+    border: solid #bdbdbd;
+    border-width: 2px 2px 0 0;
+    right: 0;
+  }
+  .item-image-wrap {
+    width: 100px;
+    height: 100px;
+  }
+  .item-brand {
+    font-size: 16px;
+  }
+  .order-number,
+  .order-date,
+  .item-name,
+  .option-name,
+  .item-price,
+  .item-qty,
+  .item-etc .item-status,
+  .item-etc .item-delivery {
+    font-size: 18px;
+  }
+  .item-info-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}

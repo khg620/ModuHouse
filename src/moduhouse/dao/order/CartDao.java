@@ -33,4 +33,14 @@ public class CartDao {
 	public void updateUserInfo(int user_idx) {
 		cartMapper.updateUserInfo(user_idx);
 	}
+	
+	//장바구니 일부 삭제
+	public void removeItem(OrderBean cartBean) {
+		cartMapper.removeItem(cartBean);
+	}
+	
+	//장바구니 전체 비우기
+	public void deleteCart(int user_idx) {
+		cartMapper.deleteCart(user_idx);
+	}
 }

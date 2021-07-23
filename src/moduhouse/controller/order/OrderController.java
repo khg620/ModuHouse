@@ -21,6 +21,7 @@ import moduhouse.bean.order.OrderBeanList;
 import moduhouse.bean.store.ProductBean;
 import moduhouse.bean.user.DefaultAddressBean;
 import moduhouse.bean.user.UserBean;
+import moduhouse.service.order.CartService;
 import moduhouse.service.order.OrderService;
 import moduhouse.service.store.ProductDetailService;
 
@@ -29,6 +30,7 @@ import moduhouse.service.store.ProductDetailService;
 public class OrderController {
 	
 	private final OrderService orderService;
+	private final CartService cartService;
 	private final ProductDetailService productDetailService;
 	private final UserBean signInUserBean;
 	
@@ -74,7 +76,7 @@ public class OrderController {
 		DefaultAddressBean defaultAddressBean = orderService.getDefaultAddress(signInUserBean.getUser_idx());
 		request.setAttribute("defaultAddressBean", defaultAddressBean);
 		
-		//주문 상세에서 넘겨지는 상품 정보를 받아서 orderBean에 세팅한다
+		//상품 상세에서 넘겨지는 상품 정보를 받아서 orderBean에 세팅한다
 		if(request.getParameterValues("opt1_idx") == null) {    //옵션이 아예 없는 상품의 경우
 			
 			setOrderInfo(orderBean, request);
@@ -124,10 +126,22 @@ public class OrderController {
 			x.setProduct_point(point);
 		});
 		
-		orderBeanList.getOrderBeanList().forEach(x->System.out.println("상세에서 주문"+x));
-		
-
-		
+		//orderBeanList.getOrderBeanList().forEach(x->System.out.println("상세에서 주문"+x));
+		//우측 결제금액 부분 
+		//총 상품 금액
+		int total_price = 0;
+		int total_ship_fee = 0;
+		int save_up_point = 0;
+		for(OrderBean o : tempList) {
+			total_price += o.getTotal_price();
+			total_ship_fee += o.getProduct_shipping_fee();
+			o.setProduct_point((int)(o.getEach_price() * o.getOrder_qty() * (signInUserBean.getUser_membership().equals("WELCOME") ? (double)1/100 : (double)3/100)));
+			save_up_point += o.getProduct_point();
+			System.out.println(o.getEach_price() + " " + o.getOrder_qty());
+		}
+		request.setAttribute("total_price", total_price);
+		request.setAttribute("total_ship_fee", total_ship_fee);
+		request.setAttribute("save_up_point", save_up_point);
 		return "order/order";
 	}
 
@@ -146,6 +160,7 @@ public class OrderController {
 			orderBeanList.getOrderBeanList().get(i).setOrderer_email2(orderBean.getOrderer_email2());
 			orderBeanList.getOrderBeanList().get(i).setOrderer_hp1(orderBean.getOrderer_hp1());
 			orderBeanList.getOrderBeanList().get(i).setOrderer_hp2(orderBean.getOrderer_hp2());
+			
 			//포인트 사용 등 할인 적용된 최종 결제 금액
 			int price = orderBeanList.getOrderBeanList().get(i).getTotal_price() - orderBean.getUsed_point();
 			orderBeanList.getOrderBeanList().get(i).setTotal_price(price);				
@@ -164,8 +179,14 @@ public class OrderController {
 		int point = signInUserBean.getUser_membership().equals("WELCOME") ?  orderBeanList.getOrderBeanList().get(0).getTotal_price()*1/100 : orderBeanList.getOrderBeanList().get(0).getTotal_price()*3/100; 
 		signInUserBean.setUser_point(signInUserBean.getUser_point() - orderBean.getUsed_point() + point);
 		
-		orderBeanList.getOrderBeanList().forEach(x->System.out.println("주문결제 클릭"+x));
-		orderBeanList.getOrderBeanList().forEach(x->orderService.saveOrderInfo(x));
+		//orderBeanList.getOrderBeanList().forEach(x->System.out.println("주문결제 클릭"+x));
+		orderBeanList.getOrderBeanList().forEach(
+			x-> {orderService.saveOrderInfo(x);  //주문 정보 테이블에 저장
+					 if(cartService.checkSameProduct(x) > 0) {	 //장바구니에 담긴 것이었다면 삭제
+						 cartService.removeItem(x); 
+					 }
+			}
+		); 
 		
 		SavedeliveryInfo(deliveryBean);
 		orderService.changeUserPoint(signInUserBean);
@@ -174,7 +195,6 @@ public class OrderController {
 		return "order";
 	}
 	
-	//@PostMapping("/order_proc/delivery")
 	public void SavedeliveryInfo(DeliveryBean deliveryBean) {
 		//기본 배송지로 저장 체크 시 DEFAULT_ADDRESS_TB에 저장
 		if(deliveryBean.isDefault_address_yn()) {
@@ -209,7 +229,7 @@ public class OrderController {
 		int user_point = signInUserBean.getUser_point();
 		orderBean.setOrderer_email1(email1);
 		orderBean.setOrderer_email2(email2);
-
+		System.out.println(orderBean.getOrderer_email1());
 		request.setAttribute("user_point", user_point);
 	}
 	
@@ -229,6 +249,8 @@ public class OrderController {
 		orderBean.setTotal_price(Integer.parseInt(request.getParameter("price")));
 		orderBean.setProduct_shipping_fee(productBean.getProduct_shipping_fee());
 	}
+	
+	
 	
 
 }

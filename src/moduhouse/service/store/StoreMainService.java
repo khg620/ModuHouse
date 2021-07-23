@@ -29,4 +29,9 @@ public class StoreMainService {
 	public List<ProductBean> getPopularList() {
 		return storeMainDao.getPopularList();
 	}
+	
+	//상품명 검색
+	public List<ProductBean> SearchProduct(String word) {
+		return storeMainDao.SearchProduct(word);
+	}
 }

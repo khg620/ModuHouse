@@ -49,4 +49,28 @@ public interface StoreMainMapper {
 			+ 		"PRODUCT_SALES_QTY DESC")
 	List<ProductBean> getPopularList();
 	
+	
+	//스토어 상품 검색
+	@Select("SELECT "
+			+ "PRODUCT_IDX, "
+			+ "MAIN_CATEGORY_IDX, "
+			+ "SUB_CATEGORY_IDX, "
+			+ "PRODUCT_BRAND, "
+			+ "PRODUCT_NAME, "
+			+ "PRODUCT_IMAGE, "
+			+ "PRODUCT_PRICE, "
+			+ "PRODUCT_DISCOUNT_RATE, "
+			+ "PRODUCT_POINT, "
+			+ "PRODUCT_SHIPPING_FEE, "
+			+ "PRODUCT_INFO, "
+			+ "PRODUCT_RECEIVING_DATE, "
+			+ "PRODUCT_VIEW_CNT, "
+			+ "PRODUCT_SALES_QTY, "
+			+ "PRODUCT_DELIVERY_METHOD "
+			+ "FROM "
+			+ "PRODUCT_TB "
+			+ "WHERE "
+			+ "PRODUCT_NAME LIKE '%#{word,jdbcType=VARCHAR}%'")
+	List<ProductBean> SearchProduct(String word);
+	
 }

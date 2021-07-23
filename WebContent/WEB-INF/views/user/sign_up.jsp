@@ -163,8 +163,20 @@
 
 	<script>
 		//카카오 API
-		Kakao.init('18be994d545412360842aeee1bc67f30');
-		console.log(Kakao.isInitialized());
+		Kakao.init('18be994d545412360842aeee1bc67f30');			
+		
+		Kakao.Auth.login({
+			success: (response) =>  {
+				Kakao.API.request({
+					url: ''
+				})
+			},
+			fail: (err) => {
+				console.log(err)
+			}
+		})
+		
+		
 	
 		//전체 선택
     	const user_terms_agree1 = document.querySelector('.terms_accept_all')

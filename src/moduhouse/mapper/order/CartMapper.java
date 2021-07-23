@@ -2,6 +2,7 @@ package moduhouse.mapper.order;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -16,6 +17,8 @@ public interface CartMapper {
 			+ "	 FROM "
 			+ "		CART_TB"
 			+ "	 WHERE "
+			+ "		USER_IDX = #{user_idx} "
+			+ "  AND "
 			+ "		PRODUCT_IDX = #{product_idx}"
 			+ "	 AND "
 			+ "		OPTION1_IDX = #{option1_idx}"
@@ -85,6 +88,7 @@ public interface CartMapper {
 			+ "FROM "
 			+ "CART_TB")
 	List<OrderBean> getAllCartList();
+
 	
 	//회원 장바구니 조회
 	@Select("SELECT "
@@ -116,4 +120,27 @@ public interface CartMapper {
 			+ "	SET "
 			+ "		USER_IDX = #{user_idx}")
 	void updateUserInfo(int user_idx);
+	
+	//장바구니 일부 삭제
+	@Delete("DELETE "
+			+ "	FROM "
+			+ "		CART_TB "
+			+ "	WHERE "
+			+ "   USER_IDX = #{user_idx} "
+			+ " AND "
+			+ "		PRODUCT_IDX = #{product_idx} "
+			+ " AND "
+			+ "   OPTION1_IDX = #{option1_idx} "
+			+ " AND "
+			+ "   OPTION2_IDX = #{option2_idx}")
+	void removeItem(OrderBean cartBean);
+	
+	
+	//장바구니 전체 비우기
+	@Delete("DELETE "
+			+ "	FROM "
+			+ "		CART_TB "
+			+ "	WHERE "
+			+ "		USER_IDX = #{user_idx}")
+	void deleteCart(int user_idx);
 }

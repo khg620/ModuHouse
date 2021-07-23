@@ -127,8 +127,8 @@ public class ServletAppContext implements WebMvcConfigurer{
 		//로그인 필요한 페이지 로그인 확인 후 분기 처리
 		CheckSignInInterceptor checkSignInInterceptor = new CheckSignInInterceptor(signInUserBean);
 		InterceptorRegistration reg3 = registry.addInterceptor(checkSignInInterceptor);
-		reg3.addPathPatterns("/user/mypage/*","/user/sign_out","/community/*");
-		reg3.excludePathPatterns("/community/question","/community/read_question"); 
+		reg3.addPathPatterns("/user/*","/user/*/*","/user/sign_out","/community/*");
+		reg3.excludePathPatterns("/user/sign_in","/community/question","/community/read_question"); 
 		
 		//글작성자와 로그인 사용자 일치여부 확인
 		CheckWriterInterceptor checkWriterInterceptor = new CheckWriterInterceptor(signInUserBean, qnaService);
@@ -201,7 +201,7 @@ public class ServletAppContext implements WebMvcConfigurer{
 	@Bean
 	public ReloadableResourceBundleMessageSource messageSource() {
 		ReloadableResourceBundleMessageSource res = new ReloadableResourceBundleMessageSource();
-		res.setBasename("/WEB-INF/properties/error_message");;
+		res.setBasename("/WEB-INF/properties/error_message");
 		
 		return res;
 	}

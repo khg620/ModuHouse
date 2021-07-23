@@ -153,7 +153,7 @@
 					<div class="header-right">
 						<div class="navigation-search"></div>
 						<input type="text" placeholder="스토어 검색" class="navigation-search-input" /> 
-							<a href="${root }" class="navigation__icon"> 
+							<a href="javascript: search()" class="navigation__icon"> 
 								<svg class="navigation-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#757575" stroke-width="2" preserveAspectRatio="xMidYMid meet"><path d="M22 22l-5-5"></path><circle cx="11" cy="11" r="8"></circle></svg>
 							</a> 
 							

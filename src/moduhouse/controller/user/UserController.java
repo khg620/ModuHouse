@@ -3,6 +3,7 @@ package moduhouse.controller.user;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
 import moduhouse.bean.user.UserBean;
+import moduhouse.service.order.OrderService;
 import moduhouse.service.user.UserService;
 
 @Controller
@@ -17,6 +19,7 @@ import moduhouse.service.user.UserService;
 public class UserController {
 	
 	private final UserService userService;
+	private final OrderService orderService;
 	private final UserBean signInUserBean;
 	
 	//마이페이지 홈(프로필)
@@ -34,7 +37,11 @@ public class UserController {
 	
 	//나의 쇼핑 홈
 	@GetMapping("/user/shopping/order_list")
-	public String userShopping() {
+	public String userShopping(Model model) {
+		
+		model.addAttribute("orderList", orderService.getUserOrderInfo(signInUserBean));
+		model.addAttribute("deliveryList", orderService.getUserDeliveryInfo(signInUserBean));
+		
 		return "user/mypage_shopping";
 	}
 	

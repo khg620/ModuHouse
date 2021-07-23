@@ -1,5 +1,7 @@
 package moduhouse.dao.order;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import lombok.RequiredArgsConstructor;
@@ -43,5 +45,15 @@ public class OrderDao {
 	//기본 배송 정보 수정
 	public void changeDefaultAddress(DefaultAddressBean defaultAddressBean) {
 		orderMapper.changeDefaultAddress(defaultAddressBean);
+	}
+	
+	//주문정보 조회
+	public List<OrderBean> getUserOrderInfo(UserBean signInUserBean) {
+		return orderMapper.getUserOrderInfo(signInUserBean);
+	}
+	
+	//배송정보 조회
+	public List<DeliveryBean> getUserDeliveryInfo(UserBean signUserBean) {
+		return orderMapper.getUserDeliveryInfo(signUserBean);
 	}
 }

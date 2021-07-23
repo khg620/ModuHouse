@@ -21,6 +21,7 @@
    <link rel="short icon" type="image/x-icon" href="${root }image/icons/favicon.ico">
    <title>누구나 멋진 인테리어, 모두의 집</title>
    <script src="https://kit.fontawesome.com/7218b951ec.js" crossorigin="anonymous"></script>
+   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 
 <body>
@@ -65,7 +66,7 @@
 </g>
 </svg>
                </a>
-               <a href="">
+               <a href="javascript:kakaoLogin();">
                   <svg class="icon" width="48" height="48" viewBox="0 0 48 48" preserveAspectRatio="xMidYMid meet">
 <g fill="none" fill-rule="evenodd">
 <path fill="#FFEB00" d="M0 24C0 10.745 10.745 0 24 0s24 10.745 24 24-10.745 24-24 24S0 37.255 0 24z"/>
@@ -85,9 +86,52 @@
          </span>
         </div>
    </footer>
-  
+  <button style="width: 200px" onclick="logout()">카카오 연결 끊기</button>
   
  	<script>
+ 		//REST : e2b8f3bd60afe9ea5030779fa708d492
+ 		//JS : 18be994d545412360842aeee1bc67f30
+ 		//카카오 로그인
+ 		window.Kakao.init("18be994d545412360842aeee1bc67f30");
+ 		
+ 		function kakaoLogin() {
+ 			
+ 			window.Kakao.Auth.login({
+ 				scope: 'profile_nickname, profile_image, account_email, gender',
+ 				success: function(authObj) {
+ 					console.log(authObj);
+ 					window.Kakao.API.request({
+ 						url: '/v2/user/me',
+ 						success: res => {
+ 							const kakao_account = res.kakao_account;
+ 							console.log(kakao_account);
+ 							console.log(res);
+ 						}
+ 					});
+ 				}
+ 			});
+ 		
+ 		}
+ 		
+ 		function logout() {
+ 			Kakao.API.request({
+ 				  url: '/v1/user/unlink',
+ 				  success: function(response) {
+ 				    console.log(response);
+ 				  },
+ 				  fail: function(error) {
+ 				    console.log(error);
+ 				  },
+ 				});
+ 			if (!Kakao.Auth.getAccessToken()) {
+				  console.log('Not logged in.');
+				  return;
+				}
+				Kakao.Auth.logout(function() {
+				  console.log(Kakao.Auth.getAccessToken());
+				});
+ 		}
+ 		
  		const sign_in_fail = ${tempSignInUserBean.userSignInFail };
  		
  		const user_email = '${tempSignInUserBean.user_email1}'+'@'+'${tempSignInUserBean.user_email2}';

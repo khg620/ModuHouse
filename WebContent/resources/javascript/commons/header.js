@@ -57,3 +57,10 @@ const upload_menu = document.querySelector('.upload-list-wrap');
 write_btn.addEventListener('click',() => {
    upload_menu.classList.toggle('show');
 })
+
+//검색
+function search() {
+	let word = document.querySelector('.navigation-search+input').value;
+	location.href = "/ModuHouse/search?word="+word;
+	console.log(word);
+}

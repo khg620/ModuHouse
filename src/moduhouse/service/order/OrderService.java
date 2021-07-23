@@ -1,5 +1,8 @@
 package moduhouse.service.order;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -44,5 +47,22 @@ public class OrderService {
 	//기본 배송 정보 수정
 	public void changeDefaultAddress(DefaultAddressBean defaultAddressBean) {
 		orderDao.changeDefaultAddress(defaultAddressBean);
+	}
+	
+	//주문정보 조회(주문번호 당 한 개씩 노출)
+	public List<OrderBean> getUserOrderInfo(UserBean signInUserBean) {
+		List<OrderBean> list = new ArrayList<OrderBean>();
+		List<OrderBean> tempList = orderDao.getUserOrderInfo(signInUserBean);
+		for(int i = 0; i < tempList.size()-1;i++) {
+			if(!tempList.get(i).getOrder_number().equals(tempList.get(i+1).getOrder_number())) {
+				list.add(tempList.get(i));
+			}
+		}
+		return list;
+	}
+	
+	//배송정보 조회
+	public List<DeliveryBean> getUserDeliveryInfo(UserBean signUserBean) {
+		return orderDao.getUserDeliveryInfo(signUserBean);
 	}
 }

@@ -147,3 +147,5 @@ window.addEventListener('click', (e) => {
 order_list.forEach(x => x.addEventListener('click',(e) => {
    current_order.innerText = e.target.innerText;
 }));
+
+

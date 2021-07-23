@@ -277,11 +277,11 @@
 							<div class="content-wrap">
 								<div class="line">
 									<span>총 상품 금액</span>
-									<span class="payment total">${orderBeanList.getOrderBeanList()[0].total_price + orderBeanList.getOrderBeanList()[0].product_shipping_fee}</span>
+									<span class="payment total">${total_price }</span>
 								</div>
 								<div class="line">
 									<span>배송비</span>
-									<span class="payment delivery">${orderBeanList.getOrderBeanList()[0].product_shipping_fee}</span>
+									<span class="payment delivery">${total_ship_fee}</span>
 								</div>
 								<div class="line">
 									<span>쿠폰 사용</span>
@@ -295,8 +295,8 @@
 							<div class="order-info__footer">
 								<strong class="title">최종 결제 금액</strong>
 								<div class="total-price">
-									<strong class="payment skyblue">${orderBeanList.getOrderBeanList()[0].total_price}</strong>
-									<span class="save-up-point">${orderBeanList.getOrderBeanList()[0].product_point}</span>
+									<strong class="payment skyblue">${total_price + total_ship_fee}</strong>
+									<span class="save-up-point">${save_up_point}</span>
 								</div>
 							</div>
 						</div>
@@ -390,7 +390,7 @@
 				</section>
 				<!--최종 결제 버튼(992px 이하)-->
 				<section class="pay-btn">
-					<button class="button--color-skyblue submit-btn">${orderBeanList.getOrderBeanList()[0].total_price }</button>
+					<button class="button--color-skyblue submit-btn">${total_price + total_ship_fee }</button>
 				</section>
 			</section>
 
@@ -410,11 +410,11 @@
 								<div class="content-wrap">
 									<div class="line">
 										<span>총 상품 금액</span>
-										<span class="payment total">${orderBeanList.getOrderBeanList()[0].total_price + orderBeanList.getOrderBeanList()[0].product_shipping_fee}</span>
+										<span class="payment total">${total_price}</span>
 									</div>
 									<div class="line">
 										<span>배송비</span>
-										<span class="payment delivery">${orderBeanList.getOrderBeanList()[0].product_shipping_fee}</span>
+										<span class="payment delivery">${total_ship_fee}</span>
 									</div>
 									<div class="line">
 										<span>쿠폰 사용</span>
@@ -428,8 +428,8 @@
 								<div class="order-info__footer">
 									<strong class="title">최종 결제 금액</strong>
 									<div class="total-price">
-										<strong class="payment skyblue">${orderBeanList.getOrderBeanList()[0].total_price }</strong>
-										<span class="save-up-point">${orderBeanList.getOrderBeanList()[0].product_point}</span>
+										<strong class="payment skyblue">${total_price + total_ship_fee }</strong>
+										<span class="save-up-point">${save_up_point}</span>
 									</div>
 								</div>
 							</div>
@@ -479,7 +479,7 @@
 					</section>
 					<!--최종 결제 버튼-->
 					<section class="pay-btn aside">
-						<button class="button--color-skyblue submit-btn">${orderBeanList.getOrderBeanList()[0].total_price }</button>
+						<button class="button--color-skyblue submit-btn">${total_price + total_ship_fee }</button>
 					</section>
 				</div>
 			</section>

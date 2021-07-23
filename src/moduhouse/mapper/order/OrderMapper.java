@@ -1,5 +1,7 @@
 package moduhouse.mapper.order;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -157,4 +159,59 @@ public interface OrderMapper {
 			+ "WHERE "
 			+ "		USER_IDX = #{user_idx}")
 	void changeDefaultAddress(DefaultAddressBean defaultAddressBean);
+	
+	//주문내역 조회
+	@Select("SELECT "
+			+ "			ORDER_IDX, "
+			+ "			ORDER_NUMBER, "
+			+ "			USER_IDX, "
+			+ "			ORDERER_EMAIL1, "
+			+ "			ORDERER_EMAIL2, "
+			+ "			ORDERER_NAME, "
+			+ "	    ORDERER_HP1, "
+			+ "			ORDERER_HP2, "
+			+ "			PRODUCT_IDX, "
+			+ "	    PRODUCT_BRAND, "
+			+ "			PRODUCT_NAME, "
+			+ "			PRODUCT_IMAGE, "
+			+ "			OPTION_NAME, "
+			+ "			EACH_PRICE, "
+			+ "			OPTION1_IDX, "
+			+ "			OPTION2_IDX, "
+			+ "			ORDER_QTY, "
+			+ "			TOTAL_PRICE, "
+			+ "			PAYMENT_METHOD, "
+			+ "			ORDER_DATE, "
+			+ "			PRODUCT_SHIPPING_FEE, "
+			+ "			PRODUCT_POINT, "
+			+ "			USED_POINT,"
+			+ "     ORDER_STATUS  "
+			+ "	 FROM "
+			+ "			ORDER_TB "
+			+ "  WHERE "
+			+ "			USER_IDX=#{user_idx}")
+	List<OrderBean> getUserOrderInfo(UserBean signInUserBean);
+	
+	
+	//배송정보 조회
+	@Select("SELECT "
+			+ "			DELIVERY_IDX, "
+			+ "			ORDER_NUMBER, "
+			+ "     RECEIVER_NAME, "
+			+ "     RECEIVER_HP1, "
+			+ "     RECEIVER_HP2, "
+			+ "     DELIVERY_ZIPCODE, "
+			+ "     DELIVERY_ADDRESS1, "
+			+ "     DELIVERY_ADDRESS2, "
+			+ "     DELIVERY_METHOD, "
+			+ "     DELIVERY_MESSAGE, "
+			+ "     DELIVERY_STATE, "
+			+ "     TRACKING_NUMBER, "
+			+ "     USER_IDX, "
+			+ "     DELIVERY_COMPANY "
+			+ "  FROM "
+			+ "     DELIVERY_TB"
+			+ "  WHERE "
+			+ "     USER_IDX = #{user_idx}")
+	List<DeliveryBean> getUserDeliveryInfo(UserBean signUserBean);
 }

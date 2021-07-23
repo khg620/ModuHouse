@@ -10,6 +10,7 @@ function foldDaumPostcode() {
 
 function execDaumPostcode() {
 	var currentScroll = document.querySelector('.zipcode').getBoundingClientRect().top;
+	console.log(currentScroll);
 	new daum.Postcode({
 		oncomplete: function(data) {
 			// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -52,7 +53,8 @@ function execDaumPostcode() {
 			element_wrap.style.display = 'none';
 
 			// 우편번호 찾기 화면이 보이기 이전으로 scroll 위치를 되돌린다.
-			document.body.scrollTop = currentScroll;
+			window.scrollTo(0,currentScroll);
+			console.log(document.body.scrollBottom);
 		},
 		onresize: function(size) {
 			element_wrap.style.height = size.height + 'px';
@@ -95,36 +97,40 @@ delivery_msg_option.addEventListener('change', (e) => {
 })
 
 //포인트가 1000 미만일 시 입력 금지, 버튼 비활성화
-const point = document.querySelector('.available-point .point');
-const initial_point = Number(point.innerText);
-const use_point = document.querySelector('.input-box.point input');
-const point_use_btn = document.querySelector('.input-box.point .button--color-skyblue-inverted');
-const initial_total_price = Number(document.querySelector('.payment.total').innerText);
-const shipping_fee = Number(document.querySelector('.payment.delivery').innerText);
-
-const payment_point = document.querySelectorAll('.payment.point'); //우측 최종 결제금액 부분
-const total_payment = document.querySelectorAll('.total-price .payment.skyblue'); //우측 최종 결제금액 부분
-const save_point = document.querySelectorAll('.total-price .save-up-point'); //우측 최종 결제금액 부분
+const point = document.querySelector('.available-point .point'); //사용가능 포인트
+const initial_point = Number(point.innerText); //사용가능 포인트
+const use_point = document.querySelector('.input-box.point input'); //입력한 포인트
+const point_use_btn = document.querySelector('.input-box.point .button--color-skyblue-inverted'); //전액사용 버튼
+const initial_total_price = Number(document.querySelector('.payment-content .payment.total').innerText); //우측 '총상품금액'
+const shipping_fee = Number(document.querySelector('.payment-content .payment.delivery').innerText); //우측 '배송비'
+const payment_point = document.querySelectorAll('.payment.point'); //우측 최종 결제금액 부분의 '포인트사용'
+const total_payment = document.querySelectorAll('.total-price .payment.skyblue'); //우측 최종 결제금액 부분 '최종결제금액'
+const save_point = document.querySelectorAll('.total-price .save-up-point'); //우측 최종 결제금액 부분 '적립포인트'
 const submit_btn = document.querySelectorAll('.submit-btn'); //결제하기 버튼
 
 if (point.innerText < 1000) {
 	point.classList.add('not-available');
 	point.readOnly = true;
 	point_use_btn.classList.add('point-not-available');
-} else {
-	point_use_btn.addEventListener('click', () => {
+} else { 
+	point_use_btn.addEventListener('click', () => { //전액사용 버튼 클릭
+	
 		use_point.value = initial_point;
 		payment_point.forEach(x => x.innerText = initial_point);
 		point.innerText = 0;
-		total_payment.forEach(x => x.innerText = initial_total_price - initial_point + shipping_fee);//최종결제금액
+		//최종결제금액 = 총 상품금액 - 전체 포인트 + 배송비
+		total_payment.forEach(x =>{ x.innerText = Number(initial_total_price) - Number(use_point.value) + Number(shipping_fee)});//최종결제금액
 		save_point.forEach(x => x.innerText = Math.floor((Number(total_payment[0].innerText) - shipping_fee) * Number(membershipPoint()) / 100))//적립 포인트
+	
+		console.log(initial_total_price + ","+shipping_fee +","+use_point.value);
+		console.log(initial_total_price);
 	})
 }
 
 //포인트 사용 입력 시 사용가능 포인트 변경
 use_point.addEventListener('keyup', (e) => {
 
-	point.innerText = initial_point - e.target.value;
+	point.innerText = Number(initial_point) - Number(e.target.value);
 	if (Number(e.target.value) > initial_point) {
 		alert(initial_point + '까지만 사용 가능합니다.');
 		e.target.value = initial_point;
@@ -133,9 +139,9 @@ use_point.addEventListener('keyup', (e) => {
 
 	//우측 최종 결제금액부분 - 금액, 사용/적립 포인트 변경
 	payment_point.forEach(x => x.innerText = e.target.value); //사용 포인트
-	total_payment.forEach(x => x.innerText = initial_total_price - Number(e.target.value) + shipping_fee); //최종 금액
-	submit_btn.forEach(x => x.innerText = initial_total_price - Number(e.target.value) + shipping_fee)//최종 금액
-	save_point.forEach(x => x.innerText = Math.floor((Number(total_payment[0].innerText) - shipping_fee) * Number(membershipPoint()) / 100))//적립 포인트
+	total_payment.forEach(x => x.innerText = Number(initial_total_price) - Number(e.target.value) + Number(shipping_fee)); //최종 금액
+	submit_btn.forEach(x => x.innerText = initial_total_price - Number(e.target.value) + shipping_fee);//최종 금액
+	save_point.forEach(x => x.innerText = Math.floor((Number(total_payment[0].innerText) - Number(shipping_fee)) * Number(membershipPoint()) / 100));//적립 포인트
 });
 
 function membershipPoint() {

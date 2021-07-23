@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import lombok.RequiredArgsConstructor;
 import moduhouse.bean.store.CategoryBean;
@@ -41,6 +42,17 @@ public class StoreMainController {
 		model.addAttribute("popularList",popularList);
 		
 		return "store/store_main";
+	}
+	
+	//검색
+	@GetMapping("/search")
+	public ModelAndView SearchProduct(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		String word = request.getParameter("word");
+		System.out.println(word);
+    mav.addObject(storeMainService.SearchProduct(word));
+		mav.setViewName("store/store_search");
+		return mav;
 	}
 
 }
