@@ -21,6 +21,9 @@
 #### 사용 기술
 * JAVA, SPRING MVC, JSP, HTML, CSS, JavaScript, Oracle DataBase
 
+#### 개발 과정에서의 기타 기록 중...
+https://sunny-autumn.tistory.com/5?category=927067
+
 #### 느낀 점
 * 좀 더 효율적인 비즈니스 로직 설계의 중요성을 알게 되었습니다.
 * 스프링 MVC 프레임워크 자체도 편리하지만, 스프링부트가 얼마나 개발자를 더 편리하게 해주는지 깨달았습니다.
